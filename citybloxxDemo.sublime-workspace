@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"ve",
+				"Vector3\tVector3"
+			],
+			[
+				"mat",
+				"Mathf\tMathf"
+			],
+			[
+				"mlTarget",
+				"mlTargetRb2d\tRigidbody2D"
+			],
+			[
+				"Rigi",
+				"Rigidbody2D\tRigidbody2D"
+			],
+			[
 				"ML",
 				"ML_Piece\tML_Piece"
 			],
@@ -94,10 +110,6 @@
 			[
 				"CBX",
 				"CBXAcademy\tCBXAcademy"
-			],
-			[
-				"ve",
-				"vectorAction\tfloat[]"
 			],
 			[
 				"flto",
@@ -502,41 +514,11 @@
 			[
 				"piece",
 				"pieceObj\tPiece"
-			],
-			[
-				"am",
-				"amplitudeRotate\tfloat"
-			],
-			[
-				"fix",
-				"fixedDeltaTime\tfloat"
-			],
-			[
-				"mat",
-				"Mathf\tMathf"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
-			"settings":
-			{
-				"buffer_size": 3183,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/GamePlay/Scripts/GameControl.cs",
-			"settings":
-			{
-				"buffer_size": 4869,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
 		{
 			"file": "Assets/GamePlay/Scripts/Piece.cs",
 			"settings":
@@ -664,8 +646,7 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/alex/citybloxxDemo/Assets/GamePlay/Scripts",
-		"/Users/alex/citybloxxDemo/Assets/ML_Agents/ML_Scripts"
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts"
 	],
 	"file_history":
 	[
@@ -800,14 +781,13 @@
 	],
 	"find":
 	{
-		"height": 31.0
+		"height": 50.0
 	},
 	"find_in_files":
 	{
 		"height": 132.0,
 		"where_history":
 		[
-			""
 		]
 	},
 	"find_state":
@@ -815,45 +795,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"transf",
-			"screen",
-			"move",
-			"screen",
-			"isstacked",
-			"isfall",
-			"particle",
-			"pieceobj",
-			"StackingNoDeadCenterAnimation",
-			"PlayFallenWaterAnim",
-			"FallenAnimation",
-			"screenBottomPos",
-			"sealevel",
-			"particle",
-			"log",
-			");\n",
-			"PositionToLastChild",
-			"topPieceCollider",
-			"timer",
-			"SetColumnSwinging",
-			"deadcenter",
-			"dead",
-			"stackedpieceNum",
-			"stackedPieceNum",
-			"stackedPiece",
-			"pos",
-			"stackpla",
-			"speed",
-			"isGameOver",
-			"isFirstPieceStacked",
-			"timerStart",
-			"angle",
-			"stackStatus",
-			"MoveUp",
-			"toppieceidx",
-			"currentPiece",
-			"currentPieceTag",
-			"currentPiece",
-			"pos"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -861,11 +802,6 @@
 		"regex": false,
 		"replace_history":
 		[
-			"mlTarget",
-			"timerStartTime",
-			"currentPieceIdx",
-			"currentPiece",
-			"currentPieceTag"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -876,91 +812,33 @@
 	"groups":
 	[
 		{
+			"sheets":
+			[
+			]
+		},
+		{
 			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
-					"semi_transient": false,
+					"file": "Assets/GamePlay/Scripts/Piece.cs",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 3183,
+						"buffer_size": 5150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								184,
-								184
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"oops":
-							{
-								"0,5": "不需要的 using 指令。",
-								"1010,1019": "当前上下文中不存在名称“transform”",
-								"1059,1068": "当前上下文中不存在名称“transform”",
-								"109,122": "命名空间“<global namespace>”已经包含“CBXPieceAgent”的定义",
-								"1112,1121": "当前上下文中不存在名称“transform”",
-								"1145,1154": "当前上下文中不存在名称“transform”",
-								"1196,1204": "在“CBXPieceAgent.pieceObj”和“CBXPieceAgent.pieceObj”之间具有二义性",
-								"125,130": "未能找到类型或命名空间名“Agent”(是否缺少 using 指令或程序集引用?)",
-								"1263,1271": "在“CBXPieceAgent.pieceObj”和“CBXPieceAgent.pieceObj”之间具有二义性",
-								"1299,1315": "在“CBXPieceAgent.isJustCalledDone”和“CBXPieceAgent.isJustCalledDone”之间具有二义性",
-								"1339,1350": "类型“CBXPieceAgent”已定义了一个名为“FixedUpdate”的具有相同参数类型的成员",
-								"1361,1377": "在“CBXPieceAgent.isJustCalledDone”和“CBXPieceAgent.isJustCalledDone”之间具有二义性",
-								"1386,1401": "当前上下文中不存在名称“RequestDecision”",
-								"1423,1431": "在“CBXPieceAgent.mlTarget”和“CBXPieceAgent.mlTarget”之间具有二义性",
-								"1457,1468": "当前上下文中不存在名称“GameControl”",
-								"1534,1549": "类型“CBXPieceAgent”已定义了一个名为“HookNewPiece4ML”的具有相同参数类型的成员",
-								"1571,1580": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
-								"1662,1671": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
-								"169,174": "“/Users/alex/citybloxxDemo/Assets/GamePlay/Scripts/Piece.cs”中的类型“Piece”与“Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null”中的导入类型“Piece”冲突。请使用“/Users/alex/citybloxxDemo/Assets/GamePlay/Scripts/Piece.cs”中定义的类型。",
-								"1723,1732": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
-								"1743,1754": "当前上下文中不存在名称“GameControl”",
-								"1799,1807": "在“CBXPieceAgent.pieceObj”和“CBXPieceAgent.pieceObj”之间具有二义性",
-								"1833,1841": "在“CBXPieceAgent.pieceObj”和“CBXPieceAgent.pieceObj”之间具有二义性",
-								"1874,1883": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
-								"1955,1968": "类型“CBXPieceAgent”已定义了一个名为“ComputeReward”的具有相同参数类型的成员",
-								"2014,2023": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
-								"2042,2050": "在“CBXPieceAgent.mlTarget”和“CBXPieceAgent.mlTarget”之间具有二义性",
-								"2099,2111": "以下方法或属性之间的调用具有二义性:“CBXPieceAgent.Power_Hybrid(float)”和“CBXPieceAgent.Power_Hybrid(float)”",
-								"2128,2137": "当前上下文中不存在名称“AddReward”",
-								"2152,2159": "当前上下文中不存在名称“Monitor”",
-								"2187,2197": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性",
-								"2242,2252": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性",
-								"2311,2321": "当前上下文中不存在名称“gameObject”",
-								"2349,2364": "类型“CBXPieceAgent”已定义了一个名为“Power_N2_Reward”的具有相同参数类型的成员",
-								"2569,2585": "类型“CBXPieceAgent”已定义了一个名为“Power_P04_Reward”的具有相同参数类型的成员",
-								"26,31": "不需要的 using 指令。",
-								"2749,2765": "类型“CBXPieceAgent”已定义了一个名为“Power_N3_Penalty”的具有相同参数类型的成员",
-								"2900,2912": "类型“CBXPieceAgent”已定义了一个名为“Power_Hybrid”的具有相同参数类型的成员",
-								"302,317": "'“CBXPieceAgent.InitializeAgent()”: 没有找到适合的方法来重写",
-								"325,341": "在“CBXPieceAgent.isJustCalledDone”和“CBXPieceAgent.isJustCalledDone”之间具有二义性",
-								"378,388": "'“CBXPieceAgent.AgentReset()”: 没有找到适合的方法来重写",
-								"396,411": "以下方法或属性之间的调用具有二义性:“CBXPieceAgent.HookNewPiece4ML()”和“CBXPieceAgent.HookNewPiece4ML()”",
-								"417,425": "在“CBXPieceAgent.mlTarget”和“CBXPieceAgent.mlTarget”之间具有二义性",
-								"507,526": "'“CBXPieceAgent.CollectObservations()”: 没有找到适合的方法来重写",
-								"534,546": "当前上下文中不存在名称“AddVectorObs”",
-								"552,561": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
-								"575,587": "当前上下文中不存在名称“AddVectorObs”",
-								"588,596": "在“CBXPieceAgent.mlTarget”和“CBXPieceAgent.mlTarget”之间具有二义性",
-								"634,645": "'“CBXPieceAgent.AgentAction(float[], string)”: 没有找到适合的方法来重写",
-								"759,766": "当前上下文中不存在名称“Monitor”",
-								"79,84": "不需要的 using 指令。",
-								"812,822": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性",
-								"827,834": "当前上下文中不存在名称“Monitor”",
-								"85,93": "未能找到类型或命名空间名“MLAgents”(是否缺少 using 指令或程序集引用?)",
-								"852,871": "当前上下文中不存在名称“GetCumulativeReward”",
-								"886,896": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性",
-								"901,908": "当前上下文中不存在名称“Monitor”",
-								"934,949": "在“CBXPieceAgent.deadcenterCount”和“CBXPieceAgent.deadcenterCount”之间具有二义性",
-								"962,972": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性"
-							},
-							"origin_encoding": "ASCII",
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -971,131 +849,13 @@
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/GamePlay/Scripts/GameControl.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4869,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								179,
-								179
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2690.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "Assets/GamePlay/Scripts/Piece.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5150,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5081,
-								5081
-							]
-						],
-						"settings":
-						{
-							"oops":
-							{
-								"0,5": "不需要的 using 指令。",
-								"1043,1047": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
-								"1079,1087": "在“Piece.isHooked”和“Piece.isHooked”之间具有二义性",
-								"1131,1149": "类型“Piece”已定义了一个名为“OnCollisionEnter2D”的具有相同参数类型的成员",
-								"1170,1179": "在“Piece.isStacked”和“Piece.isStacked”之间具有二义性",
-								"1203,1214": "当前上下文中不存在名称“GameControl”",
-								"1255,1259": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
-								"128,142": "未能找到类型或命名空间名“DoTweenControl”(是否缺少 using 指令或程序集引用?)",
-								"1292,1296": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
-								"1334,1347": "以下方法或属性之间的调用具有二义性:“Piece.Parent2Column()”和“Piece.Parent2Column()”",
-								"1392,1405": "类型“Piece”已定义了一个名为“Parent2Column”的具有相同参数类型的成员",
-								"1442,1453": "当前上下文中不存在名称“GameControl”",
-								"1607,1611": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
-								"1649,1666": "类型“Piece”已定义了一个名为“OnCollisionExit2D”的具有相同参数类型的成员",
-								"1698,1709": "当前上下文中不存在名称“GameControl”",
-								"1763,1772": "在“Piece.isStacked”和“Piece.isStacked”之间具有二义性",
-								"1796,1807": "当前上下文中不存在名称“GameControl”",
-								"1869,1884": "以下方法或属性之间的调用具有二义性:“Piece.CheckIfCanStack(Collision2D)”和“Piece.CheckIfCanStack(Collision2D)”",
-								"1921,1932": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
-								"1975,1986": "当前上下文中不存在名称“GameControl”",
-								"2027,2038": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
-								"2223,2234": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
-								"2278,2289": "当前上下文中不存在名称“GameControl”",
-								"2324,2335": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
-								"2420,2429": "在“Piece.isStacked”和“Piece.isStacked”之间具有二义性",
-								"2461,2476": "类型“Piece”已定义了一个名为“CheckIfCanStack”的具有相同参数类型的成员",
-								"2536,2547": "当前上下文中不存在名称“GameControl”",
-								"26,31": "不需要的 using 指令。",
-								"2683,2698": "以下方法或属性之间的调用具有二义性:“Piece.checkFallenSide()”和“Piece.checkFallenSide()”",
-								"2787,2797": "在“Piece.stackRange”和“Piece.stackRange”之间具有二义性",
-								"2821,2829": "在“Piece.isFallen”和“Piece.isFallen”之间具有二义性",
-								"2851,2868": "以下方法或属性之间的调用具有二义性:“Piece.checkIfDeadCenter(float, float, Collider2D)”和“Piece.checkIfDeadCenter(float, float, Collider2D)”",
-								"2880,2891": "当前上下文中不存在名称“GameControl”",
-								"3550,3558": "在“Piece.isFallen”和“Piece.isFallen”之间具有二义性",
-								"3627,3644": "类型“Piece”已定义了一个名为“checkIfDeadCenter”的具有相同参数类型的成员",
-								"3729,3744": "在“Piece.deadCenterRange”和“Piece.deadCenterRange”之间具有二义性",
-								"3768,3779": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
-								"4233,4244": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
-								"4301,4316": "类型“Piece”已定义了一个名为“checkFallenSide”的具有相同参数类型的成员",
-								"4336,4347": "当前上下文中不存在名称“GameControl”",
-								"4400,4411": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
-								"4488,4499": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
-								"4630,4646": "类型“Piece”已定义了一个名为“OnStackingFailed”的具有相同参数类型的成员",
-								"4917,4934": "类型“Piece”已定义了一个名为“OnBecameInvisible”的具有相同参数类型的成员",
-								"606,611": "类型“Piece”已定义了一个名为“Start”的具有相同参数类型的成员",
-								"628,632": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
-								"719,725": "类型“Piece”已定义了一个名为“Update”的具有相同参数类型的成员",
-								"742,750": "在“Piece.isHooked”和“Piece.isHooked”之间具有二义性",
-								"93,98": "命名空间“<global namespace>”已经包含“Piece”的定义"
-							},
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 31.0
+		"height": 37.0
 	},
 	"input":
 	{
@@ -1147,7 +907,7 @@
 	"project": "citybloxxDemo.sublime-project",
 	"replace":
 	{
-		"height": 58.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1169,6 +929,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"~/cbx_rl/citybloxxDemo.sublime-workspace"
+			]
 		],
 		"width": 380.0
 	},
@@ -1181,7 +945,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -1189,7 +953,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 186.0,
+	"side_bar_width": 392.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
