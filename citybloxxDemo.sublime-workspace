@@ -1,0 +1,1197 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ML",
+				"ML_Piece\tML_Piece"
+			],
+			[
+				"mono",
+				"MonoBehaviour\tMonoBehaviour"
+			],
+			[
+				"M",
+				"Mathf\tMathf"
+			],
+			[
+				"ar",
+				"args\tstring[]"
+			],
+			[
+				"en",
+				"Environment\tEnvironment"
+			],
+			[
+				"to",
+				"ToString()\tstring"
+			],
+			[
+				"pow",
+				"Power_P04_Reward(float distance)\tfloat"
+			],
+			[
+				"cl",
+				"Clamp01(float value)\tfloat"
+			],
+			[
+				"gam",
+				"gameObject\tGameObject"
+			],
+			[
+				"get",
+				"GetReward()\tfloat"
+			],
+			[
+				"del",
+				"stackDeltaX\tfloat"
+			],
+			[
+				"top",
+				"topPieceLocalPos\tVector3"
+			],
+			[
+				"dro",
+				"dropPieceLocalPos\tVector3"
+			],
+			[
+				"re",
+				"return\treturn"
+			],
+			[
+				"Collision",
+				"CollisionControl\tCollisionControl"
+			],
+			[
+				"com",
+				"ComputeReward(Vector3 dropPos)\tvoid"
+			],
+			[
+				"agnet",
+				"agentInfo\tagentInfo"
+			],
+			[
+				"agent",
+				"AgentInfo()\tAgentInfo()"
+			],
+			[
+				"ag",
+				"AgentReset()\tvoid"
+			],
+			[
+				"is",
+				"isJustCalledDone\tbool"
+			],
+			[
+				"m",
+				"MLAgents\tMLAgents"
+			],
+			[
+				"a",
+				"agentObj\tCBXPieceAgent"
+			],
+			[
+				"CBX",
+				"CBXAcademy\tCBXAcademy"
+			],
+			[
+				"ve",
+				"vectorAction\tfloat[]"
+			],
+			[
+				"flto",
+				"FloorToInt(float f)\tint"
+			],
+			[
+				"pie",
+				"piecePrefab\tGameObject"
+			],
+			[
+				"tou",
+				"touchCount\tint"
+			],
+			[
+				"sta",
+				"stackRange\tfloat"
+			],
+			[
+				"fal",
+				"false\tfalse"
+			],
+			[
+				"ro",
+				"rotation\tQuaternion"
+			],
+			[
+				"fall",
+				"fallenWaterAnim\tParticleSystem"
+			],
+			[
+				"rot",
+				"rotationYoffset\tfloat"
+			],
+			[
+				"cam",
+				"cameraPos\tVector3"
+			],
+			[
+				"wor",
+				"WorldToScreenPoint(Vector3 position)\tVector3"
+			],
+			[
+				"pl",
+				"PlayFallenWaterAnim(Vector3 pos)\tvoid"
+			],
+			[
+				"colo",
+				"Color\tColor"
+			],
+			[
+				"loc",
+				"localPosition\tVector3"
+			],
+			[
+				"stop",
+				"StopComboPeriodAnim()\tvoid"
+			],
+			[
+				"p",
+				"PlayStackDeadCenterAnim(Vector3 pos)\tvoid"
+			],
+			[
+				"isp",
+				"isPlaying\tbool"
+			],
+			[
+				"tra",
+				"transform\tTransform"
+			],
+			[
+				"par",
+				"ParticleSystem\tParticleSystem"
+			],
+			[
+				"Par",
+				"ParticleSystem\tParticleSystem"
+			],
+			[
+				"sor",
+				"sortingLayerName\tstring"
+			],
+			[
+				"inex",
+				"InExpo\tEase"
+			],
+			[
+				"eas",
+				"Ease\tEase"
+			],
+			[
+				"loca",
+				"localRotation\tQuaternion"
+			],
+			[
+				"f",
+				"From()\tTweener"
+			],
+			[
+				"Tweene",
+				"Tweener\tTweener"
+			],
+			[
+				"l",
+				"loopType\tLoopType"
+			],
+			[
+				"A",
+				"AppendCallback(TweenCallback callback)\tSequence"
+			],
+			[
+				"pla",
+				"PlayBackwards()\tvoid"
+			],
+			[
+				"dotw",
+				"DOTween\tDOTween"
+			],
+			[
+				"s",
+				"StopMotion(int motionFps, AnimationCurve animCurve)\tEaseFunction"
+			],
+			[
+				"setsp",
+				"SetSpeedBased(bool isSpeedBased)\tTweener"
+			],
+			[
+				"Dotw",
+				"doTween\tDoTweenControl"
+			],
+			[
+				"Outqu",
+				"OutQuart\tEase"
+			],
+			[
+				"pi",
+				"pivot\tVector3"
+			],
+			[
+				"do",
+				"DoPunchRotation\tDoPunchRotation"
+			],
+			[
+				"pos",
+				"position\tVector3"
+			],
+			[
+				"dopunch",
+				"DOPunchRotation(Vector3 punch, float duration)\tTweener"
+			],
+			[
+				"collider",
+				"Collider2D\tCollider2D"
+			],
+			[
+				"rata",
+				"RotateAround(Vector3 axis, float angle)\tvoid"
+			],
+			[
+				"co",
+				"collider\tCollider2D"
+			],
+			[
+				"dolook",
+				"DOLookAt(Vector3 towards, float duration, AxisConstraint axisConstraint = None, Vector3? up = null)\tTweener"
+			],
+			[
+				"inouqu",
+				"InOutQuart\tEase"
+			],
+			[
+				"ouq",
+				"OutQuart\tEase"
+			],
+			[
+				"out",
+				"OutQuart\tEase"
+			],
+			[
+				"dopu",
+				"DOPunchPosition(Vector3 punch, float duration)\tTweener"
+			],
+			[
+				"ani",
+				"StackingNoDeadCenterAnimation()\tvoid"
+			],
+			[
+				"dopun",
+				"DOPunchRotation(Vector3 punch, float duration)\tTweener"
+			],
+			[
+				"sc",
+				"localScale\tVector3"
+			],
+			[
+				"set",
+				"SetEase(Ease ease)\tTweenerCore<Quaternion, Vector3, QuaternionOptions>"
+			],
+			[
+				"ob",
+				"objPoolPos\tVector3"
+			],
+			[
+				"sk",
+				"skyObj_2\tGameObject"
+			],
+			[
+				"ju",
+				"DOJump(Vector3 endValue, float jumpPower, int numJumps, float duration)\tSequence"
+			],
+			[
+				"dora",
+				"DORotateQuaternion(Quaternion endValue, float duration)\tTweenerCore<Quaternion, Quaternion, NoOptions>"
+			],
+			[
+				"G",
+				"GO_Extensions\tGO_Extensions"
+			],
+			[
+				"for",
+				"foreach\tforeach"
+			],
+			[
+				"use",
+				"UseAdjustableColumnSwinging()\tvoid"
+			],
+			[
+				"coc",
+				"ColumnSwingingCenterMoveUp()\tvoid"
+			],
+			[
+				"an",
+				"angleSpeed\tfloat"
+			],
+			[
+				"ac",
+				"constraintActive\tbool"
+			],
+			[
+				"cons",
+				"constraintSource\tConstraintSource"
+			],
+			[
+				"getcom",
+				"GetComponent<T>()\tT"
+			],
+			[
+				"Getcom",
+				"GetComponent<T>()\tT"
+			],
+			[
+				"paren",
+				"parentConstraints\tParentConstraints"
+			],
+			[
+				"sl",
+				"slingPosYOffsetDestination\tfloat"
+			],
+			[
+				"game",
+				"gameStatus\tGameStatus"
+			],
+			[
+				"ex",
+				"expectMoveDuration\tfloat"
+			],
+			[
+				"ga",
+				"gameStatus\tGameStatus"
+			],
+			[
+				"waitfor",
+				"WaitForSeconds(float seconds)\tWaitForSeconds(float seconds)"
+			],
+			[
+				"t",
+				"text\tstring"
+			],
+			[
+				"ist",
+				"isTimerEnd\tbool"
+			],
+			[
+				"ti",
+				"timerOffset\tfloat"
+			],
+			[
+				"oncom",
+				"OnComboTimingComplete()\tvoid"
+			],
+			[
+				"Tim",
+				"Timer\tTimer"
+			],
+			[
+				"istim",
+				"isTiming\tbool"
+			],
+			[
+				"isti",
+				"isTiming\tbool"
+			],
+			[
+				"isTI",
+				"isTimerStart\tbool"
+			],
+			[
+				"tetarge",
+				"timerTarget_\tfloat"
+			],
+			[
+				"isre",
+				"isRepeate_\tbool"
+			],
+			[
+				"isI",
+				"isIgnoreTimeScale_\tbool"
+			],
+			[
+				"up",
+				"updateEvent_\tUpdateEvent"
+			],
+			[
+				"upd",
+				"updateEvent_\tUpdateEvent"
+			],
+			[
+				"ontim",
+				"onTimerCompleted_\tCompleteEvent"
+			],
+			[
+				"time",
+				"timerTarget\tfloat"
+			],
+			[
+				"Time",
+				"Time_\tfloat"
+			],
+			[
+				"istime",
+				"isTimerStart\tbool"
+			],
+			[
+				"clam",
+				"Clamp(float value, float min, float max)\tfloat"
+			],
+			[
+				"cheiffa",
+				"checkFallenSide(float deltaX)\tvoid"
+			],
+			[
+				"tr",
+				"true\ttrue"
+			],
+			[
+				"check",
+				"CheckFirstPieceIfStacked()\tvoid"
+			],
+			[
+				"ot",
+				"otherCollider\tCollider2D"
+			],
+			[
+				"scne",
+				"SceneManager\tSceneManager"
+			],
+			[
+				"mis",
+				"missNum\tint"
+			],
+			[
+				"si",
+				"Sin(float f)\tfloat"
+			],
+			[
+				"bo",
+				"bottomRight\tVector3"
+			],
+			[
+				"collisi",
+				"Collision2D\tCollision2D"
+			],
+			[
+				"con",
+				"contactCount\tint"
+			],
+			[
+				"po",
+				"posSkyObj_2\tVector3"
+			],
+			[
+				"sky",
+				"skyObj_2\tGameObject"
+			],
+			[
+				"getc",
+				"GetComponent<T>()\tT"
+			],
+			[
+				"Scmo",
+				"ScreenMoveUp()\tvoid"
+			],
+			[
+				"piece",
+				"pieceObj\tPiece"
+			],
+			[
+				"am",
+				"amplitudeRotate\tfloat"
+			],
+			[
+				"fix",
+				"fixedDeltaTime\tfloat"
+			],
+			[
+				"mat",
+				"Mathf\tMathf"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
+			"settings":
+			{
+				"buffer_size": 3183,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/GamePlay/Scripts/GameControl.cs",
+			"settings":
+			{
+				"buffer_size": 4869,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/GamePlay/Scripts/Piece.cs",
+			"settings":
+			{
+				"buffer_size": 5150,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"settings syn",
+				"Preferences: Settings – Syntax Specific"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"sublimgdb",
+				"Preferences: SublimeGDB Settings – User"
+			],
+			[
+				"sublimegdb",
+				"SublimeGDB: Start Debugging"
+			],
+			[
+				"command",
+				"Preferences: Terminal View: Palette Commands"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"oa",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"Markdown",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"MarkDown",
+				"Set Syntax: Markdown"
+			],
+			[
+				"markdownlivepreview",
+				"MarkdownLivePreview: Edit Custom CSS File"
+			],
+			[
+				"markdown",
+				"MarkdownLivePreview: Edit Custom CSS File"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:soda",
+				"Package Control: Install Local Dependency"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 358.0,
+		"history":
+		[
+			"c",
+			"clear",
+			"subl_remote_edit s1702794 cirrus-msc.epcc.ed.ac.uk",
+			"subl_remote_edit . s1702794@cirrus-msc.epcc.ed.ac.uk",
+			"subl_remote_edit . s1702794@cirrus-msc.epcc.ed.ac.ul",
+			"subl_remote_edit ALIAS",
+			"subl_remote_edit",
+			"subl_remote_edit ALIAS",
+			"subl_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			"> subl_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			"subl_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			" sb_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			" subl_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			"subl_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			"subl_remote_edit",
+			"subl_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			"subl_remote_edit ALIAS, PATH_ON_REMOTE_MACHINE",
+			"subl_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			"subl_remote_edit",
+			"subl_remote_edit ALIAS PATH_ON_REMOTE_MACHINE",
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/alex/citybloxxDemo/Assets/GamePlay/Scripts",
+		"/Users/alex/citybloxxDemo/Assets/ML_Agents/ML_Scripts"
+	],
+	"file_history":
+	[
+		"/Users/alex/citybloxxDemo/Assets/ML_Agents/ML_Scripts/ML_GameControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/ML_Agents/ML_Scripts/ML_Piece.cs",
+		"/Users/alex/citybloxxDemo/Assets/ML_SourceFiles/config/trainer_config.yaml",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/Utilities/Extension.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/GameControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ComboControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/Piece.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/MyCollisionControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ML/CBXPieceAgent.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ColumnSwinging.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ML/CBXAcademy.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/CmdControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/Utilities/Timer.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/Utilities/DoTweenControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/CollisionControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/PiecePool.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ScreenMoveUp.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ML/CBXSlingAgent.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ParticleControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ML/CitybloxxAcademy.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ML/Academy.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/EllipticalOrbit.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/comboControl.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/Timer.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/StackingEffect.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/HingePush.cs",
+		"/Users/alex/citybloxxDemo/Assets/Scripts/ForceToSwing.cs",
+		"/Users/alex/citybloxxDemo/citybloxxDemo.sublime-project",
+		"/Users/alex/Desktop/test.cs",
+		"/Users/alex/FlappyBird/Assets/FlappyBirdStyleAssets/Scripts/ScrollingObject.cs",
+		"/Users/alex/FlappyBird/Assets/FlappyBirdStyleAssets/Scripts/RepeatingBG.cs",
+		"/Users/alex/FlappyBird/Assets/FlappyBirdStyleAssets/Scripts/bird.cs",
+		"/Users/alex/FlappyBird/Assets/FlappyBirdStyleAssets/Scripts/GameControl.cs",
+		"/Users/alex/Desktop/temp.py",
+		"/Users/alex/Desktop/FB",
+		"/Users/alex/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/D0B3D9B9-9DED-4374-A3E4-9A82C5161519/Edinburgh University charitable status.txt",
+		"/Users/alex/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/CB257155-28D8-4FC3-B86D-8C98404FD4A0/s1702794.txt",
+		"/Users/alex/Desktop/util.c",
+		"/Users/alex/Desktop/cirrus/temp/MD/scripts/exp/icc_advisor.sh",
+		"/Users/alex/Desktop/cirrus/temp/MD/scripts/utils/runtime_result.sh",
+		"/Users/alex/Desktop/cirrus/temp/MD/scripts/utils/gprof_result.sh",
+		"/Users/alex/Desktop/cirrus/temp/MD/c_test/obj/ipo_out.optrpt",
+		"/Users/alex/Desktop/cirrus/temp/MD/runtime_output/baseline/baseline-O0/baseline-O0_0.txt",
+		"/Users/alex/Desktop/cirrus/temp/MD/scripts/pbs/icc_advisor.pbs",
+		"/Users/alex/Desktop/cirrus/temp/MD/c_test/src/coord.h",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/src/MD.c",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/Makefile",
+		"/Users/alex/Desktop/cirrus/temp/MD/scripts/pbs/test.pbs",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/src/coord.h",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/src/control.c",
+		"/Users/alex/Desktop/cirrus/temp/MD/Test/diff-output.c",
+		"/Users/alex/Desktop/cirrus/temp/MD/bench_c.o943845",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/coord.h",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/MD.c",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/control.c",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/output.dat100",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/output.dat010",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/input.dat",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/profile_O0.txt",
+		"/Users/alex/project_templete/src/main.c",
+		"/Users/alex/Library/Application Support/Sublime Text 3/Packages/User/SublimeGDB.sublime-settings",
+		"/Users/alex/Desktop/cirrus/temp/MD/report_words.md",
+		"/Users/alex/Desktop/cirrus/.bash_profile",
+		"/Users/alex/Desktop/cirrus/temp/MD/C/util.c",
+		"/Users/alex/Desktop/cirrus/temp/MD/bench_c.pbs",
+		"/Users/alex/Desktop/cirrus/temp/TP/cw2/backend.pbs",
+		"/Users/alex/Desktop/cirrus/temp/MPI/cw/mppcw/cw/backend.pbs",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise4/IndependentQLearning/IndependentQLearning.py",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise3/Environment.py",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/DataInput.csv",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/RandomAgentExample/DiscretizedRandomAttackingController.py",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/MonteCarloBase.py",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/MonteCarlo.sh",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/QLearning/QLearningBase.py",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/MonteCarlo/UnitTestExample/ExampleUnitTest.py",
+		"/Users/alex/Desktop/MonteCarloBase.py",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/DiscreteHFO/HFOAttackingPlayer.py",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/MonteCarlo/MonteCarlo.sh",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise2/MonteCarlo/MonteCarloBase.py",
+		"/Users/alex/Desktop/cirrus/.bashrc",
+		"/Users/alex/Desktop/HFO/example/RL2019-BaseCodes/Exercise1/BellmanDPBase.py",
+		"/Users/alex/Desktop/plot.py",
+		"/Users/alex/Downloads/10.1007_978-3-642-27645-3_17.ris",
+		"/Users/alex/Downloads/citation-265284198.txt",
+		"/Users/alex/Downloads/S0747563216300188.txt",
+		"/Users/alex/Downloads/S0747563216300188.ris",
+		"/Users/alex/Downloads/CitationList.ris",
+		"/Users/alex/Desktop/test_submit.sh",
+		"/Users/alex/Downloads/alex_latex.txt",
+		"/Users/alex/Downloads/10.1007_978-3-319-93000-8_81 (1).bib",
+		"/Users/alex/Downloads/alex.txt",
+		"/Users/alex/Desktop/mlp2019/src/builder.py",
+		"/Users/alex/Desktop/mlp2019/mkfold/dsfold1.txt",
+		"/Users/alex/Downloads/10.1007_978-3-319-93000-8_81.bib",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/scripts/acc.sh",
+		"/Users/alex/Desktop/mlp_cluster/mlpractical/arg_extractor.py",
+		"/Users/alex/Desktop/mlp_temp/irnv2_combo_all.sh",
+		"/Users/alex/Desktop/mlp_temp/irnv2_patching_phase2.sh",
+		"/Users/alex/Desktop/irnv2_combo_all.sh",
+		"/Users/alex/Desktop/mlp2019/mkfold/mkfold.py",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/scripts/submit.sh",
+		"/Users/alex/Desktop/install.sh",
+		"/Users/alex/Downloads/irnv2_patching_phase2.sh",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/src/data_handler.py",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/scripts/test_submit.sh",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/slurm-301961.out",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/test_submit.sh",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/src/preprocessing.py",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/scripts/experiments/sliding_stride.sh",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/scripts/experiments/sliding_dilation.sh",
+		"/Users/alex/Desktop/mlp2019/patch_test/dump1.txt",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/slurm-301526.out",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/slurm-301531.out",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/src/builder.py",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/src/test.py",
+		"/Users/alex/Desktop/mlp2019/src/data_handler.py",
+		"/Users/alex/Desktop/mlp2019/src/plots.py",
+		"/Users/alex/Desktop/mlp2019/data/fold1/X_train.pickle",
+		"/Users/alex/Desktop/mlp2019/src/arg_extractor.py",
+		"/Users/alex/Desktop/mlp2019/log.txt",
+		"/Users/alex/Desktop/mlp2019/src/utilities.py",
+		"/Users/alex/Desktop/draft.md",
+		"/Users/alex/Desktop/project_templete/includes/resource.h",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/data/fold1/X_test.pickle",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/slurm-289048.out",
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/src/baseline.py",
+		"/Users/alex/.zim/modules/custom/functions/from keras.layers import Dense",
+		"/Users/alex/.config/karabiner/assets/complex_modifications/1546877051.json"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 132.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"transf",
+			"screen",
+			"move",
+			"screen",
+			"isstacked",
+			"isfall",
+			"particle",
+			"pieceobj",
+			"StackingNoDeadCenterAnimation",
+			"PlayFallenWaterAnim",
+			"FallenAnimation",
+			"screenBottomPos",
+			"sealevel",
+			"particle",
+			"log",
+			");\n",
+			"PositionToLastChild",
+			"topPieceCollider",
+			"timer",
+			"SetColumnSwinging",
+			"deadcenter",
+			"dead",
+			"stackedpieceNum",
+			"stackedPieceNum",
+			"stackedPiece",
+			"pos",
+			"stackpla",
+			"speed",
+			"isGameOver",
+			"isFirstPieceStacked",
+			"timerStart",
+			"angle",
+			"stackStatus",
+			"MoveUp",
+			"toppieceidx",
+			"currentPiece",
+			"currentPieceTag",
+			"currentPiece",
+			"pos"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"mlTarget",
+			"timerStartTime",
+			"currentPieceIdx",
+			"currentPiece",
+			"currentPieceTag"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3183,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								184,
+								184
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"0,5": "不需要的 using 指令。",
+								"1010,1019": "当前上下文中不存在名称“transform”",
+								"1059,1068": "当前上下文中不存在名称“transform”",
+								"109,122": "命名空间“<global namespace>”已经包含“CBXPieceAgent”的定义",
+								"1112,1121": "当前上下文中不存在名称“transform”",
+								"1145,1154": "当前上下文中不存在名称“transform”",
+								"1196,1204": "在“CBXPieceAgent.pieceObj”和“CBXPieceAgent.pieceObj”之间具有二义性",
+								"125,130": "未能找到类型或命名空间名“Agent”(是否缺少 using 指令或程序集引用?)",
+								"1263,1271": "在“CBXPieceAgent.pieceObj”和“CBXPieceAgent.pieceObj”之间具有二义性",
+								"1299,1315": "在“CBXPieceAgent.isJustCalledDone”和“CBXPieceAgent.isJustCalledDone”之间具有二义性",
+								"1339,1350": "类型“CBXPieceAgent”已定义了一个名为“FixedUpdate”的具有相同参数类型的成员",
+								"1361,1377": "在“CBXPieceAgent.isJustCalledDone”和“CBXPieceAgent.isJustCalledDone”之间具有二义性",
+								"1386,1401": "当前上下文中不存在名称“RequestDecision”",
+								"1423,1431": "在“CBXPieceAgent.mlTarget”和“CBXPieceAgent.mlTarget”之间具有二义性",
+								"1457,1468": "当前上下文中不存在名称“GameControl”",
+								"1534,1549": "类型“CBXPieceAgent”已定义了一个名为“HookNewPiece4ML”的具有相同参数类型的成员",
+								"1571,1580": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
+								"1662,1671": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
+								"169,174": "“/Users/alex/citybloxxDemo/Assets/GamePlay/Scripts/Piece.cs”中的类型“Piece”与“Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null”中的导入类型“Piece”冲突。请使用“/Users/alex/citybloxxDemo/Assets/GamePlay/Scripts/Piece.cs”中定义的类型。",
+								"1723,1732": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
+								"1743,1754": "当前上下文中不存在名称“GameControl”",
+								"1799,1807": "在“CBXPieceAgent.pieceObj”和“CBXPieceAgent.pieceObj”之间具有二义性",
+								"1833,1841": "在“CBXPieceAgent.pieceObj”和“CBXPieceAgent.pieceObj”之间具有二义性",
+								"1874,1883": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
+								"1955,1968": "类型“CBXPieceAgent”已定义了一个名为“ComputeReward”的具有相同参数类型的成员",
+								"2014,2023": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
+								"2042,2050": "在“CBXPieceAgent.mlTarget”和“CBXPieceAgent.mlTarget”之间具有二义性",
+								"2099,2111": "以下方法或属性之间的调用具有二义性:“CBXPieceAgent.Power_Hybrid(float)”和“CBXPieceAgent.Power_Hybrid(float)”",
+								"2128,2137": "当前上下文中不存在名称“AddReward”",
+								"2152,2159": "当前上下文中不存在名称“Monitor”",
+								"2187,2197": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性",
+								"2242,2252": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性",
+								"2311,2321": "当前上下文中不存在名称“gameObject”",
+								"2349,2364": "类型“CBXPieceAgent”已定义了一个名为“Power_N2_Reward”的具有相同参数类型的成员",
+								"2569,2585": "类型“CBXPieceAgent”已定义了一个名为“Power_P04_Reward”的具有相同参数类型的成员",
+								"26,31": "不需要的 using 指令。",
+								"2749,2765": "类型“CBXPieceAgent”已定义了一个名为“Power_N3_Penalty”的具有相同参数类型的成员",
+								"2900,2912": "类型“CBXPieceAgent”已定义了一个名为“Power_Hybrid”的具有相同参数类型的成员",
+								"302,317": "'“CBXPieceAgent.InitializeAgent()”: 没有找到适合的方法来重写",
+								"325,341": "在“CBXPieceAgent.isJustCalledDone”和“CBXPieceAgent.isJustCalledDone”之间具有二义性",
+								"378,388": "'“CBXPieceAgent.AgentReset()”: 没有找到适合的方法来重写",
+								"396,411": "以下方法或属性之间的调用具有二义性:“CBXPieceAgent.HookNewPiece4ML()”和“CBXPieceAgent.HookNewPiece4ML()”",
+								"417,425": "在“CBXPieceAgent.mlTarget”和“CBXPieceAgent.mlTarget”之间具有二义性",
+								"507,526": "'“CBXPieceAgent.CollectObservations()”: 没有找到适合的方法来重写",
+								"534,546": "当前上下文中不存在名称“AddVectorObs”",
+								"552,561": "'“CBXPieceAgent”未包含“transform”的定义，并且找不到可接受第一个“CBXPieceAgent”类型参数的可访问扩展方法“transform”(是否缺少 using 指令或程序集引用?)",
+								"575,587": "当前上下文中不存在名称“AddVectorObs”",
+								"588,596": "在“CBXPieceAgent.mlTarget”和“CBXPieceAgent.mlTarget”之间具有二义性",
+								"634,645": "'“CBXPieceAgent.AgentAction(float[], string)”: 没有找到适合的方法来重写",
+								"759,766": "当前上下文中不存在名称“Monitor”",
+								"79,84": "不需要的 using 指令。",
+								"812,822": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性",
+								"827,834": "当前上下文中不存在名称“Monitor”",
+								"85,93": "未能找到类型或命名空间名“MLAgents”(是否缺少 using 指令或程序集引用?)",
+								"852,871": "当前上下文中不存在名称“GetCumulativeReward”",
+								"886,896": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性",
+								"901,908": "当前上下文中不存在名称“Monitor”",
+								"934,949": "在“CBXPieceAgent.deadcenterCount”和“CBXPieceAgent.deadcenterCount”之间具有二义性",
+								"962,972": "在“CBXPieceAgent.monitorObj”和“CBXPieceAgent.monitorObj”之间具有二义性"
+							},
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/GamePlay/Scripts/GameControl.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								179,
+								179
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2690.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "Assets/GamePlay/Scripts/Piece.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5081,
+								5081
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"0,5": "不需要的 using 指令。",
+								"1043,1047": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
+								"1079,1087": "在“Piece.isHooked”和“Piece.isHooked”之间具有二义性",
+								"1131,1149": "类型“Piece”已定义了一个名为“OnCollisionEnter2D”的具有相同参数类型的成员",
+								"1170,1179": "在“Piece.isStacked”和“Piece.isStacked”之间具有二义性",
+								"1203,1214": "当前上下文中不存在名称“GameControl”",
+								"1255,1259": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
+								"128,142": "未能找到类型或命名空间名“DoTweenControl”(是否缺少 using 指令或程序集引用?)",
+								"1292,1296": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
+								"1334,1347": "以下方法或属性之间的调用具有二义性:“Piece.Parent2Column()”和“Piece.Parent2Column()”",
+								"1392,1405": "类型“Piece”已定义了一个名为“Parent2Column”的具有相同参数类型的成员",
+								"1442,1453": "当前上下文中不存在名称“GameControl”",
+								"1607,1611": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
+								"1649,1666": "类型“Piece”已定义了一个名为“OnCollisionExit2D”的具有相同参数类型的成员",
+								"1698,1709": "当前上下文中不存在名称“GameControl”",
+								"1763,1772": "在“Piece.isStacked”和“Piece.isStacked”之间具有二义性",
+								"1796,1807": "当前上下文中不存在名称“GameControl”",
+								"1869,1884": "以下方法或属性之间的调用具有二义性:“Piece.CheckIfCanStack(Collision2D)”和“Piece.CheckIfCanStack(Collision2D)”",
+								"1921,1932": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
+								"1975,1986": "当前上下文中不存在名称“GameControl”",
+								"2027,2038": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
+								"2223,2234": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
+								"2278,2289": "当前上下文中不存在名称“GameControl”",
+								"2324,2335": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
+								"2420,2429": "在“Piece.isStacked”和“Piece.isStacked”之间具有二义性",
+								"2461,2476": "类型“Piece”已定义了一个名为“CheckIfCanStack”的具有相同参数类型的成员",
+								"2536,2547": "当前上下文中不存在名称“GameControl”",
+								"26,31": "不需要的 using 指令。",
+								"2683,2698": "以下方法或属性之间的调用具有二义性:“Piece.checkFallenSide()”和“Piece.checkFallenSide()”",
+								"2787,2797": "在“Piece.stackRange”和“Piece.stackRange”之间具有二义性",
+								"2821,2829": "在“Piece.isFallen”和“Piece.isFallen”之间具有二义性",
+								"2851,2868": "以下方法或属性之间的调用具有二义性:“Piece.checkIfDeadCenter(float, float, Collider2D)”和“Piece.checkIfDeadCenter(float, float, Collider2D)”",
+								"2880,2891": "当前上下文中不存在名称“GameControl”",
+								"3550,3558": "在“Piece.isFallen”和“Piece.isFallen”之间具有二义性",
+								"3627,3644": "类型“Piece”已定义了一个名为“checkIfDeadCenter”的具有相同参数类型的成员",
+								"3729,3744": "在“Piece.deadCenterRange”和“Piece.deadCenterRange”之间具有二义性",
+								"3768,3779": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
+								"4233,4244": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
+								"4301,4316": "类型“Piece”已定义了一个名为“checkFallenSide”的具有相同参数类型的成员",
+								"4336,4347": "当前上下文中不存在名称“GameControl”",
+								"4400,4411": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
+								"4488,4499": "在“Piece.stackStatus”和“Piece.stackStatus”之间具有二义性",
+								"4630,4646": "类型“Piece”已定义了一个名为“OnStackingFailed”的具有相同参数类型的成员",
+								"4917,4934": "类型“Piece”已定义了一个名为“OnBecameInvisible”的具有相同参数类型的成员",
+								"606,611": "类型“Piece”已定义了一个名为“Start”的具有相同参数类型的成员",
+								"628,632": "在“Piece.rb2d”和“Piece.rb2d”之间具有二义性",
+								"719,725": "类型“Piece”已定义了一个名为“Update”的具有相同参数类型的成员",
+								"742,750": "在“Piece.isHooked”和“Piece.isHooked”之间具有二义性",
+								"93,98": "命名空间“<global namespace>”已经包含“Piece”的定义"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 50.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.540176100824,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 157.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
+	{
+		"height": 157.0
+	},
+	"pinned_build_system": "",
+	"project": "citybloxxDemo.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Remote Edit: Open Remote File Prompt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 186.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

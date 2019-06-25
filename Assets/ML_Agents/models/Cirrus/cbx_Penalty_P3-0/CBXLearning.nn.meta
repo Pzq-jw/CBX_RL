@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: a3c46908b873743c880062e1ac99446a
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/ML_Agents/models/Cirrus/cbx_Penalty_P3-0/CBXLearning.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 83221ad3db87f4b3b91b041047cb2bc5, type: 3}
