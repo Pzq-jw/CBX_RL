@@ -22,4 +22,7 @@ MonoBehaviour:
     vectorActionSpaceType: 0
   keyContinuousPlayerActions: []
   axisContinuousPlayerActions: []
-  discretePlayerActions: []
+  discretePlayerActions:
+  - key: 100
+    branchIndex: 0
+    value: 1

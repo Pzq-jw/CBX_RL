@@ -1145,7 +1145,8 @@ MonoBehaviour:
     broadcastingBrains:
     - {fileID: 11400000, guid: cf69212b8e8e14aafa6b356244c8fee0, type: 2}
     - {fileID: 11400000, guid: e3144c3b65c7f4a53962baf2ee03c5c6, type: 2}
-    _brainsToControl: []
+    _brainsToControl:
+    - {fileID: 11400000, guid: cf69212b8e8e14aafa6b356244c8fee0, type: 2}
   maxSteps: 0
   trainingConfiguration:
     width: 80
@@ -3736,6 +3737,7 @@ GameObject:
   - component: {fileID: 356531389130146440}
   - component: {fileID: 7709973033469782564}
   - component: {fileID: 7682980576525386174}
+  - component: {fileID: 7682980576525386175}
   m_Layer: 0
   m_Name: PieceAgent
   m_TagString: Piece
@@ -3763,12 +3765,25 @@ MonoBehaviour:
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
+  swingRewardObj: {fileID: 7682980576525386175}
   mlTarget: {fileID: 577732854}
   mlTargetRb2d: {fileID: 577732857}
   pieceObj: {fileID: 8710141792735464913}
   monitorObj: {fileID: 899954675}
   isJustCalledDone: 0
   deadcenterCount: 0
+--- !u!114 &7682980576525386175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682980576525386173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bbf4fb586e242d0adba8ca73145af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &7709973033469782564
 PolygonCollider2D:
   m_ObjectHideFlags: 0

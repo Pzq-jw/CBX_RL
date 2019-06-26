@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"pow",
+				"Power_Hybrid(float distance)\tfloat"
+			],
+			[
+				"CBXre",
+				"CBXSwingReward\tCBXSwingReward"
+			],
+			[
 				"ve",
 				"Vector3\tVector3"
 			],
@@ -42,10 +50,6 @@
 			[
 				"to",
 				"ToString()\tstring"
-			],
-			[
-				"pow",
-				"Power_P04_Reward(float distance)\tfloat"
 			],
 			[
 				"cl",
@@ -510,20 +514,43 @@
 			[
 				"Scmo",
 				"ScreenMoveUp()\tvoid"
-			],
-			[
-				"piece",
-				"pieceObj\tPiece"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "Assets/GamePlay/Scripts/Piece.cs",
+			"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
 			"settings":
 			{
-				"buffer_size": 5150,
+				"buffer_size": 2412,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/ML_Agents/ML_Scripts/CBXReward.cs",
+			"settings":
+			{
+				"buffer_size": 1935,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
+			"settings":
+			{
+				"buffer_size": 2835,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/GamePlay/Scripts/GameControl.cs",
+			"settings":
+			{
+				"buffer_size": 4905,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -646,7 +673,8 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts"
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts",
+		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts"
 	],
 	"file_history":
 	[
@@ -781,7 +809,7 @@
 	],
 	"find":
 	{
-		"height": 50.0
+		"height": 37.0
 	},
 	"find_in_files":
 	{
@@ -795,6 +823,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"private"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -802,6 +831,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"public"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -812,21 +842,131 @@
 	"groups":
 	[
 		{
-			"sheets":
-			[
-			]
-		},
-		{
 			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/GamePlay/Scripts/Piece.cs",
-					"semi_transient": true,
+					"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5150,
+						"buffer_size": 2412,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2190,
+								2190
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"0,5": "Unnecessary using directive.",
+								"144,158": "The type 'CBXSwingReward' in '/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXSwingReard.cs' conflicts with the imported type 'CBXSwingReward' in 'MacBLAS, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'. Using the type defined in '/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXSwingReard.cs'.",
+								"26,31": "Unnecessary using directive."
+							},
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 3.0,
+						"translation.y": 905.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "Assets/ML_Agents/ML_Scripts/CBXReward.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1935,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								1935
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								362,
+								377
+							]
+						],
+						"settings":
+						{
+							"oops":
+							{
+								"0,5": "Unnecessary using directive.",
+								"1238,1254": "Type 'CBXSwingReward' already defines a member called 'Power_Hybrid_NP2' with the same parameter types",
+								"143,158": "Type 'CBXSwingReward' already defines a member called 'Power_N2_Reward' with the same parameter types",
+								"1543,1563": "Type 'CBXSwingReward' already defines a member called 'Power_Hybrid_PP3_NP2' with the same parameter types",
+								"1864,1884": "Type 'CBXSwingReward' already defines a member called 'Power_Hybrid_PP4_NP2' with the same parameter types",
+								"26,31": "Unnecessary using directive.",
+								"414,426": "The variable 'distance_max' is assigned but its value is never used",
+								"608,624": "Type 'CBXSwingReward' already defines a member called 'Power_P04_Reward' with the same parameter types",
+								"787,803": "Type 'CBXSwingReward' already defines a member called 'Power_N3_Penalty' with the same parameter types",
+								"93,107": "The namespace '<global namespace>' already contains a definition for 'CBXSwingReward'",
+								"937,949": "Type 'CBXSwingReward' already defines a member called 'Power_Hybrid' with the same parameter types"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/GamePlay/Scripts/GameControl.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4905,
 						"regions":
 						{
 						},
@@ -844,10 +984,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2665.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -881,7 +1021,7 @@
 		"cols":
 		[
 			0.0,
-			0.540176100824,
+			0.455643985972,
 			1.0
 		],
 		"rows":
@@ -907,7 +1047,7 @@
 	"project": "citybloxxDemo.sublime-project",
 	"replace":
 	{
-		"height": 70.0
+		"height": 91.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -945,7 +1085,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
