@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 8be33caeca04d43498913448b5364f2b
+guid: 517f79ffcbe114196aedf51e2a15e9f6
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/3DBall/TFModels/3DBallHardLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/3DBall/TFModels/3DBallHardLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

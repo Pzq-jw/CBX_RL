@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 0df960ed78a964cd4a671395390ac522
+guid: 9f43fb841ab224d36b490d51b8526406
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Soccer/TFModels/StrikerLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Soccer/TFModels/StrikerLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

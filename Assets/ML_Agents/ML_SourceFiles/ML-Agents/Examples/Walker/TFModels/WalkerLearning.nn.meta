@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 097040deda0de41ddb3050c60d8cfc67
+guid: 37df4dca3352f418b8dee066732257a8
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Walker/TFModels/WalkerLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Walker/TFModels/WalkerLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 9ad2632f02f1a4bf3ba98b22965bf874
+guid: 3945366d74ef841f2a40dceffb815089
 ScriptedImporter:
   fileIDToRecycleName:
-    11400000: Assets/ML_Agents/models/Cirrus/cbx_Penalty_Pure-0/CBXLearning.nn
+    11400002: Assets/CBX_RL/Assets/ML_Agents/models/Cirrus/cbx_Penalty_Pure-0/CBXLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

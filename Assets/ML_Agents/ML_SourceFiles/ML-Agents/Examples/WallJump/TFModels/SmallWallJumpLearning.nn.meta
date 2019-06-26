@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 7ed5da5ea3aa74cb4bf83bda60b1518e
+guid: 00fde842797534cf08710628df12c21b
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/WallJump/TFModels/SmallWallJumpLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/WallJump/TFModels/SmallWallJumpLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

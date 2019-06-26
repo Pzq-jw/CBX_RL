@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: d4da69ea097754b38b75c821761c3a51
+guid: 8141c460a1ba64efea0d1947e734d4c7
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/models/Cirrus/CBXLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/models/Cirrus/CBXLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

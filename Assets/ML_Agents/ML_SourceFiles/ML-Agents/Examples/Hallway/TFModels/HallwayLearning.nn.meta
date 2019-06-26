@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 184185c35f3b14a56946e95977be2904
+guid: 448fcbc58ea3c45889dcf6a5850ecf7a
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Hallway/TFModels/HallwayLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Hallway/TFModels/HallwayLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 86e6c88c11c2a4a72bbe56a71c20bfff
+guid: 0ae0982b1c9ce49caa199d907dcfc602
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/GridWorld/TFModels/GridWorldLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/GridWorld/TFModels/GridWorldLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

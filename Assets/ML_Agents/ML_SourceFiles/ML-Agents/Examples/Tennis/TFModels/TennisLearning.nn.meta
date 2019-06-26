@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 0b22bc7e45e8347fd897bdf0e1d38c6e
+guid: c43128e9bdbc84457b392e4b014049e4
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Tennis/TFModels/TennisLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Tennis/TFModels/TennisLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

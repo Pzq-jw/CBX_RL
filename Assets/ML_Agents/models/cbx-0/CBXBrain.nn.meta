@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: d91a28d03f613484fa1625982b7a2b17
+guid: 103356aba0a7342c2b35bde7eb29f3ab
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/models/cbx-0/CBXBrain.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/models/cbx-0/CBXBrain.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

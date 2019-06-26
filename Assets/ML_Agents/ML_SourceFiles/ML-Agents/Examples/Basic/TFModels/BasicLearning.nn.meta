@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: b9b3600e7ab99422684e1f3bf597a456
+guid: 58752b3b279b04df38c979fa293ae1a9
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Basic/TFModels/BasicLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Basic/TFModels/BasicLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

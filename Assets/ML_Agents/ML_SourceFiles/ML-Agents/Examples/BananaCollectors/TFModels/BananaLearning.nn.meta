@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 9aed85b22394844eaa6db4d5e3c61adb
+guid: b182f9895649e443fb08cd261fed54f4
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/BananaCollectors/TFModels/BananaLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/BananaCollectors/TFModels/BananaLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

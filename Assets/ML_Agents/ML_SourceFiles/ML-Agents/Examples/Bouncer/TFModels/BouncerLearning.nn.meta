@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 055df42a4cc114162939e523d053c4d7
+guid: 50bfe4e2a4303483ea8df6a0b1041ae9
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Bouncer/TFModels/BouncerLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Bouncer/TFModels/BouncerLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

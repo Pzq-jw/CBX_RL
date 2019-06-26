@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 38874f53f06bd4f7782bc81d917a0442
+guid: af1a60305aab2443b9e9f2eb8bde8685
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Pyramids/TFModels/PyramidsLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Pyramids/TFModels/PyramidsLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

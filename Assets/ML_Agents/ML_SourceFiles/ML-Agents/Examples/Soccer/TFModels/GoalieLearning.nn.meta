@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: b6dd703e0bf914268a4e110ad85ab7a9
+guid: 1e327fbcf60d44362af3723d195d12cd
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Soccer/TFModels/GoalieLearning.nn
+    11400000: Assets/CBX_RL/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Examples/Soccer/TFModels/GoalieLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 
