@@ -12,8 +12,6 @@ public class CBXPieceAgent : Agent
 	public bool isJustCalledDone;
 	public int deadcenterCount = 0;
 
-    public Rigidbody2D sparseTest;
-
 	public override void InitializeAgent()
 	{
 		isJustCalledDone = true;		
@@ -22,7 +20,7 @@ public class CBXPieceAgent : Agent
 	public override void AgentReset()
 	{
 		HookNewPiece4ML();
-		mlTarget.position = new Vector3(Random.value*3-1.5f, -3.7f, 0);
+		// mlTarget.position = new Vector3(Random.value*3-1.5f, -3.7f, 0);
 	}
 
 	public override void CollectObservations()
