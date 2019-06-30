@@ -1,7 +1,9 @@
+using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
+using static GO_Extensions;
 
 public class CBXPieceAgent : Agent
 {
@@ -14,9 +16,13 @@ public class CBXPieceAgent : Agent
 	public bool isJustCalledDone;
 	public int deadcenterCount = 0;
 
+    private string rewardFunc;
+
 	public override void InitializeAgent()
 	{
-		isJustCalledDone = true;		
+		isJustCalledDone = true;
+        string rf = this.transform.GetArg("--rf");
+        rewardFunc = string.IsNullOrEmpty(rf) ? "Default_Reward" : rf;
 	}
 
 	public override void AgentReset()
@@ -74,7 +80,12 @@ public class CBXPieceAgent : Agent
     public void ComputeReward()
     {
     	float absDelta = Mathf.Abs(this.transform.localPosition.x - mlTarget.transform.localPosition.x);
-    	float reward = swingRewardObj.Power_N3_Reward(absDelta);
+
+        System.Type rwType = swingRewardObj.GetType(); 
+        MethodInfo rf = rwType.GetMethod(rewardFunc);
+        object rewardObj = rf.Invoke(swingRewardObj, new object[]{absDelta});
+        float reward = (float)rewardObj;
+
     	AddReward(reward);
     	Monitor.Log("DeltaX : ", absDelta, monitorObj);
     	Debug.Log("AbsDeltaX : " + absDelta, monitorObj);

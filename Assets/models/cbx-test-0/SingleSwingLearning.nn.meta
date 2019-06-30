@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 44d470a398c7c40b690da8445caff11b
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/models/cbx-test-0/SingleSwingLearning.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 06ee1221832e14b89b38dd3f0c03156e, type: 3}
