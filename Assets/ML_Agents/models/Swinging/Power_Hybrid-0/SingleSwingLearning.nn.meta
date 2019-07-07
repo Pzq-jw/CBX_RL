@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 106d82eda206042a49adc88ea593a0be
+guid: f374b5dc600744761af10b0917288ec6
 ScriptedImporter:
   fileIDToRecycleName:
-    11400002: Assets/ML_Agents/models/Swinging/SwingSingle_Hybrid_pp4_np2-0/SwingSingleLearning.nn
+    11400000: Assets/ML_Agents/models/Swinging/Power_Hybrid-0/SingleSwingLearning.nn
   externalObjects: {}
   userData: 
   assetBundleName: 

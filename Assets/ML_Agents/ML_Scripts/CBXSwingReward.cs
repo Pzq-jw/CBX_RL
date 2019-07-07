@@ -13,6 +13,7 @@ public class CBXSwingReward : MonoBehaviour
     {
         return -1.201f;
     }
+    
     public float Power_N2_Reward(float distance)
     {
     	if(distance < 0.1)

@@ -23,6 +23,7 @@ public class CBXPieceAgent : Agent
 		isJustCalledDone = true;
         string rf = this.transform.GetArg("--rf");
         rewardFunc = string.IsNullOrEmpty(rf) ? "Default_Reward" : rf;
+        Debug.Log(" ! CBXPieceAgent: reward_func = " + rewardFunc);
 	}
 
 	public override void AgentReset()
@@ -81,15 +82,15 @@ public class CBXPieceAgent : Agent
     {
     	float absDelta = Mathf.Abs(this.transform.localPosition.x - mlTarget.transform.localPosition.x);
 
-        System.Type rwType = swingRewardObj.GetType(); 
-        MethodInfo rf = rwType.GetMethod(rewardFunc);
-        object rewardObj = rf.Invoke(swingRewardObj, new object[]{absDelta});
-        float reward = (float)rewardObj;
+     //    System.Type rwType = swingRewardObj.GetType(); 
+     //    MethodInfo rf = rwType.GetMethod(rewardFunc);
+     //    object rewardObj = rf.Invoke(swingRewardObj, new object[]{absDelta});
+     //    float reward = (float)rewardObj;
 
-    	AddReward(reward);
-    	Monitor.Log("DeltaX : ", absDelta, monitorObj);
-    	Debug.Log("AbsDeltaX : " + absDelta, monitorObj);
-    	Debug.Log("Immidate reward : "+reward.ToString() , gameObject);
+    	// AddReward(reward);
+    	// Monitor.Log("DeltaX : ", absDelta, monitorObj);
+    	// Debug.Log("AbsDeltaX : " + absDelta, monitorObj);
+    	// Debug.Log("Immidate reward : "+reward.ToString() , gameObject);
     }
 
 }
