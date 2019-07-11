@@ -20,6 +20,7 @@ public class GameControl : MonoBehaviour
     public ParticleControl particleObj;
     public MyCollisionControl mycolObj;
     public CBXPieceAgent agentObj;
+    public CBXSaverAgent saverAgentObj;
     public CBXAcademy academyObj;
 
     public Text scoreText;

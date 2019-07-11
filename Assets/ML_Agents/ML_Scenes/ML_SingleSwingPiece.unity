@@ -1145,7 +1145,8 @@ MonoBehaviour:
     broadcastingBrains:
     - {fileID: 11400000, guid: cf69212b8e8e14aafa6b356244c8fee0, type: 2}
     - {fileID: 11400000, guid: e3144c3b65c7f4a53962baf2ee03c5c6, type: 2}
-    _brainsToControl: []
+    _brainsToControl:
+    - {fileID: 11400000, guid: cf69212b8e8e14aafa6b356244c8fee0, type: 2}
   maxSteps: 0
   trainingConfiguration:
     width: 80
@@ -1173,7 +1174,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &611633405
 Rigidbody2D:
@@ -2010,11 +2011,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899954674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3, y: -8.6, z: 0}
+  m_LocalPosition: {x: 0.3, y: -6.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &934024283
 GameObject:
@@ -2205,6 +2206,7 @@ MonoBehaviour:
   particleObj: {fileID: 137224452}
   mycolObj: {fileID: 1065792521}
   agentObj: {fileID: 7682980576525386174}
+  saverAgentObj: {fileID: 0}
   academyObj: {fileID: 580486359}
   scoreText: {fileID: 1331612907}
   missText: {fileID: 639505844}
@@ -2442,6 +2444,8 @@ MonoBehaviour:
   maxAmplitudeRotate: 0
   rb2d: {fileID: 0}
   columnHeightIncrement: 0
+  timeOffset: 0
+  isReset: 0
 --- !u!50 &1230117403
 Rigidbody2D:
   serializedVersion: 4
@@ -2560,7 +2564,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331612904
 GameObject:
@@ -2757,6 +2761,7 @@ MonoBehaviour:
   h: 1.5
   angularSpeed: -2.5
   rotateAngle: 20
+  angle: 0
   _pos: {x: 0, y: 0, z: 0}
   rotateX: 0
   rotateY: 0
@@ -3480,7 +3485,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &356531389130146440
 MonoBehaviour:
@@ -3753,11 +3758,12 @@ MonoBehaviour:
     numberOfActionsBetweenDecisions: 1
   swingRewardObj: {fileID: 7682980576525386175}
   mlTarget: {fileID: 577732854}
-  mlTargetRb2d: {fileID: 577732857}
+  mlColumn: {fileID: 1230117404}
   pieceObj: {fileID: 8710141792735464913}
   monitorObj: {fileID: 899954675}
   isJustCalledDone: 0
   deadcenterCount: 0
+  rewardFunc: Power_Hybrid
 --- !u!114 &7682980576525386175
 MonoBehaviour:
   m_ObjectHideFlags: 0

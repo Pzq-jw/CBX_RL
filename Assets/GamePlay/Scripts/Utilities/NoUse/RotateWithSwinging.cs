@@ -21,7 +21,7 @@ public class RotateWithSwinging : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	angle = EllipticalOrbit.angle;
+    	angle = GameControl.instance.slingObj.angle;
         rotateX = -rotateAngle * Mathf.Sin(angle);
         rotateY = rotateAngle * Mathf.Cos(angle);
         rotateZ = rotateAngle * Mathf.Cos(angle);

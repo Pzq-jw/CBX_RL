@@ -83,6 +83,7 @@ public class Piece : MonoBehaviour
                 GameControl.instance.AfterPieceStackingFailed(stackStatus.fallenSide);
                 // OnStackingFailed();
             }
+            // GameControl.instance.saverAgentObj.RequestDecision();
         }
         isStacked = true;
     }

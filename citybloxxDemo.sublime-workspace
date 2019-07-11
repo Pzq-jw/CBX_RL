@@ -4,6 +4,78 @@
 		"selected_items":
 		[
 			[
+				"del",
+				"delta\tfloat"
+			],
+			[
+				"de",
+				"deltaDegree\tfloat"
+			],
+			[
+				"dif",
+				"diffFactors\tfloat[]"
+			],
+			[
+				"eva",
+				"EvaluateRotateDiffLvl(float factor, float[] subList, string[] diffLvl)\tvoid"
+			],
+			[
+				"fac",
+				"factorIdx\tint"
+			],
+			[
+				"e",
+				"Equals(string a, string b)\tbool"
+			],
+			[
+				"am",
+				"amplitudeIncrement\tfloat"
+			],
+			[
+				"requ",
+				"RequestDecision()\tvoid"
+			],
+			[
+				"to",
+				"totalPieceNum\tint"
+			],
+			[
+				"thi",
+				"thinkingTime\tint"
+			],
+			[
+				"Req",
+				"RequestDecision()\tvoid"
+			],
+			[
+				"Ag",
+				"AgentAction(float[] vectorAction, string textAction)\tvoid"
+			],
+			[
+				"tim",
+				"timeOffset\tfloat"
+			],
+			[
+				"an",
+				"angularSpeed\tfloat"
+			],
+			[
+				"time",
+				"Time\tTime"
+			],
+			[
+				"cl",
+				"Clamp(float value, float min, float max)\tfloat"
+			],
+			[
+				"moni",
+				"Monitor\tMonitor"
+			],
+			[
+				"ml",
+				"mlTarget\tTransform"
+			],
+			[
 				"rew",
 				"reward\tfloat"
 			],
@@ -60,20 +132,8 @@
 				"Environment\tEnvironment"
 			],
 			[
-				"to",
-				"ToString()\tstring"
-			],
-			[
-				"cl",
-				"Clamp01(float value)\tfloat"
-			],
-			[
 				"gam",
 				"gameObject\tGameObject"
-			],
-			[
-				"del",
-				"stackDeltaX\tfloat"
 			],
 			[
 				"top",
@@ -352,10 +412,6 @@
 				"ColumnSwingingCenterMoveUp()\tvoid"
 			],
 			[
-				"an",
-				"angleSpeed\tfloat"
-			],
-			[
 				"ac",
 				"constraintActive\tbool"
 			],
@@ -452,68 +508,12 @@
 				"onTimerCompleted_\tCompleteEvent"
 			],
 			[
-				"time",
-				"timerTarget\tfloat"
-			],
-			[
 				"Time",
 				"Time_\tfloat"
 			],
 			[
 				"istime",
 				"isTimerStart\tbool"
-			],
-			[
-				"clam",
-				"Clamp(float value, float min, float max)\tfloat"
-			],
-			[
-				"cheiffa",
-				"checkFallenSide(float deltaX)\tvoid"
-			],
-			[
-				"tr",
-				"true\ttrue"
-			],
-			[
-				"check",
-				"CheckFirstPieceIfStacked()\tvoid"
-			],
-			[
-				"ot",
-				"otherCollider\tCollider2D"
-			],
-			[
-				"scne",
-				"SceneManager\tSceneManager"
-			],
-			[
-				"mis",
-				"missNum\tint"
-			],
-			[
-				"si",
-				"Sin(float f)\tfloat"
-			],
-			[
-				"bo",
-				"bottomRight\tVector3"
-			],
-			[
-				"collisi",
-				"Collision2D\tCollision2D"
-			],
-			[
-				"con",
-				"contactCount\tint"
-			],
-			[
-				"po",
-				"posSkyObj_2\tVector3"
-			],
-			[
-				"sky",
-				"skyObj_2\tGameObject"
 			]
 		]
 	},
@@ -523,26 +523,8 @@
 			"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
 			"settings":
 			{
-				"buffer_size": 2878,
+				"buffer_size": 3546,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/GamePlay/Scripts/Utilities/Extension.cs",
-			"settings":
-			{
-				"buffer_size": 2063,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/ML_Agents/ML_Scripts/CBXReward.cs",
-			"settings":
-			{
-				"buffer_size": 1935,
-				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
 		},
@@ -556,6 +538,42 @@
 			}
 		},
 		{
+			"file": "Assets/GamePlay/Scripts/GameControl.cs",
+			"settings":
+			{
+				"buffer_size": 4945,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/GamePlay/Scripts/Piece.cs",
+			"settings":
+			{
+				"buffer_size": 5216,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/GamePlay/Scripts/ColumnSwinging.cs",
+			"settings":
+			{
+				"buffer_size": 3953,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/GamePlay/Scripts/EllipticalOrbit.cs",
+			"settings":
+			{
+				"buffer_size": 1484,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
 			"settings":
 			{
@@ -565,10 +583,19 @@
 			}
 		},
 		{
-			"file": "Assets/GamePlay/Scripts/GameControl.cs",
+			"file": "Assets/ML_Agents/ML_Scripts/CBXSaverAgent.cs",
 			"settings":
 			{
-				"buffer_size": 4905,
+				"buffer_size": 5110,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/GamePlay/Scripts/MyCollisionControl.cs",
+			"settings":
+			{
+				"buffer_size": 1080,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -693,10 +720,15 @@
 	[
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities",
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities/NoUse",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts"
 	],
 	"file_history":
 	[
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities/Extension.cs",
+		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/SaverAgent.cs",
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities/NoUse/RotateWithSwinging.cs",
+		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXReward.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_SourceFiles/ML-Agents/Scripts/Agent.cs",
 		"/Users/alex/citybloxxDemo/Assets/ML_Agents/ML_Scripts/ML_GameControl.cs",
 		"/Users/alex/citybloxxDemo/Assets/ML_Agents/ML_Scripts/ML_Piece.cs",
@@ -820,15 +852,11 @@
 		"/Users/alex/Desktop/mlp2019/log.txt",
 		"/Users/alex/Desktop/mlp2019/src/utilities.py",
 		"/Users/alex/Desktop/draft.md",
-		"/Users/alex/Desktop/project_templete/includes/resource.h",
-		"/Users/alex/Desktop/mlp_cluster/mlp2019/data/fold1/X_test.pickle",
-		"/Users/alex/Desktop/mlp_cluster/mlp2019/slurm-289048.out",
-		"/Users/alex/Desktop/mlp_cluster/mlp2019/src/baseline.py",
-		"/Users/alex/.zim/modules/custom/functions/from keras.layers import Dense"
+		"/Users/alex/Desktop/project_templete/includes/resource.h"
 	],
 	"find":
 	{
-		"height": 37.0
+		"height": 49.0
 	},
 	"find_in_files":
 	{
@@ -842,6 +870,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"angle",
 			"reward",
 			"private"
 		],
@@ -871,25 +900,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2878,
+						"buffer_size": 3546,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								773,
-								773
+								3372,
+								3372
 							]
 						],
 						"settings":
 						{
+							"is_init_dirty_state": false,
 							"oops":
 							{
-								"0,5": "不需要的 using 指令。",
+								"1029,1030": "应输入标识符",
 								"120,125": "不需要的 using 指令。",
 								"25,30": "不需要的 using 指令。",
-								"2833,2839": "'“Agent.reward”不可访问，因为它具有一定的保护级别",
 								"51,56": "不需要的 using 指令。"
 							},
 							"origin_encoding": "ASCII",
@@ -898,73 +927,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 878.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/GamePlay/Scripts/Utilities/Extension.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2063,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1872,
-								1872
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Assets/ML_Agents/ML_Scripts/CBXReward.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1935,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								339,
-								339
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1684.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 1,
 					"file": "Assets/ML_Agents/ML_SourceFiles/config/trainer_config.yaml",
 					"semi_transient": false,
 					"settings":
@@ -982,6 +952,7 @@
 						],
 						"settings":
 						{
+							"is_init_dirty_state": false,
 							"origin_encoding": "ASCII",
 							"syntax": "Packages/YAML/YAML.sublime-syntax",
 							"tab_size": 4,
@@ -991,11 +962,159 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/GamePlay/Scripts/GameControl.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4945,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								664,
+								664
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"oops":
+							{
+								"0,6": "不需要的 using 指令。",
+								"137,142": "不需要的 using 指令。",
+								"2514,2527": "'“CBXSaverAgent”未包含“ComputeReward”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“ComputeReward”(是否缺少 using 指令或程序集引用?)",
+								"2581,2597": "'“CBXSaverAgent”未包含“isJustCalledDone”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“isJustCalledDone”(是否缺少 using 指令或程序集引用?)",
+								"2627,2642": "'“CBXSaverAgent”未包含“deadcenterCount”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“deadcenterCount”(是否缺少 using 指令或程序集引用?)",
+								"27,32": "不需要的 using 指令。",
+								"2845,2858": "'“CBXSaverAgent”未包含“ComputeReward”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“ComputeReward”(是否缺少 using 指令或程序集引用?)",
+								"2912,2928": "'“CBXSaverAgent”未包含“isJustCalledDone”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“isJustCalledDone”(是否缺少 using 指令或程序集引用?)",
+								"3174,3187": "'“CBXSaverAgent”未包含“ComputeReward”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“ComputeReward”(是否缺少 using 指令或程序集引用?)",
+								"3233,3249": "'“CBXSaverAgent”未包含“isJustCalledDone”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“isJustCalledDone”(是否缺少 using 指令或程序集引用?)"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2063.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/GamePlay/Scripts/Piece.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5216,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2623,
+								2631
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1980.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
+					"file": "Assets/GamePlay/Scripts/ColumnSwinging.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3953,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2656,
+								1263
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"oops":
+							{
+								"0,5": "不需要的 using 指令。",
+								"1470,1471": "应输入 ;",
+								"26,31": "不需要的 using 指令。",
+								"79,84": "不需要的 using 指令。"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2764.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "Assets/GamePlay/Scripts/EllipticalOrbit.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1484,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
 					"semi_transient": false,
 					"settings":
@@ -1013,6 +1132,7 @@
 						],
 						"settings":
 						{
+							"is_init_dirty_state": false,
 							"oops":
 							{
 								"0,5": "不需要的 using 指令。",
@@ -1027,24 +1147,58 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "Assets/GamePlay/Scripts/GameControl.cs",
+					"buffer": 7,
+					"file": "Assets/ML_Agents/ML_Scripts/CBXSaverAgent.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4905,
+						"buffer_size": 5110,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1783,
-								1783
+								3940,
+								3940
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"oops":
+							{
+								"0,5": "不需要的 using 指令。",
+								"4219,4224": "只有 assignment、call、increment、decrement、await 和 new 对象表达式可用作语句"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 4114.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "Assets/GamePlay/Scripts/MyCollisionControl.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1080,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								791,
+								807
 							]
 						],
 						"settings":
@@ -1057,20 +1211,15 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 37.0
+		"height": 36.0
 	},
 	"input":
 	{
@@ -1096,7 +1245,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.327763142896,
 			1.0
 		],
 		"rows":
@@ -1122,7 +1271,7 @@
 	"project": "citybloxxDemo.sublime-project",
 	"replace":
 	{
-		"height": 70.0
+		"height": 68.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1160,7 +1309,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

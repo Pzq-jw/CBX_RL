@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 45e311e6793e1462fb44a1b698fef420
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/ML_Agents/models/Phase3/Power_Hybrid_PP4_NP2-0/SingleSwingLearning.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 06ee1221832e14b89b38dd3f0c03156e, type: 3}

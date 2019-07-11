@@ -19,6 +19,10 @@ public class ColumnSwinging : MonoBehaviour
 	private float angle;
 	private float angularSpeed = 1f;
 
+	public float timeOffset;
+	public bool isReset = false;
+	private float _t = 0;
+
 	void Start()
 	{
 		angle = 0;
@@ -42,14 +46,30 @@ public class ColumnSwinging : MonoBehaviour
 			return false;
 	}
 
+	public void ResetColumnStatus()
+	{
+		isReset = true;
+		timeOffset = Random.Range(0, 6.28f);
+		amplitudeRotate = Random.Range(5f, 15f);
+	}
+
 	void FixedUpdate()
 	{
 		// if(IsColumnShouldRotate())
 		// {
 			// transform.position = new Vector3(Mathf.PingPong(Time.time*speed, 2), transform.position.y, transform.position.z);
 			// transform.position = new Vector3(Mathf.Cos(Time.time)*amplitudeMove, transform.position.y, transform.position.z);
-			rb2d.velocity = new Vector2(Mathf.Cos(Time.time)*amplitudeMove, 0);
-			transform.rotation = Quaternion.Euler(0,0,-Mathf.Sin(Time.time)*amplitudeRotate);
+			_t += Time.fixedDeltaTime * angularSpeed;
+			// Debug.Log("Time.time = " + _t);
+			if(isReset)
+			{
+				_t -= timeOffset;
+				isReset = false;
+				// Debug.Log("reset column!!! _t = " + _t);
+			}
+			// rb2d.velocity = new Vector2(Mathf.Cos(_t)*amplitudeMove, 0);
+			transform.position = new Vector3(Mathf.Sin(_t) * 0.5f, -5, 0);
+			transform.rotation = Quaternion.Euler(0,0,-Mathf.Sin(_t)*amplitudeRotate);
 
 			// float swingingSpeed = Mathf.Cos(angle) * amplitudeRotate;
 			// angle += angularSpeed * Time.fixedDeltaTime;

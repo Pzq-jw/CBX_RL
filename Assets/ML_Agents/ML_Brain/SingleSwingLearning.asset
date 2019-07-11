@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SingleSwingLearning
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 8
+    vectorObservationSize: 11
     numStackedVectorObservations: 1
     vectorActionSize: 02000000
     cameraResolutions: []
     vectorActionDescriptions:
     - 
     vectorActionSpaceType: 0
-  model: {fileID: 11400000, guid: f374b5dc600744761af10b0917288ec6, type: 3}
+  model: {fileID: 11400000, guid: 1c5488cfd615d45cf857d0929d84df52, type: 3}
   inferenceDevice: 0

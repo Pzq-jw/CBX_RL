@@ -9,13 +9,14 @@ public class CBXPieceAgent : Agent
 {
     public CBXSwingReward swingRewardObj;
 	public Transform mlTarget;
-    public Rigidbody2D mlTargetRb2d;
+    public Transform mlColumn;
 	public Piece pieceObj;
 	public Transform monitorObj;
 
 	public bool isJustCalledDone;
 	public int deadcenterCount = 0;
 
+    [SerializeField]
     private string rewardFunc;
 
 	public override void InitializeAgent()
@@ -30,14 +31,21 @@ public class CBXPieceAgent : Agent
 	{
 		HookNewPiece4ML();
 		// mlTarget.position = new Vector3(Random.value*3-1.5f, -3.7f, 0);
+        ResetEnv();
 	}
 
 	public override void CollectObservations()
 	{
 		AddVectorObs(this.transform.position);
-		AddVectorObs(mlTarget.position);
-        AddVectorObs(mlTarget.rotation.z);
-        AddVectorObs(mlTargetRb2d.velocity.x);
+        AddVectorObs(mlTarget.position);
+		AddVectorObs(mlTarget.localPosition);
+        AddVectorObs(mlColumn.eulerAngles.z);
+        AddVectorObs(mlColumn.position.x);
+
+        // Monitor.Log("rotation", mlTarget.rotation.z);
+        // Monitor.Log("rotation Euler", mlTarget.rotation.eulerAngles.z);
+        // Debug.Log("rotation Euler = "+mlTarget.rotation.eulerAngles.z);
+        // Debug.Log("rotation = "+mlTarget.rotation.z);
 	}
 
 	public override void AgentAction(float[] vectorAction, string textAction)
@@ -58,6 +66,10 @@ public class CBXPieceAgent : Agent
         	pieceObj.isHooked = false;
         	isJustCalledDone = false;
 		}
+        else if(dropSignal == 0)
+        {
+            AddReward(-0.0001f);
+        }
 	}
 
 	void FixedUpdate()
@@ -66,12 +78,14 @@ public class CBXPieceAgent : Agent
 		{
 			RequestDecision();
 		}
+        Debug.DrawLine(new Vector3(transform.position.x, -30, 0), new Vector3(transform.position.x, 30, 0));
 	}
 
     void HookNewPiece4ML()
     {
         this.transform.parent = null; // avoid x offset when hooking the piece from column
         this.transform.position = new Vector3(0, -2.25f, 0);
+        this.transform.rotation = Quaternion.identity;
         this.transform.SetParent(GameControl.instance.slingObj.transform,false);
         pieceObj.isHooked = true;
         pieceObj.isStacked = false;
@@ -80,17 +94,26 @@ public class CBXPieceAgent : Agent
 
     public void ComputeReward()
     {
+        // Debug.Log("this.localX = " + this.transform.localPosition.x.ToString());
+        // Debug.Log("target,localX = " + mlTarget.transform.localPosition.x.ToString());
     	float absDelta = Mathf.Abs(this.transform.localPosition.x - mlTarget.transform.localPosition.x);
 
-     //    System.Type rwType = swingRewardObj.GetType(); 
-     //    MethodInfo rf = rwType.GetMethod(rewardFunc);
-     //    object rewardObj = rf.Invoke(swingRewardObj, new object[]{absDelta});
-     //    float reward = (float)rewardObj;
+        System.Type rwType = swingRewardObj.GetType(); 
+        MethodInfo rf = rwType.GetMethod(rewardFunc);
+        object rewardObj = rf.Invoke(swingRewardObj, new object[]{absDelta});
+        float reward = (float)rewardObj;
 
-    	// AddReward(reward);
-    	// Monitor.Log("DeltaX : ", absDelta, monitorObj);
+    	AddReward(reward);
+    	Monitor.Log("DeltaX : ", absDelta, monitorObj);
     	// Debug.Log("AbsDeltaX : " + absDelta, monitorObj);
     	// Debug.Log("Immidate reward : "+reward.ToString() , gameObject);
+    }
+
+    public void ResetEnv()
+    {
+        GameControl.instance.slingObj.angle = Random.Range(0f, 360f);
+        GameControl.instance.columnObj.ResetColumnStatus();
+        mlTarget.transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), 4.3f, 0);
     }
 
 }

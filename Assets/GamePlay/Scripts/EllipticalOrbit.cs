@@ -9,7 +9,7 @@ public class EllipticalOrbit : MonoBehaviour
 	public float angularSpeed = 0.1f;
 	public float rotateAngle = 20f;
 
-	public static float angle;
+	public float angle;
 	private float x, y, z;
 	public Vector3 _pos;
 

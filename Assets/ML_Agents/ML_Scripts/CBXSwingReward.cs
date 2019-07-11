@@ -114,4 +114,44 @@ public class CBXSwingReward : MonoBehaviour
         else
             return -Mathf.Pow(distance/distance_max, 3f);
     }
+
+    public float Dead_Hybrid(float distance)
+    {
+        float distance_max = 2.5f;
+        if(distance <= 0.1)
+            return 1f;
+        else
+            return -Mathf.Pow(distance/distance_max, 3f);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
