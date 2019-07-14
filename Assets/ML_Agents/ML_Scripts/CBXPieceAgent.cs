@@ -105,8 +105,8 @@ public class CBXPieceAgent : Agent
 
     	AddReward(reward);
     	Monitor.Log("DeltaX : ", absDelta, monitorObj);
-    	// Debug.Log("AbsDeltaX : " + absDelta, monitorObj);
-    	// Debug.Log("Immidate reward : "+reward.ToString() , gameObject);
+    	Debug.Log("AbsDeltaX : " + absDelta, monitorObj);
+    	Debug.Log("Immidate reward : "+reward.ToString() , gameObject);
     }
 
     public void ResetEnv()

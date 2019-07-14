@@ -1145,7 +1145,8 @@ MonoBehaviour:
     broadcastingBrains:
     - {fileID: 11400000, guid: e73723fba173d4481818b69c1a6b9b1a, type: 2}
     - {fileID: 11400000, guid: be63fbc01f59647b1bb0583bc31e18e2, type: 2}
-    _brainsToControl: []
+    _brainsToControl:
+    - {fileID: 11400000, guid: e73723fba173d4481818b69c1a6b9b1a, type: 2}
   maxSteps: 0
   trainingConfiguration:
     width: 80
@@ -3036,6 +3037,11 @@ MonoBehaviour:
   monitor: {fileID: 899954675}
   mlColumn: {fileID: 1230117404}
   pieceObj: {fileID: 1838189660}
+  cor_count: 0
+  total_count: 0
+  s: 
+  t: 
+  isCorrect: 0
 --- !u!114 &1838189656
 MonoBehaviour:
   m_ObjectHideFlags: 0

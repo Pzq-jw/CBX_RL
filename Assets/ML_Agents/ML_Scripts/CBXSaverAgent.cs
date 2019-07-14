@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
+using System.IO;
 
 public class CBXSaverAgent : Agent
 {
@@ -14,23 +15,11 @@ public class CBXSaverAgent : Agent
 	private int leftLife;
 	private int totalPieceNum;
 	private float delta;
+    public int cor_count, total_count;
+    public string s, t;
+    public int isCorrect;
 		
 	private List<float> perceptionBuffer = new List<float>();
-
-	public float deltaDegree
-	{
-		get 
-		{
-			if(delta > 0.5)
-			{
-				return 0.5f + delta/2.8f;
-			}
-			else
-			{
-				return delta;
-			}
-		}
-	}
 
 	public override void AgentReset()
 	{
@@ -46,17 +35,14 @@ public class CBXSaverAgent : Agent
 
 	public override void CollectObservations()
 	{
-		// AddVectorObs(this.transform.position);
-		// AddVectorObs(mlTarget.position);
-  //       AddVectorObs(mlTarget.rotation.z);
-  //       AddVectorObs(mlColumn.position.x);
 		delta = Mathf.Abs(this.transform.position.x - mlTarget.transform.position.x);
 		float[] diffFactors = {thinkingTime, 
 								delta,
 								GameControl.instance.columnObj.amplitudeRotate};
 		string[] detectableObjects = {"easy", "medium", "difficult"};
 		AddVectorObs(EvaluateDiffLvl(diffFactors, detectableObjects));
-		Debug.Log("delta = " + delta + " time = " + thinkingTime + " rotate = " + GameControl.instance.columnObj.amplitudeRotate);
+		// AddVectorObs(GetStepCount() / (float)agentParameters.maxStep);
+		// Debug.Log("delta = " + delta + " time = " + thinkingTime + " rotate = " + GameControl.instance.columnObj.amplitudeRotate);
 	}
 
 	public List<float> EvaluateDiffLvl(float[] diffFactors, string[] diffLvl)
@@ -89,7 +75,7 @@ public class CBXSaverAgent : Agent
 			if(string.Equals(GetTimeLvl(factor), diffLvl[i]))
 			{
 				subList[i] = 1;
-				subList[diffLvl.Length + 1] = factor / 15f;
+				subList[diffLvl.Length + 1] = (factor-7) / 8f;
 				break;
 			}
 		}
@@ -160,43 +146,61 @@ public class CBXSaverAgent : Agent
 	public override void AgentAction(float[] vectorAction, string textAction)
 	{
 		int state = GetCurrentState();
-		int tuneSignal = Mathf.FloorToInt(vectorAction[0]);
-		Debug.Log("current state = " + state);
-		Debug.Log("tuneSignal = " + tuneSignal);
-		if(tuneSignal == 0)
+		int turnSignal = Mathf.FloorToInt(vectorAction[0]);
+		// Debug.Log("current state = " + state);
+		// Debug.Log("tuneSignal = " + turnSignal);
+		// Accuracy(state, turnSignal);
+		if(turnSignal == 0)
 		{
-			AddReward(-0.001f);
+			AddReward(-1f/agentParameters.maxStep);
 		}
-		else if(tuneSignal == 1)  // turn to more difficult
+		else if(turnSignal == 1)  // turn to more difficult
 		{
 			if(state == 1)
 			{
-				AddReward(1f);
+				SetReward(1f);
 			}
 			else
 			{
-				AddReward(-0.1f);
+				SetReward(-1f);
 			}
 			Done();
 		}
-		else if(tuneSignal == 2) // turn to easier
+		else if(turnSignal == 2) // turn to easier
 		{
 			if(state == 2)
 			{
-				AddReward(1f);
+				SetReward(1f); 
 			}
 			else
 			{
-				AddReward(-0.1f);
+				SetReward(-1f); 
+				// try more negative reward than for listen action
+				// Agent MaxStep can try to reduce
 			}
 			Done();
+		}
+	}
+
+	public float deltaDegree
+	{
+		get 
+		{
+			if(delta > 0.5)
+			{
+				return 0.5f + delta/2.8f;
+			}
+			else
+			{
+				return delta;
+			}
 		}
 	}
 
 	private int GetCurrentState()
 	{
 		float exp = 0.2f * (thinkingTime / 10f) + 0.7f * deltaDegree
-					+ 0.1f * (GameControl.instance.columnObj.amplitudeRotate / 15f);
+					+ 0.1f * ((GameControl.instance.columnObj.amplitudeRotate-7) / 8f);
 		if(exp < 0.2)
 			return 1; // easy
 		else if(exp < 0.7)
@@ -213,10 +217,77 @@ public class CBXSaverAgent : Agent
         this.transform.position = new Vector3(Random.Range(-1.3f, 1.3f), -1.2f, 0);
     }
 
-    public void ComputeReward()
+    public void Accuracy(int curState, int turnSignal)
     {
-        Debug.Log("this.localX = " + this.transform.localPosition.x.ToString());
-        Debug.Log("target,localX = " + mlTarget.transform.localPosition.x.ToString());
-    	float absDelta = Mathf.Abs(this.transform.localPosition.x - mlTarget.transform.localPosition.x);
+		using(StreamWriter sw = new StreamWriter("dda_accuracy.txt", true))
+		{
+	    	total_count++;
+
+	    	if(curState == 1)
+	    	{
+	    		s = "easy";
+	    		if(turnSignal == 1)
+	    		{
+	    			t = "turn_difficult";
+	    			cor_count++;
+	    			isCorrect = 1;
+	    		}
+	    		else if(turnSignal == 0)
+	    		{
+	    			t = "turn_medium";
+	    			isCorrect = 0;
+	    		}
+	    		else if(turnSignal == 2)
+	    		{
+	    			t = "turn_easy";
+	    			isCorrect = 0;
+	    		}
+	    	}
+	    	else if(curState == 0)
+	    	{
+	    		s = "medium";
+	    		if(turnSignal == 1)
+	    		{
+	    			t = "turn_difficult";
+	    			isCorrect = 0;
+	    		}
+	    		else if(turnSignal == 0)
+	    		{
+	    			t = "turn_medium";
+	    			cor_count++;
+	    			isCorrect = 1;
+	    		}
+	    		else if(turnSignal == 2)
+	    		{
+	    			t = "turn_easy";
+	    			isCorrect = 0;
+	    		}
+	    	}
+	    	else if(curState == 2)
+	    	{
+	    		s = "difficult";
+	    		if(turnSignal == 1)
+	    		{
+	    			t = "turn_difficult";
+	    			isCorrect = 0;   			
+	    		}
+	    		else if(turnSignal == 0)
+	    		{
+	    			t = "turn_medium";
+	    			isCorrect = 0;    			
+	    		}
+	    		else if(turnSignal == 2)
+	    		{
+	    			t = "turn_easy";
+	    			isCorrect = 1;
+	    			cor_count++;
+	    		}
+	    	}
+		
+			sw.WriteLine(isCorrect + "\t" + delta + "\t" + thinkingTime + "\t"
+							+ GameControl.instance.columnObj.amplitudeRotate + "\t"
+							+ s + "\t" + t + "\t" + cor_count);
+		}
+
     }
 }
