@@ -41,7 +41,7 @@ public class CBXSaverAgent : Agent
 								GameControl.instance.columnObj.amplitudeRotate};
 		string[] detectableObjects = {"easy", "medium", "difficult"};
 		AddVectorObs(EvaluateDiffLvl(diffFactors, detectableObjects));
-		// AddVectorObs(GetStepCount() / (float)agentParameters.maxStep);
+		AddVectorObs(GetStepCount() / (float)agentParameters.maxStep);
 		// Debug.Log("delta = " + delta + " time = " + thinkingTime + " rotate = " + GameControl.instance.columnObj.amplitudeRotate);
 	}
 
@@ -149,7 +149,7 @@ public class CBXSaverAgent : Agent
 		int turnSignal = Mathf.FloorToInt(vectorAction[0]);
 		// Debug.Log("current state = " + state);
 		// Debug.Log("tuneSignal = " + turnSignal);
-		// Accuracy(state, turnSignal);
+		Accuracy(state, turnSignal);
 		if(turnSignal == 0)
 		{
 			AddReward(-1f/agentParameters.maxStep);
@@ -228,13 +228,13 @@ public class CBXSaverAgent : Agent
 	    		s = "easy";
 	    		if(turnSignal == 1)
 	    		{
-	    			t = "turn_difficult";
+	    			t = "turn_diff";
 	    			cor_count++;
 	    			isCorrect = 1;
 	    		}
 	    		else if(turnSignal == 0)
 	    		{
-	    			t = "turn_medium";
+	    			t = "turn_medi";
 	    			isCorrect = 0;
 	    		}
 	    		else if(turnSignal == 2)
@@ -245,15 +245,15 @@ public class CBXSaverAgent : Agent
 	    	}
 	    	else if(curState == 0)
 	    	{
-	    		s = "medium";
+	    		s = "medi";
 	    		if(turnSignal == 1)
 	    		{
-	    			t = "turn_difficult";
+	    			t = "turn_diff";
 	    			isCorrect = 0;
 	    		}
 	    		else if(turnSignal == 0)
 	    		{
-	    			t = "turn_medium";
+	    			t = "turn_medi";
 	    			cor_count++;
 	    			isCorrect = 1;
 	    		}
@@ -265,15 +265,15 @@ public class CBXSaverAgent : Agent
 	    	}
 	    	else if(curState == 2)
 	    	{
-	    		s = "difficult";
+	    		s = "diff";
 	    		if(turnSignal == 1)
 	    		{
-	    			t = "turn_difficult";
+	    			t = "turn_diff";
 	    			isCorrect = 0;   			
 	    		}
 	    		else if(turnSignal == 0)
 	    		{
-	    			t = "turn_medium";
+	    			t = "turn_medi";
 	    			isCorrect = 0;    			
 	    		}
 	    		else if(turnSignal == 2)
@@ -284,9 +284,10 @@ public class CBXSaverAgent : Agent
 	    		}
 	    	}
 		
-			sw.WriteLine(isCorrect + "\t" + delta + "\t" + thinkingTime + "\t"
-							+ GameControl.instance.columnObj.amplitudeRotate + "\t"
-							+ s + "\t" + t + "\t" + cor_count);
+			sw.WriteLine(
+			 isCorrect + "\t" + delta.ToString("F2") + "\t" + thinkingTime + "\t" +  
+			 GameControl.instance.columnObj.amplitudeRotate + "\t" +
+			 s + "\t" + t + "\t" + cor_count);
 		}
 
     }

@@ -1145,8 +1145,7 @@ MonoBehaviour:
     broadcastingBrains:
     - {fileID: 11400000, guid: e73723fba173d4481818b69c1a6b9b1a, type: 2}
     - {fileID: 11400000, guid: be63fbc01f59647b1bb0583bc31e18e2, type: 2}
-    _brainsToControl:
-    - {fileID: 11400000, guid: e73723fba173d4481818b69c1a6b9b1a, type: 2}
+    _brainsToControl: []
   maxSteps: 0
   trainingConfiguration:
     width: 80
@@ -3054,6 +3053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bbf4fb586e242d0adba8ca73145af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance_max: 2.5
 --- !u!60 &1838189657
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4002,6 +4002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0bbf4fb586e242d0adba8ca73145af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance_max: 2.5
 --- !u!60 &7709973033469782564
 PolygonCollider2D:
   m_ObjectHideFlags: 0

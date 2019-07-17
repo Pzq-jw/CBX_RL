@@ -94,6 +94,7 @@ public class GameControl : MonoBehaviour
         {
             gameStatus = GameStatus.GAME_COMBO;
             agentObj.ComputeReward();
+            // agentObj.m_SetRewrd(1f);
             agentObj.Done();
             agentObj.isJustCalledDone = true;
             agentObj.deadcenterCount++;
@@ -104,6 +105,7 @@ public class GameControl : MonoBehaviour
         else
         {
             agentObj.ComputeReward();
+            // agentObj.m_SetRewrd(-1f);
             agentObj.Done();
             agentObj.isJustCalledDone = true;
         }
@@ -116,6 +118,7 @@ public class GameControl : MonoBehaviour
     public void AfterPieceStackingFailed(int fallenSide)
     {
         agentObj.ComputeReward();
+        // agentObj.m_SetRewrd(-1f);
         agentObj.Done();
         agentObj.isJustCalledDone = true;
         // Missed();

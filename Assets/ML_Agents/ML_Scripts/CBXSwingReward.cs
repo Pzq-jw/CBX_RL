@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CBXSwingReward : MonoBehaviour
 {
+
+    public float distance_max = 2.5f;
+
     public float Default_Reward(float distance)
     {
         return -3.14f;
@@ -38,20 +41,17 @@ public class CBXSwingReward : MonoBehaviour
 
     public float Power_P04_Reward(float distance)
     {
-    	float distance_max = 3f;
     	float r = 1 - Mathf.Pow(distance / distance_max, 0.4f);
     	return r;
     }
 
     public float Power_N3_Penalty(float distance)
     {
-        float distance_max = 3f;
         return -Mathf.Pow(distance/distance_max, 3f);
     }
 
     public float Power_Hybrid(float distance)
     {
-        float distance_max = 2.8f;
         if(distance < 0.1)
             return 1f;
         else if(distance < 0.5)
@@ -62,7 +62,6 @@ public class CBXSwingReward : MonoBehaviour
 
     public float Power_Hybrid_NP2(float distance)
     {
-        float distance_max = 2.8f;
         if(distance < 0.1)
             return 1f;
         else if(distance < 0.5)
@@ -73,7 +72,6 @@ public class CBXSwingReward : MonoBehaviour
 
     public float Power_Hybrid_PP3_NP2(float distance)
     {
-        float distance_max = 2.8f;
         if(distance < 0.1)
             return 1f;
         else if(distance < 0.5)
@@ -84,7 +82,6 @@ public class CBXSwingReward : MonoBehaviour
 
     public float Power_Hybrid_PP4_NP2(float distance)
     {
-        float distance_max = 2.8f;
         if(distance < 0.1)
             return 1f;
         else if(distance < 0.5)
@@ -95,7 +92,6 @@ public class CBXSwingReward : MonoBehaviour
 
     public float Power_Hybrid_PP4_NP3(float distance)
     {
-        float distance_max = 2.8f;
         if(distance < 0.1)
             return 1f;
         else if(distance < 0.5)
@@ -106,7 +102,6 @@ public class CBXSwingReward : MonoBehaviour
 
     public float Power_Hybrid_PP3_NP3(float distance)
     {
-        float distance_max = 2.8f;
         if(distance < 0.1)
             return 1f;
         else if(distance < 0.5)
@@ -117,7 +112,6 @@ public class CBXSwingReward : MonoBehaviour
 
     public float Dead_Hybrid(float distance)
     {
-        float distance_max = 2.5f;
         if(distance <= 0.1)
             return 1f;
         else

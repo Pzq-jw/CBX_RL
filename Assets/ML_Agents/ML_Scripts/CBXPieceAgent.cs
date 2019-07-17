@@ -66,10 +66,10 @@ public class CBXPieceAgent : Agent
         	pieceObj.isHooked = false;
         	isJustCalledDone = false;
 		}
-        else if(dropSignal == 0)
-        {
-            AddReward(-0.0001f);
-        }
+        // else if(dropSignal == 0)
+        // {
+        //     AddReward(-1f / agentParameters.maxStep);
+        // }
 	}
 
 	void FixedUpdate()
@@ -92,6 +92,12 @@ public class CBXPieceAgent : Agent
         this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
     }
 
+    public void m_SetRewrd(float r)
+    {
+        SetReward(r);
+    }
+
+
     public void ComputeReward()
     {
         // Debug.Log("this.localX = " + this.transform.localPosition.x.ToString());
@@ -107,11 +113,12 @@ public class CBXPieceAgent : Agent
     	Monitor.Log("DeltaX : ", absDelta, monitorObj);
     	Debug.Log("AbsDeltaX : " + absDelta, monitorObj);
     	Debug.Log("Immidate reward : "+reward.ToString() , gameObject);
+     //    Debug.Log("CurrentStepCount : " + GetStepCount());
     }
 
     public void ResetEnv()
     {
-        GameControl.instance.slingObj.angle = Random.Range(0f, 360f);
+        // GameControl.instance.slingObj.angle = Random.Range(0f, 360f);
         GameControl.instance.columnObj.ResetColumnStatus();
         mlTarget.transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), 4.3f, 0);
     }

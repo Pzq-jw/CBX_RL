@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"Stri",
+				"string\tstring"
+			],
+			[
+				"moni",
+				"monitorObj\tTransform"
+			],
+			[
+				"agent",
+				"agentParameters\tAgentParameters"
+			],
+			[
+				"agen",
+				"AgentParameters\tAgentParameters"
+			],
+			[
+				"tr",
+				"true\ttrue"
+			],
+			[
+				"amp",
+				"amplitudeRotate\tfloat"
+			],
+			[
+				"to",
+				"total_count\tint"
+			],
+			[
 				"dis",
 				"distance_max\tfloat"
 			],
@@ -44,10 +72,6 @@
 				"RequestDecision()\tvoid"
 			],
 			[
-				"to",
-				"totalPieceNum\tint"
-			],
-			[
 				"thi",
 				"thinkingTime\tint"
 			],
@@ -74,10 +98,6 @@
 			[
 				"cl",
 				"Clamp(float value, float min, float max)\tfloat"
-			],
-			[
-				"moni",
-				"Monitor\tMonitor"
 			],
 			[
 				"ml",
@@ -166,10 +186,6 @@
 			[
 				"agnet",
 				"agentInfo\tagentInfo"
-			],
-			[
-				"agent",
-				"AgentInfo()\tAgentInfo()"
 			],
 			[
 				"ag",
@@ -498,22 +514,6 @@
 			[
 				"isre",
 				"isRepeate_\tbool"
-			],
-			[
-				"isI",
-				"isIgnoreTimeScale_\tbool"
-			],
-			[
-				"up",
-				"updateEvent_\tUpdateEvent"
-			],
-			[
-				"upd",
-				"updateEvent_\tUpdateEvent"
-			],
-			[
-				"ontim",
-				"onTimerCompleted_\tCompleteEvent"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
 			"settings":
 			{
-				"buffer_size": 3891,
+				"buffer_size": 4055,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -538,12 +538,15 @@
 			}
 		},
 		{
+			"contents": "using System.Collections;\nusing System.Collections.Generic;\nusing UnityEngine;\n\npublic class Piece : MonoBehaviour\n{\n    public DoTweenControl doTween;\n    public struct StackStatus\n    {\n        public bool isStackSuccessful;\n        public int fallenSide;\n        public bool isDeadCenter;\n    }\n    public StackStatus stackStatus;\n\n    public bool isHooked = false;\n    public bool isStacked = true;\n    public bool isFallen = false;\n\n    public float deadCenterRange = 0.08f;\n    public float stackRange = 0.5f;\n\n\tpublic Rigidbody2D rb2d;\n\n    // Start is called before the first frame update\n    void Start()\n    {\n        rb2d = GetComponent<Rigidbody2D>();\n    }\n\n    // Update is called once per frame\n    void Update()\n    {\n    \tif(isHooked)\n    \t{\n\t        if(Input.GetKeyDown(\"space\") || Input.touchCount > 0)\n\t        {\n\t        \ttransform.parent = null;\n                Vector3 p = transform.position;\n                p.z = 0;\n                transform.position = p;\n\t        \ttransform.rotation = Quaternion.identity;\n\t        \trb2d.isKinematic = false;\n\t        \tisHooked = false;\n\t        }\n    \t}\n    }\n\n    void OnCollisionEnter2D()\n    {\n        if(!isStacked)\n        {\n            GameControl.instance.OnPieceStacking();\n            rb2d.isKinematic = true;\n            rb2d.velocity = Vector3.zero;\n            Parent2Column();        \n        }\n    }\n\n    public void Parent2Column()\n    {\n        transform.SetParent(GameControl.instance.columnObj.transform, true);\n        // set the rotation for subObject using this way\n        transform.localEulerAngles = Vector3.zero;\n        rb2d.angularVelocity = 0;\n    }\n\n    void OnCollisionExit2D(Collision2D ctl)\n    {\n        GameControl.instance.mycolObj.SetCollisionInfo(ctl);\n        if(!isStacked)\n        {\n            GameControl.instance.mycolObj.GetColumnHeightIncrement();\n            if(CheckIfCanStack(ctl))\n            {\n                stackStatus.isStackSuccessful = true;\n                GameControl.instance.AfterPieceStackingSuccessfully(stackStatus.isDeadCenter);\n                // doTween.StackingNoDeadCenterAnimation(stackStatus.fallenSide, stackStatus.isDeadCenter);\n            }\n            else\n            {\n                stackStatus.isStackSuccessful = false;\n                GameControl.instance.AfterPieceStackingFailed(stackStatus.fallenSide);\n                // OnStackingFailed();\n            }\n            // GameControl.instance.saverAgentObj.RequestDecision();\n        }\n        isStacked = true;\n    }\n\n    public bool CheckIfCanStack(Collision2D ctl)\n    {\n        float absDeltaX = Mathf.Abs(GameControl.instance.mycolObj.deltaX);\n\n        if(ctl.collider.gameObject.tag == \"Ground\")\n        {\n            return false;\n        }\n\n        checkFallenSide();\n        // doTween.GetDeltaXFromCollision(absDeltaX);\n       \n        if(absDeltaX < stackRange)\n        {\n            isFallen = false;\n            checkIfDeadCenter(absDeltaX, GameControl.instance.mycolObj.topPieceLocalPos.x, ctl.otherCollider);\n            // Debug.Log(ctl.collider.gameObject.name + \"  \" + ctl.collider.transform.localPosition.x + \" | \" \n            //     + ctl.otherCollider.gameObject.name + \"  \" + ctl.otherCollider.transform.localPosition.x + \" || \" + \"drop true\");\n            return true;\n        }\n        else \n        {\n            // checkFallenSide(deltaX);\n            // Debug.Log(ctl.collider.gameObject.name + \"  \" + ctl.collider.transform.localPosition.x + \" | \" \n            //     + ctl.otherCollider.gameObject.name + \"  \" + ctl.otherCollider.transform.localPosition.x + \" || \" + \"drop false\");\n            isFallen = true;\n            return false;\n        }\n    }\n\n    private void checkIfDeadCenter(float absDeltaX, float topPiecePosX, Collider2D other)\n    {\n        if(absDeltaX < deadCenterRange)\n        {\n            stackStatus.isDeadCenter = true;\n            Vector3 pos = other.transform.localPosition;\n            pos.x = topPiecePosX;\n            other.transform.localPosition = pos;\n            pos = other.transform.position;\n            pos.z -= 0.5f;\n            pos.y -= 0.5f;\n            // GameControl.instance.particleObj.PlayStackDeadCenterAnim(pos);\n            // GameControl.instance.particleObj.PlayComboPeriodAnim();\n        }\n        else\n        {\n            stackStatus.isDeadCenter = false;\n        }\n    }\n\n    private void checkFallenSide()\n    {\n        if(GameControl.instance.mycolObj.deltaX > 0)\n        {\n            stackStatus.fallenSide = 1;  // right side\n        }\n        else\n        {\n            stackStatus.fallenSide = -1;  // left side\n        }\n        // Debug.Log(\"fallen side = \" + stackStatus.fallenSide);\n    }\n\n    private void OnStackingFailed()\n    {\n        // transform.position = new Vector3(0, -10f, 0);\n        // GameControl.instance.doTweenObj.FallenAnimation(1); // cannot get the true transform\n        // doTween.FallenAnimation(stackStatus.fallenSide);\n        transform.parent = null;\n    }\n\n    void OnBecameInvisible()\n    {\n        // if(isFallen)\n        //     GameControl.instance.particleObj.PlayFallenWaterAnim(transform.position);\n    }\n\n    public virtual void myTest()\n    {\n        Debug.Log(\"Piece\", gameObject);\n    }\n}\n",
 			"file": "Assets/GamePlay/Scripts/Piece.cs",
+			"file_size": 5394,
+			"file_write_time": 132073330174306354,
 			"settings":
 			{
 				"buffer_size": 5219,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
+				"line_ending": "Windows",
+				"scratch": true
 			}
 		},
 		{
@@ -559,16 +562,7 @@
 			"file": "Assets/GamePlay/Scripts/GameControl.cs",
 			"settings":
 			{
-				"buffer_size": 4945,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/GamePlay/Scripts/EllipticalOrbit.cs",
-			"settings":
-			{
-				"buffer_size": 1484,
+				"buffer_size": 5063,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -577,7 +571,7 @@
 			"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
 			"settings":
 			{
-				"buffer_size": 3206,
+				"buffer_size": 2938,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -586,16 +580,7 @@
 			"file": "Assets/ML_Agents/ML_Scripts/CBXSaverAgent.cs",
 			"settings":
 			{
-				"buffer_size": 5110,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/GamePlay/Scripts/MyCollisionControl.cs",
-			"settings":
-			{
-				"buffer_size": 1080,
+				"buffer_size": 6447,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -725,6 +710,9 @@
 	],
 	"file_history":
 	[
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/MyCollisionControl.cs",
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/EllipticalOrbit.cs",
+		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXSaverAgent.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities/Extension.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/SaverAgent.cs",
@@ -849,14 +837,11 @@
 		"/Users/alex/Desktop/mlp2019/src/data_handler.py",
 		"/Users/alex/Desktop/mlp2019/src/plots.py",
 		"/Users/alex/Desktop/mlp2019/data/fold1/X_train.pickle",
-		"/Users/alex/Desktop/mlp2019/src/arg_extractor.py",
-		"/Users/alex/Desktop/mlp2019/log.txt",
-		"/Users/alex/Desktop/mlp2019/src/utilities.py",
-		"/Users/alex/Desktop/draft.md"
+		"/Users/alex/Desktop/mlp2019/src/arg_extractor.py"
 	],
 	"find":
 	{
-		"height": 24.0
+		"height": 47.0
 	},
 	"find_in_files":
 	{
@@ -870,6 +855,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"GetStepCount",
+			"CurrentStepCount",
+			"debug",
 			"debug.log",
 			"angle",
 			"reward",
@@ -901,25 +889,26 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3891,
+						"buffer_size": 4055,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3798,
-								3798
+								3650,
+								3540
 							]
 						],
 						"settings":
 						{
+							"history_list_is_closing": true,
 							"is_init_dirty_state": false,
 							"oops":
 							{
 								"120,125": "不需要的 using 指令。",
-								"2139,2140": "参数 1: 无法从“double”转换为“float”",
 								"25,30": "不需要的 using 指令。",
+								"2949,2950": "当前上下文中不存在名称“f”",
 								"51,56": "不需要的 using 指令。"
 							},
 							"origin_encoding": "ASCII",
@@ -928,10 +917,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 973.0,
+						"translation.y": 1808.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -963,7 +952,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -985,7 +974,10 @@
 						],
 						"settings":
 						{
+							"in_converting": true,
 							"is_init_dirty_state": false,
+							"origin_content": "using System.Collections;\nusing System.Collections.Generic;\nusing UnityEngine;\n\npublic class Piece : MonoBehaviour\n{\n    public DoTweenControl doTween;\n    public struct StackStatus\n    {\n        public bool isStackSuccessful;\n        public int fallenSide;\n        public bool isDeadCenter;\n    }\n    public StackStatus stackStatus;\n\n    public bool isHooked = false;\n    public bool isStacked = true;\n    public bool isFallen = false;\n\n    public float deadCenterRange = 0.08f;\n    public float stackRange = 0.5f;\n\n\tpublic Rigidbody2D rb2d;\n\n    // Start is called before the first frame update\n    void Start()\n    {\n        rb2d = GetComponent<Rigidbody2D>();\n    }\n\n    // Update is called once per frame\n    void Update()\n    {\n    \tif(isHooked)\n    \t{\n\t        if(Input.GetKeyDown(\"space\") || Input.touchCount > 0)\n\t        {\n\t        \ttransform.parent = null;\n                Vector3 p = transform.position;\n                p.z = 0;\n                transform.position = p;\n\t        \ttransform.rotation = Quaternion.identity;\n\t        \trb2d.isKinematic = false;\n\t        \tisHooked = false;\n\t        }\n    \t}\n    }\n\n    void OnCollisionEnter2D()\n    {\n        if(!isStacked)\n        {\n            GameControl.instance.OnPieceStacking();\n            rb2d.isKinematic = true;\n            rb2d.velocity = Vector3.zero;\n            Parent2Column();        \n        }\n    }\n\n    public void Parent2Column()\n    {\n        transform.SetParent(GameControl.instance.columnObj.transform, true);\n        // set the rotation for subObject using this way\n        transform.localEulerAngles = Vector3.zero;\n        rb2d.angularVelocity = 0;\n    }\n\n    void OnCollisionExit2D(Collision2D ctl)\n    {\n        GameControl.instance.mycolObj.SetCollisionInfo(ctl);\n        if(!isStacked)\n        {\n            GameControl.instance.mycolObj.GetColumnHeightIncrement();\n            if(CheckIfCanStack(ctl))\n            {\n                stackStatus.isStackSuccessful = true;\n                GameControl.instance.AfterPieceStackingSuccessfully(stackStatus.isDeadCenter);\n                // doTween.StackingNoDeadCenterAnimation(stackStatus.fallenSide, stackStatus.isDeadCenter);\n            }\n            else\n            {\n                stackStatus.isStackSuccessful = false;\n                GameControl.instance.AfterPieceStackingFailed(stackStatus.fallenSide);\n                // OnStackingFailed();\n            }\n            // GameControl.instance.saverAgentObj.RequestDecision();\n        }\n        isStacked = true;\n    }\n\n    public bool CheckIfCanStack(Collision2D ctl)\n    {\n        float absDeltaX = Mathf.Abs(GameControl.instance.mycolObj.deltaX);\n\n        if(ctl.collider.gameObject.tag == \"Ground\")\n        {\n            return false;\n        }\n\n        checkFallenSide();\n        // doTween.GetDeltaXFromCollision(absDeltaX);\n       \n        if(absDeltaX < stackRange)\n        {\n            isFallen = false;\n            checkIfDeadCenter(absDeltaX, GameControl.instance.mycolObj.topPieceLocalPos.x, ctl.otherCollider);\n            // Debug.Log(ctl.collider.gameObject.name + \"  \" + ctl.collider.transform.localPosition.x + \" | \" \n            //     + ctl.otherCollider.gameObject.name + \"  \" + ctl.otherCollider.transform.localPosition.x + \" || \" + \"drop true\");\n            return true;\n        }\n        else \n        {\n            // checkFallenSide(deltaX);\n            // Debug.Log(ctl.collider.gameObject.name + \"  \" + ctl.collider.transform.localPosition.x + \" | \" \n            //     + ctl.otherCollider.gameObject.name + \"  \" + ctl.otherCollider.transform.localPosition.x + \" || \" + \"drop false\");\n            isFallen = true;\n            return false;\n        }\n    }\n\n    private void checkIfDeadCenter(float absDeltaX, float topPiecePosX, Collider2D other)\n    {\n        if(absDeltaX < deadCenterRange)\n        {\n            stackStatus.isDeadCenter = true;\n            Vector3 pos = other.transform.localPosition;\n            pos.x = topPiecePosX;\n            other.transform.localPosition = pos;\n            pos = other.transform.position;\n            pos.z -= 0.5f;\n            pos.y -= 0.5f;\n            // GameControl.instance.particleObj.PlayStackDeadCenterAnim(pos);\n            // GameControl.instance.particleObj.PlayComboPeriodAnim();\n        }\n        else\n        {\n            stackStatus.isDeadCenter = false;\n        }\n    }\n\n    private void checkFallenSide()\n    {\n        if(GameControl.instance.mycolObj.deltaX > 0)\n        {\n            stackStatus.fallenSide = 1;  // right side\n        }\n        else\n        {\n            stackStatus.fallenSide = -1;  // left side\n        }\n        // Debug.Log(\"fallen side = \" + stackStatus.fallenSide);\n    }\n\n    private void OnStackingFailed()\n    {\n        // transform.position = new Vector3(0, -10f, 0);\n        // GameControl.instance.doTweenObj.FallenAnimation(1); // cannot get the true transform\n        // doTween.FallenAnimation(stackStatus.fallenSide);\n        transform.parent = null;\n    }\n\n    void OnBecameInvisible()\n    {\n        // if(isFallen)\n        //     GameControl.instance.particleObj.PlayFallenWaterAnim(transform.position);\n    }\n\n    public virtual void myTest()\n    {\n        Debug.Log(\"Piece\", gameObject);\n    }\n}\n",
+							"origin_encoding": "UTF-8-SIG",
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -994,9 +986,15 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
 				{
 					"buffer": 3,
 					"file": "Assets/GamePlay/Scripts/ColumnSwinging.cs",
@@ -1010,8 +1008,8 @@
 						"selection":
 						[
 							[
-								2656,
-								1263
+								1718,
+								1718
 							]
 						],
 						"settings":
@@ -1028,33 +1026,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 972.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
+				},
 				{
 					"buffer": 4,
 					"file": "Assets/GamePlay/Scripts/GameControl.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4945,
+						"buffer_size": 5063,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								664,
-								664
+								2879,
+								2879
 							]
 						],
 						"settings":
@@ -1064,21 +1056,15 @@
 							{
 								"0,6": "不需要的 using 指令。",
 								"137,142": "不需要的 using 指令。",
-								"2514,2527": "'“CBXSaverAgent”未包含“ComputeReward”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“ComputeReward”(是否缺少 using 指令或程序集引用?)",
-								"2581,2597": "'“CBXSaverAgent”未包含“isJustCalledDone”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“isJustCalledDone”(是否缺少 using 指令或程序集引用?)",
-								"2627,2642": "'“CBXSaverAgent”未包含“deadcenterCount”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“deadcenterCount”(是否缺少 using 指令或程序集引用?)",
 								"27,32": "不需要的 using 指令。",
-								"2845,2858": "'“CBXSaverAgent”未包含“ComputeReward”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“ComputeReward”(是否缺少 using 指令或程序集引用?)",
-								"2912,2928": "'“CBXSaverAgent”未包含“isJustCalledDone”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“isJustCalledDone”(是否缺少 using 指令或程序集引用?)",
-								"3174,3187": "'“CBXSaverAgent”未包含“ComputeReward”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“ComputeReward”(是否缺少 using 指令或程序集引用?)",
-								"3233,3249": "'“CBXSaverAgent”未包含“isJustCalledDone”的定义，并且找不到可接受第一个“CBXSaverAgent”类型参数的可访问扩展方法“isJustCalledDone”(是否缺少 using 指令或程序集引用?)"
+								"2878,2885": "当前上下文中不存在名称“gentObj”"
 							},
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 81.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1086,50 +1072,19 @@
 				},
 				{
 					"buffer": 5,
-					"file": "Assets/GamePlay/Scripts/EllipticalOrbit.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1484,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								254,
-								254
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3206,
+						"buffer_size": 2938,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2976,
-								2987
+								353,
+								368
 							]
 						],
 						"settings":
@@ -1146,27 +1101,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1543.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "Assets/ML_Agents/ML_Scripts/CBXSaverAgent.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5110,
+						"buffer_size": 6447,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3940,
-								3940
+								867,
+								867
 							]
 						],
 						"settings":
@@ -1176,47 +1131,17 @@
 							"oops":
 							{
 								"0,5": "不需要的 using 指令。",
-								"4219,4224": "只有 assignment、call、increment、decrement、await 和 new 对象表达式可用作语句"
+								"6490,6496": "命名空间“System”中不存在类型或命名空间名“”(是否缺少程序集引用?)",
+								"6497,6503": "语法错误，应输入“,”"
 							},
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 2.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "Assets/GamePlay/Scripts/MyCollisionControl.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1080,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								791,
-								807
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 377.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1224,7 +1149,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -1250,7 +1175,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.319409013605,
 			1.0
 		],
 		"rows":
@@ -1276,7 +1201,7 @@
 	"project": "citybloxxDemo.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1300,7 +1225,7 @@
 		[
 			[
 				"",
-				"~/cbx_rl/citybloxxDemo.sublime-workspace"
+				"~/citybloxxDemo/citybloxxDemo.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -1314,7 +1239,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
