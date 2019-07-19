@@ -18,12 +18,16 @@ public class EllipticalOrbit : MonoBehaviour
 	public float rotateZ;
 
 	public float offsetY = 0f;
+    public float offsetX = 0f;
+    public float offsetZ = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         angle = 0;
         // transform.position = new Vector3(b*Mathf.Sin(0), h*Mathf.Cos(0), a*Mathf.Cos(0));
+        offsetX = this.transform.parent.position.x;
+        offsetZ = this.transform.parent.position.z;
     }
 
     bool IsHookShouldSpin()
@@ -40,8 +44,8 @@ public class EllipticalOrbit : MonoBehaviour
         if(IsHookShouldSpin())
         {
             angle += Time.deltaTime * angularSpeed;
-            z = a * Mathf.Cos(angle);
-            x = b * Mathf.Sin(angle);
+            z = a * Mathf.Cos(angle) + offsetZ;
+            x = b * Mathf.Sin(angle) + offsetX;
             y = h * Mathf.Cos(angle) + offsetY;
             _pos = new Vector3(x,y,z);
 

@@ -22,11 +22,13 @@ public class ColumnSwinging : MonoBehaviour
 	public float timeOffset;
 	public bool isReset = false;
 	private float _t = 0;
+	public float offsetX;
+	public float offsetZ;
 
 	void Start()
 	{
 		angle = 0;
-		rb2d = GetComponent<Rigidbody2D>();
+		rb2d = GetComponent<Rigidbody2D>();	
 	}
 
 	// public float GetDistanceColumn2Sling
@@ -68,7 +70,7 @@ public class ColumnSwinging : MonoBehaviour
 				// Debug.Log("reset column!!! _t = " + _t);
 			}
 			// rb2d.velocity = new Vector2(Mathf.Cos(_t)*amplitudeMove, 0);
-			transform.position = new Vector3(Mathf.Sin(_t) * 0.5f, -5, 0);
+			transform.position = new Vector3(Mathf.Sin(_t) * amplitudeMove + offsetX, -5, 0 + offsetZ);
 			transform.rotation = Quaternion.Euler(0,0,-Mathf.Sin(_t)*amplitudeRotate);
 
 			// float swingingSpeed = Mathf.Cos(angle) * amplitudeRotate;

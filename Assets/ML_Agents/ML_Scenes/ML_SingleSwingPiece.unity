@@ -1145,8 +1145,7 @@ MonoBehaviour:
     broadcastingBrains:
     - {fileID: 11400000, guid: cf69212b8e8e14aafa6b356244c8fee0, type: 2}
     - {fileID: 11400000, guid: e3144c3b65c7f4a53962baf2ee03c5c6, type: 2}
-    _brainsToControl:
-    - {fileID: 11400000, guid: cf69212b8e8e14aafa6b356244c8fee0, type: 2}
+    _brainsToControl: []
   maxSteps: 0
   trainingConfiguration:
     width: 80

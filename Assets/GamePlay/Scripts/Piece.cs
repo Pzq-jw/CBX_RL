@@ -21,11 +21,14 @@ public class Piece : MonoBehaviour
     public float stackRange = 0.5f;
 
 	public Rigidbody2D rb2d;
+    public Transform columnObj;
+    public CCMStackAgent agentObj;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        columnObj = this.transform.parent.Find("Column");
     }
 
     // Update is called once per frame
@@ -46,7 +49,7 @@ public class Piece : MonoBehaviour
     	}
     }
 
-    void OnCollisionEnter2D()
+    void OnCollisionEnter2D(Collision2D ctl)
     {
         if(!isStacked)
         {
@@ -59,7 +62,9 @@ public class Piece : MonoBehaviour
 
     public void Parent2Column()
     {
-        transform.SetParent(GameControl.instance.columnObj.transform, true);
+
+        // transform.SetParent(GameControl.instance.columnObj.transform, true);
+        transform.SetParent(columnObj, true);        
         // set the rotation for subObject using this way
         transform.localEulerAngles = Vector3.zero;
         rb2d.angularVelocity = 0;
@@ -82,8 +87,16 @@ public class Piece : MonoBehaviour
                 stackStatus.isStackSuccessful = false;
                 GameControl.instance.AfterPieceStackingFailed(stackStatus.fallenSide);
                 // OnStackingFailed();
+
             }
             // GameControl.instance.saverAgentObj.RequestDecision();
+            if(stackStatus.isDeadCenter)
+                agentObj.m_SetRewrd(1f);
+            else
+                agentObj.m_SetRewrd(-1f);
+            agentObj.Done();
+            agentObj.isJustCalledDone = true;
+            // Debug.Log("culmalitive reward = " + agentObj.GetReward().ToString(), gameObject);
         }
         isStacked = true;
     }
@@ -157,16 +170,5 @@ public class Piece : MonoBehaviour
         // GameControl.instance.doTweenObj.FallenAnimation(1); // cannot get the true transform
         // doTween.FallenAnimation(stackStatus.fallenSide);
         transform.parent = null;
-    }
-
-    void OnBecameInvisible()
-    {
-        // if(isFallen)
-        //     GameControl.instance.particleObj.PlayFallenWaterAnim(transform.position);
-    }
-
-    public virtual void myTest()
-    {
-        Debug.Log("Piece", gameObject);
     }
 }

@@ -19,9 +19,10 @@ public class GameControl : MonoBehaviour
     public DoTweenControl doTweenObj;
     public ParticleControl particleObj;
     public MyCollisionControl mycolObj;
-    public CBXPieceAgent agentObj;
-    public CBXSaverAgent saverAgentObj;
+    public CCMStackAgent agentObj;
+    public CBXDDAAgent saverAgentObj;
     public CBXAcademy academyObj;
+    public Transform monitorObj;
 
     public Text scoreText;
     public Text missText;
@@ -93,21 +94,22 @@ public class GameControl : MonoBehaviour
         if(isDeadCenter)
         {
             gameStatus = GameStatus.GAME_COMBO;
-            agentObj.ComputeReward();
+            // agentObj.ComputeReward();
             // agentObj.m_SetRewrd(1f);
-            agentObj.Done();
-            agentObj.isJustCalledDone = true;
-            agentObj.deadcenterCount++;
+            // agentObj.Done();
+            // agentObj.isJustCalledDone = true;
+            // Debug.Log("culmalitive reward = " + agentObj.GetReward().ToString(), gameObject);
             // comboControlObj.Combo();
             // columnObj.Set2ComboSwingingAmplitude();
             // particleObj.PlayComboPeriodAnim();
         }
         else
         {
-            agentObj.ComputeReward();
+            // agentObj.ComputeReward();
             // agentObj.m_SetRewrd(-1f);
-            agentObj.Done();
-            agentObj.isJustCalledDone = true;
+            // agentObj.Done();
+            // agentObj.isJustCalledDone = true;
+            // Debug.Log("culmalitive reward = " + agentObj.GetReward().ToString(), gameObject);
         }
         // else if(gameStatus == GameStatus.GAME_COMBO)
         // {
@@ -117,10 +119,12 @@ public class GameControl : MonoBehaviour
 
     public void AfterPieceStackingFailed(int fallenSide)
     {
-        agentObj.ComputeReward();
+        // agentObj.ComputeReward();
         // agentObj.m_SetRewrd(-1f);
-        agentObj.Done();
-        agentObj.isJustCalledDone = true;
+        // agentObj.Done();
+        // agentObj.isJustCalledDone = true;
+        // Debug.Log("culmalitive reward = " + agentObj.GetReward().ToString(), gameObject);
+        
         // Missed();
         // CheckMissNum();
         // screenMoveUpObj.ShakeCamera();
@@ -177,18 +181,6 @@ public class GameControl : MonoBehaviour
         columnObj.AddAmplitudeRotate();
         columnObj.SetAmplitudeIncrementAndMax();
     }
-
-    // Use this to control the ideal distance
-    // void LockDistanceColumn2Sling()
-    // {
-    //     Debug.Log(columnObj.GetDistanceColumn2Sling);
-    //     if(!Mathf.Approximately(columnObj.initialDistance, 
-    //         columnObj.GetDistanceColumn2Sling))
-    //         {
-    //             columnObj.transform.position = slingObj.transform.position 
-    //                 - new Vector3(0, columnObj.initialDistance - slingObj.offsetY, 0);
-    //         }  
-    // }
 
 
 

@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 8710141791390138346}
   - component: {fileID: 3616114074434243906}
   - component: {fileID: 356531388322607283}
-  - component: {fileID: 7709973032123586591}
-  - component: {fileID: 7237964594443217775}
+  - component: {fileID: 2590950876547277867}
   m_Layer: 0
   m_Name: WoodenPiece
   m_TagString: Untagged
@@ -31,13 +30,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7682980575725646726}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.9, y: -2.42, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3096644346440383802
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -120,6 +119,8 @@ MonoBehaviour:
   isFallen: 0
   deadCenterRange: 0.1
   stackRange: 0.5
+  rb2d: {fileID: 0}
+  columnObj: {fileID: 0}
 --- !u!50 &3616114074434243906
 Rigidbody2D:
   serializedVersion: 4
@@ -153,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364ccaf2d5f1b4f4aa3c4f20070deb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &7709973032123586591
-PolygonCollider2D:
+--- !u!61 &2590950876547277867
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -166,7 +167,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00023648143, y: 0.00046253216}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -176,35 +177,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 1.0308071, y: 1.0126424}
-      - {x: -1.0205289, y: 1.0147732}
-      - {x: -1.0182637, y: -0.99811625}
-      - {x: 1.0096118, y: -1.0081084}
-      - {x: 1.002857, y: 0.9975741}
---- !u!114 &7237964594443217775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7682980575725646726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34b091dbc9e464de48ea0e9672c90a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 0}
-  agentParameters:
-    agentCameras: []
-    agentRenderTextures: []
-    maxStep: 0
-    resetOnDone: 1
-    onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 1
-  mlTarget: {fileID: 0}
-  pieceObj: {fileID: 0}
-  monitorObj: {fileID: 0}
-  isJustCalledDone: 0
-  deadcenterCount: 0
+  serializedVersion: 2
+  m_Size: {x: 2.000001, y: 2.0009274}
+  m_EdgeRadius: 0

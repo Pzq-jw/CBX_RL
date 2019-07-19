@@ -1,0 +1,11 @@
+1	0.29	9	7	medi	turn_medi	1
+1	0.47	4	9	medi	turn_medi	2
+1	1.59	8	11	diff	turn_easy	3
+0	0.83	5	12	diff	turn_medi	3
+1	0.31	4	7	medi	turn_medi	4
+1	0.33	8	11	medi	turn_medi	5
+1	0.56	4	11	medi	turn_medi	6
+0	0.75	6	11	diff	turn_medi	6
+0	0.73	4	12	medi	turn_easy	6
+1	1.18	1	9	medi	turn_medi	7
+0	1.04	8	14	diff	turn_medi	7
