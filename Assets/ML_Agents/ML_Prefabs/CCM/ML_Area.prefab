@@ -34,7 +34,7 @@ Transform:
   - {fileID: 4286765804549152634}
   - {fileID: 4286765804589553912}
   m_Father: {fileID: 4286765804116394263}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4286765802862379540
 MonoBehaviour:
@@ -54,11 +54,10 @@ MonoBehaviour:
   amplitudeIncrement: 0.5
   maxAmplitudeRotate: 0
   rb2d: {fileID: 0}
+  rootObj: {fileID: 1016600677772260375}
   columnHeightIncrement: 0
   timeOffset: 0
   isReset: 0
-  offsetX: 0
-  offsetZ: 0
 --- !u!50 &4286765802862379541
 Rigidbody2D:
   serializedVersion: 4
@@ -261,7 +260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4286765804116394263}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &4286765802915041661
 EdgeCollider2D:
@@ -450,6 +449,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
+  cbxPieceAgentObj: {fileID: 0}
 --- !u!114 &4286765803182504874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4286765804116394263}
+  - component: {fileID: 1016600677772260375}
   m_Layer: 0
   m_Name: ML_Area
   m_TagString: Untagged
@@ -491,149 +492,27 @@ Transform:
   m_Children:
   - {fileID: 4053427902588158123}
   - {fileID: 4286765802886741363}
-  - {fileID: 4286765804226292744}
   - {fileID: 4286765802862379538}
   - {fileID: 4286765802915041658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4286765804226292749
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4286765804226292744}
-  - component: {fileID: 4286765804226292747}
-  - component: {fileID: 4286765804226292746}
-  - component: {fileID: 4286765804226292745}
-  - component: {fileID: 4286765804226292742}
-  - component: {fileID: 4286765804226292743}
-  m_Layer: 0
-  m_Name: GameControl
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4286765804226292744
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4286765804226292749}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4286765804116394263}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4286765804226292747
+--- !u!114 &1016600677772260375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4286765804226292749}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54f303b5238cb4c07862ccbb95c34f25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  piecePrefab: {fileID: 7682980575725646726, guid: e20a0147baf41452fb1f6f3aa1de83ec,
-    type: 3}
-  piecePoolSize: 10
-  SlingObj: {fileID: 4286765802886741365}
-  currentPieceIdx: 0
-  pieces: []
---- !u!114 &4286765804226292746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4286765804226292749}
+  m_GameObject: {fileID: 4286765804116394262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff72578ba6c6b44579145b900d3fed79, type: 3}
+  m_Script: {fileID: 11500000, guid: 16d9acf712a7c4c9aa92aa0fa16674df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sparse_test: {fileID: 0}
-  piecePoolObj: {fileID: 4286765804226292747}
-  columnObj: {fileID: 4286765802862379540}
-  screenMoveUpObj: {fileID: 4286765804226292745}
-  slingObj: {fileID: 4286765802886741360}
-  comboControlObj: {fileID: 4286765804226292742}
-  doTweenObj: {fileID: 9191188388087632567, guid: 30d8bfdadf57249999a5c869687bc0a8,
-    type: 3}
-  particleObj: {fileID: 0}
-  mycolObj: {fileID: 4286765804226292743}
-  agentObj: {fileID: 5900499367205280176}
-  saverAgentObj: {fileID: 0}
-  academyObj: {fileID: 0}
-  monitorObj: {fileID: 0}
-  scoreText: {fileID: 0}
-  missText: {fileID: 0}
-  gameOverText: {fileID: 0}
-  columnGameObj: {fileID: 4286765802862379543}
-  populationScore: 0
-  stackedPieceNum: 0
-  missNum: 0
-  seaLevel: {x: 0, y: -5, z: 0}
-  gameStatus: 0
---- !u!114 &4286765804226292745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4286765804226292749}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874db79bf1bc9412f9ef3133afdeed54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skyObj_1: {fileID: 0}
-  skyObj_2: {fileID: 0}
-  cameraObj: {fileID: 0}
-  pieceSize: 1
-  backgroundHeight: 10
-  moveSpeed: 5
---- !u!114 &4286765804226292742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4286765804226292749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dd84b31bcd9348e08d7b525b80424b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  comboSlider: {fileID: 0}
-  comboTimer: {fileID: 0}
-  comboNumText: {fileID: 0}
-  comboScoreText: {fileID: 0}
-  comboNum: 0
---- !u!114 &4286765804226292743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4286765804226292749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2baea96eec6dd4513b2e220e0c9ae7d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropPieceCol: {fileID: 0}
-  topPieceCol: {fileID: 0}
+  rootPosOffsetX: 10
+  rootPosOffsetY: 0
+  rootPosOffsetZ: 10
+  rootPos: {x: 0, y: 0, z: 0}
 --- !u!1 &4286765804549152637
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +682,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
+  cbxPieceAgentObj: {fileID: 0}
 --- !u!114 &4286765804549152635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,6 +864,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
+  cbxPieceAgentObj: {fileID: 0}
 --- !u!114 &4286765804589553913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,6 +1000,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   columnObj: {fileID: 0}
   agentObj: {fileID: 5900499367205280176}
+  cbxPieceAgentObj: {fileID: 0}
 --- !u!50 &671777820419811191
 Rigidbody2D:
   serializedVersion: 4
@@ -1175,10 +1057,11 @@ MonoBehaviour:
   targetRb2d: {fileID: 4286765804589553911}
   targetTran: {fileID: 4286765804589553912}
   columnRb2d: {fileID: 4286765802862379541}
+  columnTran: {fileID: 4286765802862379538}
   pieceObj: {fileID: 4872055898182096351}
-  monitorObj: {fileID: 0}
   academy: {fileID: 0}
   slingObj: {fileID: 0}
+  root: {fileID: 4286765804116394263}
   isJustCalledDone: 0
   configuration: 0
 --- !u!61 &3485191759243090117
@@ -1376,6 +1259,7 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
+  cbxPieceAgentObj: {fileID: 0}
 --- !u!114 &4274164524513157856
 MonoBehaviour:
   m_ObjectHideFlags: 0

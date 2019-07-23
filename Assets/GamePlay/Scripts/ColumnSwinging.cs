@@ -13,6 +13,8 @@ public class ColumnSwinging : MonoBehaviour
 	public float maxAmplitudeRotate = 15f;
 	public Rigidbody2D rb2d;
 
+	public SpawnMLArea rootObj;
+
 	// public float idealDistanceColumn2Sling; //Todo: use this control distance
 	public float columnHeightIncrement;
 
@@ -22,20 +24,12 @@ public class ColumnSwinging : MonoBehaviour
 	public float timeOffset;
 	public bool isReset = false;
 	private float _t = 0;
-	public float offsetX;
-	public float offsetZ;
 
 	void Start()
 	{
 		angle = 0;
 		rb2d = GetComponent<Rigidbody2D>();	
 	}
-
-	// public float GetDistanceColumn2Sling
-	// {
-	// 	get {return GameControl.instance.slingObj.transform.position.y
-	// 			+ GameControl.instance.slingObj.offsetY - transform.position.y;}
-	// }
 
 	bool IsColumnShouldRotate()
 	{
@@ -48,11 +42,11 @@ public class ColumnSwinging : MonoBehaviour
 			return false;
 	}
 
-	public void ResetColumnStatus()
+	public void ResetColumnPos()
 	{
 		isReset = true;
 		timeOffset = Random.Range(0, 6.28f);
-		amplitudeRotate = Random.Range(5f, 15f);
+		// amplitudeRotate = Random.Range(5f, 15f);
 	}
 
 	void FixedUpdate()
@@ -70,16 +64,19 @@ public class ColumnSwinging : MonoBehaviour
 				// Debug.Log("reset column!!! _t = " + _t);
 			}
 			// rb2d.velocity = new Vector2(Mathf.Cos(_t)*amplitudeMove, 0);
-			transform.position = new Vector3(Mathf.Sin(_t) * amplitudeMove + offsetX, -5, 0 + offsetZ);
+			transform.position = new Vector3(
+				Mathf.Sin(_t) * amplitudeMove + rootObj.rootPosOffsetX, 
+				transform.localPosition.y, 
+				0 + rootObj.rootPosOffsetZ);
 			transform.rotation = Quaternion.Euler(0,0,-Mathf.Sin(_t)*amplitudeRotate);
 
 			// float swingingSpeed = Mathf.Cos(angle) * amplitudeRotate;
 			// angle += angularSpeed * Time.fixedDeltaTime;
 			// transform.RotateAround(swingingCenter, Vector3.forward, swingingSpeed * Time.fixedDeltaTime);
-			Debug.DrawLine (new Vector3(0,-30,0), new Vector3(0,30,0),Color.red);
-			Debug.DrawLine (new Vector3(transform.position.x,-30,0), new Vector3(transform.position.x,30,0),Color.yellow);
-			Debug.DrawLine(new Vector3(GameControl.instance.seaLevel.x - 10, GameControl.instance.seaLevel.y, 0),
-			 new Vector3(GameControl.instance.seaLevel.x + 10, GameControl.instance.seaLevel.y, 0), Color.blue);
+			// Debug.DrawLine (new Vector3(0,-30,0), new Vector3(0,30,0),Color.red);
+			// Debug.DrawLine (new Vector3(transform.position.x,-30,0), new Vector3(transform.position.x,30,0),Color.yellow);
+			// Debug.DrawLine(new Vector3(GameControl.instance.seaLevel.x - 10, GameControl.instance.seaLevel.y, 0),
+			 // new Vector3(GameControl.instance.seaLevel.x + 10, GameControl.instance.seaLevel.y, 0), Color.blue);
 		// }
 		// else
 		// {

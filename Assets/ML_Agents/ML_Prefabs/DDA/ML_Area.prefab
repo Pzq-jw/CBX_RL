@@ -417,11 +417,10 @@ MonoBehaviour:
   amplitudeIncrement: 0.5
   maxAmplitudeRotate: 0
   rb2d: {fileID: 0}
+  rootObj: {fileID: 4323210654184693630}
   columnHeightIncrement: 0
   timeOffset: 0
   isReset: 0
-  offsetX: 0
-  offsetZ: 0
 --- !u!50 &1513240309861047701
 Rigidbody2D:
   serializedVersion: 4
@@ -880,14 +879,22 @@ MonoBehaviour:
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
   mlTarget: {fileID: 1513240309208467320}
-  monitor: {fileID: 0}
   mlColumn: {fileID: 1513240309861047698}
   pieceObj: {fileID: 1513240310477704146}
-  cor_count: 0
+  err_count: 0
   total_count: 0
+  m2d: 0
+  m2e: 0
+  m2m: 0
+  e2e: 0
+  e2m: 0
+  e2d: 0
+  d2e: 0
+  d2m: 0
+  d2d: 0
   s: 
   t: 
-  isCorrect: 0
+  isError: 0
 --- !u!1 &6184327312675117734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6441464543593264153}
+  - component: {fileID: 4323210654184693630}
   m_Layer: 0
   m_Name: ML_Area
   m_TagString: Untagged
@@ -1101,3 +1109,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4323210654184693630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8349804059702269004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d9acf712a7c4c9aa92aa0fa16674df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootPosOffsetX: 10
+  rootPosOffsetY: 0
+  rootPosOffsetZ: 10
+  rootPos: {x: 0, y: 0, z: 0}

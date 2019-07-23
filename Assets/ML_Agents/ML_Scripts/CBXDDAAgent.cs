@@ -16,9 +16,12 @@ public class CBXDDAAgent : Agent
 	private int isAIHelpLastTime;
 	private float delta;
 	private int curGameStatus; 
-    public int cor_count, total_count;
+    public int err_count=0, total_count=0;
+    public int m2d=0, m2e=0, m2m=0;
+    public int e2e=0, e2m=0, e2d=0;
+    public int d2e=0, d2m=0, d2d=0;
     public string s, t;
-    public int isCorrect;
+    public int isError = 0;
 		
 	private List<float> perceptionBuffer = new List<float>();
 
@@ -227,34 +230,38 @@ public class CBXDDAAgent : Agent
         this.transform.localPosition = new Vector3(Random.Range(-1.3f, 1.3f), 0.62f, 0);
         mlTarget.transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), 4.3f, 0);
         mlColumn.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), -5f, 0);
+        float maxRot = GameControl.instance.columnObj.amplitudeRotate;
         mlColumn.localRotation = Quaternion.Euler(new Vector3(0,0,
-        		Random.Range(0f, GameControl.instance.columnObj.amplitudeRotate)));
+        		Random.Range(-maxRot, maxRot)));
     }
 
     public void Accuracy(int curState, int turnSignal)
     {
-		using(StreamWriter sw = new StreamWriter("dda_rl_accuracy.txt", true))
+		using(StreamWriter sw = new StreamWriter("dda_accuracy.txt", true))
 		{
 	    	total_count++;
 
 	    	if(curState == 1)
 	    	{
 	    		s = "easy";
-	    		if(turnSignal == 1)
+	    		if(turnSignal == 2)
 	    		{
-	    			t = "turn_diff";
-	    			cor_count++;
-	    			isCorrect = 1;
+	    			t = "turn_easy";
+	    			err_count++;
+	    			isError = 1;
+	    			e2e++;
 	    		}
 	    		else if(turnSignal == 0)
 	    		{
 	    			t = "turn_medi";
-	    			isCorrect = 0;
+	    			isError = 0;
+	    			e2m++;
 	    		}
-	    		else if(turnSignal == 2)
+	    		else if(turnSignal == 1)
 	    		{
-	    			t = "turn_easy";
-	    			isCorrect = 0;
+	    			t = "turn_difficult";
+	    			isError = 0;
+	    			e2d++;
 	    		}
 	    	}
 	    	else if(curState == 0)
@@ -263,18 +270,20 @@ public class CBXDDAAgent : Agent
 	    		if(turnSignal == 1)
 	    		{
 	    			t = "turn_diff";
-	    			isCorrect = 0;
+	    			isError = 0;
+	    			m2d++;
 	    		}
 	    		else if(turnSignal == 0)
 	    		{
 	    			t = "turn_medi";
-	    			cor_count++;
-	    			isCorrect = 1;
+	    			m2m++;
+	    			isError = 0;
 	    		}
 	    		else if(turnSignal == 2)
 	    		{
 	    			t = "turn_easy";
-	    			isCorrect = 0;
+	    			isError = 0;
+	    			m2e++;
 	    		}
 	    	}
 	    	else if(curState == 2)
@@ -283,25 +292,31 @@ public class CBXDDAAgent : Agent
 	    		if(turnSignal == 1)
 	    		{
 	    			t = "turn_diff";
-	    			isCorrect = 0;   			
+	    			isError = 1;
+	    			err_count++;
+	    			d2d++;		
 	    		}
 	    		else if(turnSignal == 0)
 	    		{
 	    			t = "turn_medi";
-	    			isCorrect = 0;    			
+	    			isError = 0;
+	    			d2m++; 			
 	    		}
 	    		else if(turnSignal == 2)
 	    		{
 	    			t = "turn_easy";
-	    			isCorrect = 1;
-	    			cor_count++;
+	    			isError = 0;
+	    			d2e++;
 	    		}
 	    	}
 		
 			sw.WriteLine(
-			 isCorrect + "\t" + delta.ToString("F2") + "\t" + thinkingTime + "\t" +  
+			 isError + "\t" + delta.ToString("F2") + "\t" + thinkingTime + "\t" +  
 			 GameControl.instance.columnObj.amplitudeRotate + "\t" +
-			 s + "\t" + t + "\t" + cor_count);
+			 s + "\t" + t + "\t" + err_count + "\t" +
+			 e2e + "\t" + e2m + "\t" + e2d + "\t" +
+			 m2e + "\t" + m2m + "\t" + m2d + "\t" +
+			 d2e + "\t" + d2m + "\t" + d2d);
 		}
 
     }

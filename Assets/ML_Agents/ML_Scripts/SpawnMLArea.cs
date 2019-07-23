@@ -13,5 +13,8 @@ public class SpawnMLArea : MonoBehaviour
 	void Start()
 	{
 		rootPos = this.transform.position;
+		rootPosOffsetX = rootPos.x;
+		rootPosOffsetY = rootPos.y;
+		rootPosOffsetZ = rootPos.z; 
 	}
 }

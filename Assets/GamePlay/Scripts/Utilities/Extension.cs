@@ -69,6 +69,7 @@ public static class GO_Extensions
 	public static string GetArg(this Transform aParent, string argName)
 	{
 		string[] args = System.Environment.GetCommandLineArgs();
+		// Debug.Log("args.length = " + args.Length);
 		for(int i=0; i<args.Length; i++)
 		{
 			if(args[i] == argName && args.Length > i+1)

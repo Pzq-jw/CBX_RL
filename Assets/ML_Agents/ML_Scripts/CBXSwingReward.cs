@@ -5,7 +5,7 @@ using UnityEngine;
 public class CBXSwingReward : MonoBehaviour
 {
 
-    public float distance_max = 2.5f;
+    public float distance_max = 2.8f;
 
     public float Default_Reward(float distance)
     {
@@ -17,11 +17,25 @@ public class CBXSwingReward : MonoBehaviour
         return -1.201f;
     }
     
+    public float New_Hybrid(float distance)
+    {
+        if(distance < 0.1f)
+            return 1f;
+        else if(distance <= 0.5f)
+        {
+            return (1 / (distance * distance * 100));
+        }
+        else
+        {
+            return -0.1f;
+        }
+    }
+
     public float Power_N2_Reward(float distance)
     {
     	if(distance < 0.1)
     		return 1f;
-    	else if(distance < 2)
+    	else if(distance <= 0.5)
     	{
     		return (1 / (distance * distance * 100));
     	}
@@ -57,7 +71,7 @@ public class CBXSwingReward : MonoBehaviour
         else if(distance < 0.5)
             return (1 / (distance * distance * 100));
         else
-            return -Mathf.Pow(distance/distance_max, 3f);
+            return -Mathf.Pow((distance - 0.5f)/(distance_max - 0.5f), 2f);
     }
 
     public float Power_Hybrid_NP2(float distance)

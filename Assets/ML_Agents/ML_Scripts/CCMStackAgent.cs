@@ -8,10 +8,12 @@ public class CCMStackAgent : Agent
 	public Rigidbody2D targetRb2d;
 	public Transform targetTran;
     public Rigidbody2D columnRb2d;
+    public Transform columnTran;
 	public Piece pieceObj;
-	public Transform monitorObj;
 	public Academy academy;
 	public Transform slingObj;
+    public Transform root;
+
 
 	public bool isJustCalledDone;
     [SerializeField]
@@ -22,7 +24,6 @@ public class CCMStackAgent : Agent
 	{
 		isJustCalledDone = true;
 		agentRb2d = GetComponent<Rigidbody2D>();
-		monitorObj = GameControl.instance.monitorObj;
 		academy = FindObjectOfType<CBXAcademy>();
 		slingObj = this.transform.parent.Find("Sling").transform;
 		configuration = Random.Range(0, 5);
@@ -41,6 +42,7 @@ public class CCMStackAgent : Agent
 		HookNewPiece4ML();
 		configuration = Random.Range(0, 5);
         ConfigureAgent(configuration);
+        // GameControl.instance.columnObj.ResetColumnPos();
 	}
 
     void HookNewPiece4ML()
@@ -87,29 +89,32 @@ public class CCMStackAgent : Agent
 
     public override void CollectObservations()
     {
-    	Vector2 agentPos = new Vector2(agentRb2d.position.x / 1.28f,
-    								(agentRb2d.position.y - 2.23f) / 1.14f);
-    	Vector2 targetPos = new Vector2(targetRb2d.position.x / 2f,
-    								 (targetRb2d.position.y + 0.85f) / 0.15f);
-    	AddVectorObs(agentPos); // 2
-    	AddVectorObs(targetPos); // 2
-    	AddVectorObs(agentRb2d.rotation / 20f); // 1
-    	AddVectorObs(targetRb2d.rotation / 15f); // 1
-    	AddVectorObs(columnRb2d.position.x / 0.5f); // 1
-    	AddVectorObs(columnRb2d.rotation / 15f); // 1
-    	// AddVectorObs(GameControl.instance.columnObj.amplitudeRotate / 15f); // 1
-    	// AddVectorObs(GameControl.instance.columnObj.amplitudeMove / 0.5f); // 1
-    	AddVectorObs(targetTran.localPosition.x / 0.5f); // 1 
+        Vector2 agentPos = root.transform.InverseTransformPoint(agentRb2d.position);
+        agentPos.x = agentPos.x / 1.3f;
+        agentPos.y = (agentPos.y - 2.2f) / 1.2f;
+
+        Vector2 targetPos = root.transform.InverseTransformPoint(targetRb2d.position);
+        targetPos.x = targetPos.x / 2.1f;
+        targetPos.y = (targetPos.y + 0.7f) / 0.2f;
+
+        AddVectorObs(agentPos); // 2
+        AddVectorObs(targetPos); // 2
+        AddVectorObs(agentRb2d.rotation / 20f); // 1
+        AddVectorObs(targetRb2d.rotation / 15f); // 1
+        AddVectorObs(columnTran.localPosition.x / 0.5f); // 1
+        AddVectorObs(columnRb2d.rotation / 15f); // 1
+        AddVectorObs(targetTran.localPosition.x / 0.5f); // 1
 
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
 		int dropSignal = Mathf.FloorToInt(vectorAction[0]);
-		Monitor.Log("drop signal : ", dropSignal.ToString(), monitorObj);
-		Monitor.Log("reward : ", GetCumulativeReward().ToString(), monitorObj);
+		Monitor.Log("drop signal : ", dropSignal.ToString());
+		Monitor.Log("reward : ", GetCumulativeReward().ToString());
 		if(dropSignal == 1)
 		{
+            isJustCalledDone = false;
         	transform.parent = null;
             Vector3 p = transform.position;
             p.z = 0 + slingObj.GetComponent<EllipticalOrbit>().offsetZ;
@@ -117,7 +122,6 @@ public class CCMStackAgent : Agent
         	transform.rotation = Quaternion.identity;
         	pieceObj.GetComponent<Rigidbody2D>().isKinematic = false;
         	pieceObj.isHooked = false;
-        	isJustCalledDone = false;
 		}
         else if(dropSignal == 0)
         {

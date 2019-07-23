@@ -9,7 +9,6 @@ public class GameControl : MonoBehaviour
 {
 
 	public static GameControl instance;
-    public Rigidbody2D sparse_test;
 
 	public PiecePool piecePoolObj;
     public ColumnSwinging columnObj;

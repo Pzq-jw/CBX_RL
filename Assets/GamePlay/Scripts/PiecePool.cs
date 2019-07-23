@@ -32,7 +32,6 @@ public class PiecePool : MonoBehaviour
         var pieceObj = pieces[currentPieceIdx].GetComponent<Piece>();
         pieceObj.transform.parent = null; // avoid x offset when hooking the piece from column
         pieceObj.transform.localPosition = new Vector3(0, -2.25f, 0);
-        Debug.Log("Who I am", gameObject);
     	pieceObj.transform.SetParent(SlingObj.transform,false);
         pieceObj.isHooked = true;
         pieceObj.isStacked = false;

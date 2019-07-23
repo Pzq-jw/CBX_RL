@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6889710459830617437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6889710459830617432}
+  - component: {fileID: 6889710459830617435}
+  - component: {fileID: 6889710459830617434}
+  - component: {fileID: 6889710459830617433}
+  - component: {fileID: 6889710459830617430}
+  - component: {fileID: 6889710459830617431}
+  m_Layer: 0
+  m_Name: GameControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6889710459830617432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889710459830617437}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6889710459830617435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889710459830617437}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54f303b5238cb4c07862ccbb95c34f25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piecePrefab: {fileID: 7682980575725646726, guid: e20a0147baf41452fb1f6f3aa1de83ec,
+    type: 3}
+  piecePoolSize: 10
+  SlingObj: {fileID: 0}
+  currentPieceIdx: 0
+  pieces: []
+--- !u!114 &6889710459830617434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889710459830617437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff72578ba6c6b44579145b900d3fed79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piecePoolObj: {fileID: 6889710459830617435}
+  columnObj: {fileID: 0}
+  screenMoveUpObj: {fileID: 6889710459830617433}
+  slingObj: {fileID: 0}
+  comboControlObj: {fileID: 6889710459830617430}
+  doTweenObj: {fileID: 9191188388087632567, guid: 30d8bfdadf57249999a5c869687bc0a8,
+    type: 3}
+  particleObj: {fileID: 0}
+  mycolObj: {fileID: 6889710459830617431}
+  agentObj: {fileID: 0}
+  saverAgentObj: {fileID: 0}
+  academyObj: {fileID: 0}
+  monitorObj: {fileID: 0}
+  scoreText: {fileID: 0}
+  missText: {fileID: 0}
+  gameOverText: {fileID: 0}
+  columnGameObj: {fileID: 0}
+  populationScore: 0
+  stackedPieceNum: 0
+  missNum: 0
+  seaLevel: {x: 0, y: -5, z: 0}
+  gameStatus: 0
+--- !u!114 &6889710459830617433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889710459830617437}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874db79bf1bc9412f9ef3133afdeed54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyObj_1: {fileID: 0}
+  skyObj_2: {fileID: 0}
+  cameraObj: {fileID: 0}
+  pieceSize: 1
+  backgroundHeight: 10
+  moveSpeed: 5
+--- !u!114 &6889710459830617430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889710459830617437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd84b31bcd9348e08d7b525b80424b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboSlider: {fileID: 0}
+  comboTimer: {fileID: 0}
+  comboNumText: {fileID: 0}
+  comboScoreText: {fileID: 0}
+  comboNum: 0
+--- !u!114 &6889710459830617431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6889710459830617437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2baea96eec6dd4513b2e220e0c9ae7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropPieceCol: {fileID: 0}
+  topPieceCol: {fileID: 0}

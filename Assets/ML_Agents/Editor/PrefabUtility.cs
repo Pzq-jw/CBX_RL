@@ -10,7 +10,7 @@ using UnityEditor;
 
 public class Example : EditorWindow
 {
-    static public float spawnPosOffsetX = 0;
+    static public float spawnPosOffsetX = 10;
     static public float spawnPosOffsetY = 0;
     static public float spawnPosOffsetZ = 10;
     static public int spawnNum = 24;

@@ -23,6 +23,7 @@ public class Piece : MonoBehaviour
 	public Rigidbody2D rb2d;
     public Transform columnObj;
     public CCMStackAgent agentObj;
+    public CBXPieceAgent cbxPieceAgentObj;
 
     // Start is called before the first frame update
     void Start()
@@ -90,12 +91,22 @@ public class Piece : MonoBehaviour
 
             }
             // GameControl.instance.saverAgentObj.RequestDecision();
-            if(stackStatus.isDeadCenter)
-                agentObj.m_SetRewrd(1f);
-            else
-                agentObj.m_SetRewrd(-1f);
-            agentObj.Done();
-            agentObj.isJustCalledDone = true;
+            if(agentObj)
+            {
+                if(stackStatus.isDeadCenter)
+                    agentObj.m_SetRewrd(1f);
+                else
+                    agentObj.m_SetRewrd(-1f);
+                agentObj.Done();
+                agentObj.isJustCalledDone = true;
+            }
+
+            else if(cbxPieceAgentObj)
+            {
+                cbxPieceAgentObj.ComputeReward();
+                cbxPieceAgentObj.Done();
+                cbxPieceAgentObj.isJustCalledDone = true;
+            }
             // Debug.Log("culmalitive reward = " + agentObj.GetReward().ToString(), gameObject);
         }
         isStacked = true;
