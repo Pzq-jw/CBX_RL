@@ -43,18 +43,23 @@ public class CBXPieceAgent : Agent
     {
         // GameControl.instance.slingObj.angle = Random.Range(0f, 360f);
         // GameControl.instance.columnObj.ResetColumnPos();
-        targetTran.transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), 4.3f, 0);
+        targetTran.transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), 9.01f, 0);
     }
 
     public override void CollectObservations()
     {
         Vector2 agentPos = root.transform.InverseTransformPoint(agentRb2d.position);
-        agentPos.x = agentPos.x / 1.3f;
-        agentPos.y = (agentPos.y - 2.2f) / 1.2f;
-
         Vector2 targetPos = root.transform.InverseTransformPoint(targetRb2d.position);
-        targetPos.x = targetPos.x / 2.1f;
-        targetPos.y = (targetPos.y + 0.7f) / 0.2f;
+
+        // Debug.Log("agentPos = "  + agentPos + "targetPos = " + targetPos);
+
+        agentPos.x = agentPos.x / 1.3f;
+        agentPos.y = (agentPos.y - 7.4f) / 1.2f;
+
+        targetPos.x = targetPos.x / 3.5f;
+        targetPos.y = (targetPos.y - 3.6f) / 0.41f;
+
+        // Debug.Log("agentPosScale = "  + agentPos + "targetPosScale = " + targetPos);
 
         AddVectorObs(agentPos); // 2
         AddVectorObs(targetPos); // 2
