@@ -5,8 +5,10 @@ using MLAgents;
 
 public class CBXAcademy : Academy
 {
+
 	public override void InitializeAcademy()
 	{
 		Monitor.SetActive(true);
 	}
+
 }

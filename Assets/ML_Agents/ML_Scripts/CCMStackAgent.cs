@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MLAgents;
+using System.Reflection;
+using static GO_Extensions;
+
 
 public class CCMStackAgent : Agent
 {
@@ -13,12 +16,22 @@ public class CCMStackAgent : Agent
 	public Academy academy;
 	public Transform slingObj;
     public Transform root;
+    public ColumnReset columnResetObj;
+    public CBXSwingReward swingRewardObj;
+    public ColumnSwinging columnObj;
 
+    [SerializeField]
+    private string rewardFunc;
 
 	public bool isJustCalledDone;
     [SerializeField]
     int configuration;
     Rigidbody2D agentRb2d;
+    public bool isDebug;
+
+    private List<float> perceptionBuffer = new List<float>();
+    public List<GameObject> piecesList = new List<GameObject>();
+    public List<PiecePosRange> piecesDataList = new List<PiecePosRange>();
 
 	public override void InitializeAgent()
 	{
@@ -27,30 +40,49 @@ public class CCMStackAgent : Agent
 		academy = FindObjectOfType<CBXAcademy>();
 		slingObj = this.transform.parent.Find("Sling").transform;
 		configuration = Random.Range(0, 5);
+        string rf = this.transform.GetArg("--rf");
+        rewardFunc = string.IsNullOrEmpty(rf) ? "New_Hybrid" : rf;
 	}
 
 	void FixedUpdate()
 	{
-		if(isJustCalledDone)
-		{
-			RequestDecision();
-		}
+        // if(isDebug)
+        // {
+        //     if(Input.GetKeyDown(KeyCode.H))
+        //     {
+        //         RequestDecision();
+        //     }
+        // }
+        // else 
+        // {
+            if(isJustCalledDone)
+            {
+                RequestDecision();
+            }            
+        // }
+
 	}
 
 	public override void AgentReset()
 	{
-		HookNewPiece4ML();
+		HookPieceAgent();
 		configuration = Random.Range(0, 5);
         ConfigureAgent(configuration);
-        // GameControl.instance.columnObj.ResetColumnPos();
+        // columnResetObj.ResetAllPiecesPos();
+        // Invoke("ActivateRequestDecision", 1f);
+        isJustCalledDone = true;
 	}
 
-    void HookNewPiece4ML()
+    void ActivateRequestDecision()
     {
-        this.transform.parent = null; // avoid x offset when hooking the piece from column
+        isJustCalledDone = true;
+    }
+
+    void HookPieceAgent()
+    {
+        this.transform.SetParent(slingObj, true);
         this.transform.localPosition = new Vector3(0, -2.25f, 0);
-        this.transform.rotation = Quaternion.identity;
-        this.transform.SetParent(slingObj,false);
+        this.transform.localRotation = Quaternion.identity;
         pieceObj.isHooked = true;
         pieceObj.isStacked = false;
         this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -59,25 +91,14 @@ public class CCMStackAgent : Agent
     void ConfigureAgent(int config)
     {
     	// Debug.Log("config = " + config);
-    	var col = GameControl.instance.columnObj;
-    	string rot = "rotation";
-    	string pos = "position";
-    	string offset = "tc_offset";
-    	if(config == 0)
-    	{
-    		col.amplitudeRotate = 0;
-    		col.amplitudeMove = 0;
-    	}
-    	else
-    	{
-    		col.amplitudeRotate = GetResetValue(rot);
-    		col.amplitudeMove = GetResetValue(pos);
-    		targetTran.transform.localPosition = 
-    			new Vector3(GetResetValue(offset), 4.3f, 0);
-    		// Debug.Log("rot = " + col.amplitudeRotate);
-    		// Debug.Log("pos = " + col.amplitudeMove);
-    		// Debug.Log("offset = " + targetTran.localPosition.x);
-    	}
+    	string rot = "rotation"; //(5, 15)
+    	// string offset = "offset"; // (-0.5, 0.5)
+		columnObj.amplitudeRotate = GetResetValue(rot);
+		// columnResetObj.offset = GetResetValue(offset);
+
+		// Debug.Log("rot = " + columnObj.amplitudeRotate);
+		// Debug.Log("pos = " + col.amplitudeMove);
+		// Debug.Log("offset = " + targetTran.localPosition.x);
     }
 
     float GetResetValue(string arg)
@@ -89,22 +110,45 @@ public class CCMStackAgent : Agent
 
     public override void CollectObservations()
     {
+        float rot = (columnObj.amplitudeRotate - 5f) / 10f;
         Vector2 agentPos = root.transform.InverseTransformPoint(agentRb2d.position);
-        agentPos.x = agentPos.x / 1.3f;
+        agentPos.x = (agentPos.x + 1.42f) / 2.72f;
         agentPos.y = (agentPos.y - 2.2f) / 1.2f;
 
-        Vector2 targetPos = root.transform.InverseTransformPoint(targetRb2d.position);
-        targetPos.x = targetPos.x / 2.1f;
-        targetPos.y = (targetPos.y + 0.7f) / 0.2f;
-
         AddVectorObs(agentPos); // 2
-        AddVectorObs(targetPos); // 2
-        AddVectorObs(agentRb2d.rotation / 20f); // 1
-        AddVectorObs(targetRb2d.rotation / 15f); // 1
-        AddVectorObs(columnTran.localPosition.x / 0.5f); // 1
-        AddVectorObs(columnRb2d.rotation / 15f); // 1
-        AddVectorObs(targetTran.localPosition.x / 0.5f); // 1
+        AddVectorObs((agentRb2d.rotation + 20f) / 40f); // 1
 
+        AddVectorObs((columnTran.localPosition.x + 0.5f) / 1f); // 1
+        AddVectorObs((columnRb2d.rotation + 15f) / 30f); // 1
+
+        AddVectorObs(PerceptPieces()); // 36
+
+        AddVectorObs(rot); // 1
+
+    }
+
+    public List<float> PerceptPieces()
+    {
+        perceptionBuffer.Clear();
+        for(int i=0; i<piecesList.Count; i++)
+        {
+            float[] sublist = new float[4];
+            SetSubList(piecesList[i], sublist, i);
+            perceptionBuffer.AddRange(sublist);
+        }
+        return perceptionBuffer;
+    }
+
+    private void SetSubList(GameObject piece, float[] subList, int idx)
+    {
+        Rigidbody2D pieceRb2d = piece.GetComponent<Rigidbody2D>();
+        Vector2 piecePos = root.transform.InverseTransformPoint(pieceRb2d.position);
+        piecePos.x = (piecePos.x - piecesDataList[idx].minPosX) / piecesDataList[idx].posRangeX;
+        piecePos.y = (piecePos.y - piecesDataList[idx].minPosY) / piecesDataList[idx].posRangeY;
+        subList[0] = piecePos.x;
+        subList[1] = piecePos.y;
+        subList[2] = (pieceRb2d.rotation + 15f) / 30f;
+        subList[3] = (piece.transform.localPosition.x + (0.5f * (idx+1))) / (1 * (idx+1));
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
@@ -114,25 +158,47 @@ public class CCMStackAgent : Agent
 		Monitor.Log("reward : ", GetCumulativeReward().ToString());
 		if(dropSignal == 1)
 		{
-            isJustCalledDone = false;
-        	transform.parent = null;
-            Vector3 p = transform.position;
-            p.z = 0 + slingObj.GetComponent<EllipticalOrbit>().offsetZ;
-            transform.position = p;
-        	transform.rotation = Quaternion.identity;
-        	pieceObj.GetComponent<Rigidbody2D>().isKinematic = false;
-        	pieceObj.isHooked = false;
+            DropPieceAgent();
 		}
         else if(dropSignal == 0)
         {
             AddReward(-1f / agentParameters.maxStep);
+            // if(isDebug)
+            // {
+            //     RequestDecision();
+            // }
         }    	
     }
 
-    public void m_SetRewrd(float r)
+    void DropPieceAgent()
     {
-        SetReward(r);
+        isJustCalledDone = false;
+        transform.SetParent(root, true);
+        Vector3 p = transform.localPosition;
+        p.z = 0;
+        transform.localPosition = p;
+        transform.localRotation = Quaternion.identity;
+        pieceObj.GetComponent<Rigidbody2D>().isKinematic = false;
+        pieceObj.isHooked = false;
     }
+
+    public void ComputeReward()
+    {
+        // Debug.Log("this.localX = " + this.transform.localPosition.x.ToString());
+        // Debug.Log("target,localX = " + targetTran.localPosition.x.ToString());
+        float absDelta = Mathf.Abs(this.transform.localPosition.x - targetTran.localPosition.x);
+
+        System.Type rwType = swingRewardObj.GetType(); 
+        MethodInfo rf = rwType.GetMethod(rewardFunc);
+        object rewardObj = rf.Invoke(swingRewardObj, new object[]{absDelta});
+        float reward = (float)rewardObj;
+
+        SetReward(reward);
+        Monitor.Log("DeltaX : ", absDelta);
+        // Debug.Log("AbsDeltaX : " + absDelta);
+        // Debug.Log("Immidate reward : "+reward.ToString() , gameObject);
+    }
+
 
 
 

@@ -988,6 +988,7 @@ GameObject:
   - component: {fileID: 2599408629040086283}
   - component: {fileID: 2599408629040086285}
   - component: {fileID: 2599408629040086284}
+  - component: {fileID: 1441155079422635981}
   m_Layer: 0
   m_Name: Column
   m_TagString: Untagged
@@ -1031,15 +1032,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amplitudeMove: 0.5
-  amplitudeRotate: 15
+  amplitudeRotate: 10
   comboAmplitudeRotate: 1
   amplitudeIncrement: 0.5
   maxAmplitudeRotate: 0
   rb2d: {fileID: 0}
-  rootObj: {fileID: 2599408629982131282}
   columnHeightIncrement: 0
   timeOffset: 0
   isReset: 0
+  isDDA: 0
 --- !u!50 &2599408629040086284
 Rigidbody2D:
   serializedVersion: 4
@@ -1061,6 +1062,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1441155079422635981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599408629040086286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fd7fed5ca467447e90ea8df9db2ddcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceList: []
+  offset: 0
 --- !u!1 &2599408629122100837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,8 +1275,6 @@ MonoBehaviour:
   rotateY: 0
   rotateZ: 0
   offsetY: 10
-  offsetX: 0
-  offsetZ: 0
 --- !u!1 &2599408629496506338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,7 +1867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf113223279504686bafcb8d4c72ae93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: cf69212b8e8e14aafa6b356244c8fee0, type: 2}
+  brain: {fileID: 11400000, guid: e3144c3b65c7f4a53962baf2ee03c5c6, type: 2}
   agentParameters:
     agentCameras: []
     agentRenderTextures: []
@@ -1872,7 +1885,29 @@ MonoBehaviour:
   isJustCalledDone: 0
   swingRewardObj: {fileID: 5660349909049763496}
   root: {fileID: 2599408629982131283}
+  columnResetObj: {fileID: 1441155079422635981}
+  columnObj: {fileID: 2599408629040086285}
   rewardFunc: New_Hybrid
+  piecesList:
+  - {fileID: 7260308957303552575}
+  - {fileID: 2599408628353942709}
+  - {fileID: 2599408629670142052}
+  - {fileID: 2599408629496506338}
+  - {fileID: 1793705926330790654}
+  - {fileID: 1410020469110921569}
+  - {fileID: 1824422666727393161}
+  - {fileID: 1651019264046098698}
+  - {fileID: 2247005816912661479}
+  piecesDataList:
+  - {fileID: 11400000, guid: ea80436870c56430c81b80ce0f66549a, type: 2}
+  - {fileID: 11400000, guid: 5f7a5a3c327a9454fa15dc39fe257998, type: 2}
+  - {fileID: 11400000, guid: de92947820b434edeb35c54766bef640, type: 2}
+  - {fileID: 11400000, guid: b70ee90ae4af64c82ac12668ddc401c4, type: 2}
+  - {fileID: 11400000, guid: 97467d284f2044d69b58811cc6a5da4a, type: 2}
+  - {fileID: 11400000, guid: ee1552f67e62241a292efe0854484ad4, type: 2}
+  - {fileID: 11400000, guid: 7b2889676eb174244b66d6d6a546100a, type: 2}
+  - {fileID: 11400000, guid: 99bb2a0c3518549bbb563d3f4f9498f9, type: 2}
+  - {fileID: 11400000, guid: 99ed575583e414224a1f087c58fe9bf1, type: 2}
 --- !u!114 &5660349909049763496
 MonoBehaviour:
   m_ObjectHideFlags: 0

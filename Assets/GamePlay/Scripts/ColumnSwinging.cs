@@ -13,8 +13,6 @@ public class ColumnSwinging : MonoBehaviour
 	public float maxAmplitudeRotate = 15f;
 	public Rigidbody2D rb2d;
 
-	public SpawnMLArea rootObj;
-
 	// public float idealDistanceColumn2Sling; //Todo: use this control distance
 	public float columnHeightIncrement;
 
@@ -23,23 +21,13 @@ public class ColumnSwinging : MonoBehaviour
 
 	public float timeOffset;
 	public bool isReset = false;
+	public bool isDDA = false;
 	private float _t = 0;
 
 	void Start()
 	{
 		angle = 0;
 		rb2d = GetComponent<Rigidbody2D>();	
-	}
-
-	bool IsColumnShouldRotate()
-	{
-		if(GameControl.instance.gameStatus != GameControl.GameStatus.GAME_OVER
-			&& GameControl.instance.gameStatus != GameControl.GameStatus.GAME_START)
-		{
-			return true;
-		}
-		else
-			return false;
 	}
 
 	public void ResetColumnPos()
@@ -51,37 +39,25 @@ public class ColumnSwinging : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		// if(IsColumnShouldRotate())
-		// {
-			// transform.position = new Vector3(Mathf.PingPong(Time.time*speed, 2), transform.position.y, transform.position.z);
-			// transform.position = new Vector3(Mathf.Cos(Time.time)*amplitudeMove, transform.position.y, transform.position.z);
+		if(!isDDA)
+		{
 			_t += Time.fixedDeltaTime * angularSpeed;
-			// Debug.Log("Time.time = " + _t);
 			if(isReset)
 			{
 				_t -= timeOffset;
 				isReset = false;
-				// Debug.Log("reset column!!! _t = " + _t);
 			}
-			// rb2d.velocity = new Vector2(Mathf.Cos(_t)*amplitudeMove, 0);
-			transform.position = new Vector3(
-				Mathf.Sin(_t) * amplitudeMove + rootObj.rootPosOffsetX, 
+			
+			transform.localPosition = new Vector3(
+				Mathf.Sin(_t) * amplitudeMove, 
 				transform.localPosition.y, 
-				0 + rootObj.rootPosOffsetZ);
-			transform.rotation = Quaternion.Euler(0,0,-Mathf.Sin(_t)*amplitudeRotate);
+				0f);
 
-			// float swingingSpeed = Mathf.Cos(angle) * amplitudeRotate;
-			// angle += angularSpeed * Time.fixedDeltaTime;
-			// transform.RotateAround(swingingCenter, Vector3.forward, swingingSpeed * Time.fixedDeltaTime);
-			// Debug.DrawLine (new Vector3(0,-30,0), new Vector3(0,30,0),Color.red);
-			// Debug.DrawLine (new Vector3(transform.position.x,-30,0), new Vector3(transform.position.x,30,0),Color.yellow);
-			// Debug.DrawLine(new Vector3(GameControl.instance.seaLevel.x - 10, GameControl.instance.seaLevel.y, 0),
-			 // new Vector3(GameControl.instance.seaLevel.x + 10, GameControl.instance.seaLevel.y, 0), Color.blue);
-		// }
-		// else
-		// {
-		// 	rb2d.velocity = Vector2.zero;
-		// }
+			transform.localRotation = Quaternion.Euler(
+				0,
+				0,
+				-Mathf.Sin(_t)*amplitudeRotate);
+		}
 	}
 
 	public void SwingingCenterMoveUp()

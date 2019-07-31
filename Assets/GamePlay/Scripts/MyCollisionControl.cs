@@ -10,12 +10,14 @@ public class MyCollisionControl : MonoBehaviour
 
     // public Vector3 dropPiecePos;
     // public Vector3 topPiecePos;
-    // public float deltaX;
+    public float deltaX;
 
     public void SetCollisionInfo(Collision2D ctl)
     {
         dropPieceCol = ctl.otherCollider;
         topPieceCol = ctl.collider;
+        deltaX = dropPieceLocalPos.x - topPieceLocalPos.x;
+        // LogCollidersPos();
     }
 
     public Vector3 dropPieceLocalPos
@@ -28,15 +30,19 @@ public class MyCollisionControl : MonoBehaviour
         get {return topPieceCol ? topPieceCol.transform.localPosition : Vector3.zero;}
     }
 
-    public float deltaX
-    {
-        get {return dropPieceLocalPos.x - topPieceLocalPos.x;}
-    }
-
     public void GetColumnHeightIncrement()
     {
         float topPiecePosY = dropPieceLocalPos.y;
         float dropPiecePosY = topPieceLocalPos.y;
         GameControl.instance.columnObj.columnHeightIncrement = Mathf.Abs(dropPiecePosY - topPiecePosY);
+    }
+
+    public void LogCollidersPos()
+    {
+        Debug.Log("dropPieceCol-" + dropPieceCol.name + " pos = " + 
+            dropPieceCol.transform.localPosition.ToString("F3"), gameObject);
+        Debug.Log("topPieceCol-" + topPieceCol.name + " pos = " + 
+            topPieceCol.transform.localPosition.ToString("F3"), gameObject);
+        Debug.Log("deltaX = " + deltaX);
     }
 }

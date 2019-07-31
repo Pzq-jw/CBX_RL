@@ -9,12 +9,15 @@ public class CBXDDAAgent : Agent
 	public Transform mlTarget;
 	public Transform mlColumn;
 	public Piece pieceObj;
+    public ColumnReset columnResetObj;
+    public DDATestHelper testHelperObj;
 
 	private int thinkingTime;
 	private int leftLife;
 	private int totalPieceNum;
 	private int isAIHelpLastTime;
 	private float delta;
+	private float rot;
 	private int curGameStatus; 
     public int err_count=0, total_count=0;
     public int m2d=0, m2e=0, m2m=0;
@@ -22,32 +25,45 @@ public class CBXDDAAgent : Agent
     public int d2e=0, d2m=0, d2d=0;
     public string s, t;
     public int isError = 0;
-		
+
+    public bool isDone;
+
 	private List<float> perceptionBuffer = new List<float>();
 
 	public override void AgentReset()
 	{
-		thinkingTime = Random.Range(0, 16);
-		GameControl.instance.columnObj.amplitudeRotate = Random.Range(7, 15);
-		// leftLife = Random.Range(0, 4);
-		// totalPieceNum = Random.Range(0, 1001);
-		// isAIHelpLastTime = Random.Range(0, 2);
+		// if(brain.name == "SaverLearning_LSTM")
+		// {
+		// 	thinkingTime = Random.Range(0, 13);
+		// 	rot = Random.Range(5, 17);
+		// 	ResetEnv();			
+		// }
 
-		// Debug.Log("rotate = " + GameControl.instance.columnObj.amplitudeRotate);
-
-		ResetEnv();
-
+		Debug.Log(this.brain.name);
 	}
+
+    public void ResetEnv()
+    {
+		thinkingTime = Random.Range(0, 13);
+		rot = Random.Range(5, 17);
+        mlColumn.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), -5f, 0);
+        columnResetObj.ResetAllPiecesPos();
+        this.transform.localPosition = new Vector3(Random.Range(-1.4f, 1.4f), 10.05f, 0);
+        mlColumn.localRotation = Quaternion.Euler(new Vector3(0,0,
+        		Random.Range(-rot, rot)));
+    }
 
 	public override void CollectObservations()
 	{
 		delta = Mathf.Abs(this.transform.localPosition.x - mlTarget.localPosition.x);
 		// Debug.Log("this.x = " + this.transform.localPosition.x.ToString());
 		// Debug.Log("target.x = " + mlTarget.localPosition.x.ToString());
-		// Debug.Log("delta = " + delta.ToString());
+		// Debug.Log("delta = " + delta.ToString() + " thinkingTime = " + thinkingTime + " rot = " + rot);
+		thinkingTime = testHelperObj.thinkingTime;
+		rot = testHelperObj.rot;
 		float[] diffFactors = {thinkingTime, 
 								delta,
-								GameControl.instance.columnObj.amplitudeRotate};
+								rot};
 		string[] detectableObjects = {"easy", "medium", "difficult"};
 		AddVectorObs(EvaluateDiffLvl(diffFactors, detectableObjects));
 		AddVectorObs(GetStepCount() / (float)agentParameters.maxStep);
@@ -84,7 +100,7 @@ public class CBXDDAAgent : Agent
 			if(string.Equals(GetRotateLvl(factor), diffLvl[i]))
 			{
 				subList[i] = 1;
-				subList[diffLvl.Length + 1] = (factor-7) / 8f;
+				subList[diffLvl.Length + 1] = (factor-5f) / 11f;
 				break;
 			}
 		}
@@ -97,7 +113,7 @@ public class CBXDDAAgent : Agent
 			if(string.Equals(GetTimeLvl(factor), diffLvl[i]))
 			{
 				subList[i] = 1;
-				subList[diffLvl.Length + 1] = factor / 15f;
+				subList[diffLvl.Length + 1] = factor / 12f;
 				break;
 			}
 		}
@@ -118,14 +134,12 @@ public class CBXDDAAgent : Agent
 
 	private string GetRotateLvl(float rotate)
 	{
-		if(rotate < 10f && rotate >= 7f)
+		if(rotate < 7f && rotate >= 0f)
 			return "easy";
-		else if(rotate < 12f)
+		else if(rotate < 11f)
 			return "medium";
-		else if(rotate <= 15f)
-			return "difficult";
 		else
-			return null;
+			return "difficult";
 	}
 
 	private string GetDeltaLvl(float delta)
@@ -134,22 +148,19 @@ public class CBXDDAAgent : Agent
 			return "easy";
 		else if(delta <= 0.5f)
 			return "medium";
-		else if(delta < 2.8f)
-			return "difficult";
 		else
-			return null;
+			return "difficult";
+
 	}
 
 	public string GetTimeLvl(float elapsedTime)
 	{
 		if(elapsedTime < 2.5f)
 			return "easy";
-		else if(elapsedTime < 7.5)
+		else if(elapsedTime < 5)
 			return "medium";
-		else if(elapsedTime <= 15)
+		else
 			return "difficult";
-		else 
-			return null;
 	}
 
 	public float deltaDegree
@@ -160,9 +171,9 @@ public class CBXDDAAgent : Agent
 			{
 				return delta;
 			}
-			else if(delta <= 0.5)
+			else if(delta <= 0.4)
 			{
-				return delta * 2;
+				return delta * 2.5f;
 			}
 			else
 			{
@@ -173,9 +184,9 @@ public class CBXDDAAgent : Agent
 
 	private int GetCurrentState()
 	{
-		float exp = 0.2f * (thinkingTime / 15f) + 0.7f * deltaDegree
-					+ 0.1f * ((GameControl.instance.columnObj.amplitudeRotate-7f) / 8f);
-		if(exp < 0.2)
+		float exp = 0.2f * (thinkingTime / 12f) + 0.7f * deltaDegree
+					+ 0.1f * ((GameControl.instance.columnObj.amplitudeRotate-5f) / 11f);
+		if(exp < 0.3)
 			return 1; // easy
 		else if(exp < 0.75)
 			return 0; // medium
@@ -191,11 +202,14 @@ public class CBXDDAAgent : Agent
 		int turnSignal = Mathf.FloorToInt(vectorAction[0]);
 		// Debug.Log("current state = " + state);
 		// Debug.Log("tuneSignal = " + turnSignal);
+
 		Accuracy(state, turnSignal);
+
 		if(turnSignal == 0)
 		{
 			AddReward(-1f/agentParameters.maxStep);
-			AgentReset();
+			// AgentReset();
+			isDone = true;
 		}
 		else if(turnSignal == 1)  // turn to more difficult
 		{
@@ -207,7 +221,7 @@ public class CBXDDAAgent : Agent
 			{
 				SetReward(-1f);
 			}
-			Done();
+			isDone = true;
 		}
 		else if(turnSignal == 2) // turn to easier
 		{
@@ -221,26 +235,16 @@ public class CBXDDAAgent : Agent
 				// try more negative reward than for listen action
 				// Agent MaxStep can try to reduce
 			}
-			Done();
+			isDone = true;
 		}
 	}
 
-    public void ResetEnv()
-    {
-        this.transform.localPosition = new Vector3(Random.Range(-1.3f, 1.3f), 0.62f, 0);
-        mlTarget.transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), 4.3f, 0);
-        mlColumn.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), -5f, 0);
-        float maxRot = GameControl.instance.columnObj.amplitudeRotate;
-        mlColumn.localRotation = Quaternion.Euler(new Vector3(0,0,
-        		Random.Range(-maxRot, maxRot)));
-    }
-
     public void Accuracy(int curState, int turnSignal)
-    {
-		using(StreamWriter sw = new StreamWriter("dda_accuracy.txt", true))
+    {	
+		string name = testHelperObj.Brain2Model(this.brain.name);
+		using(StreamWriter sw = new StreamWriter(name + "_accuracy.txt", true))
 		{
 	    	total_count++;
-
 	    	if(curState == 1)
 	    	{
 	    		s = "easy";
@@ -259,7 +263,7 @@ public class CBXDDAAgent : Agent
 	    		}
 	    		else if(turnSignal == 1)
 	    		{
-	    			t = "turn_difficult";
+	    			t = "turn_diff";
 	    			isError = 0;
 	    			e2d++;
 	    		}
@@ -312,7 +316,7 @@ public class CBXDDAAgent : Agent
 		
 			sw.WriteLine(
 			 isError + "\t" + delta.ToString("F2") + "\t" + thinkingTime + "\t" +  
-			 GameControl.instance.columnObj.amplitudeRotate + "\t" +
+			 rot + "\t" +
 			 s + "\t" + t + "\t" + err_count + "\t" +
 			 e2e + "\t" + e2m + "\t" + e2d + "\t" +
 			 m2e + "\t" + m2m + "\t" + m2d + "\t" +

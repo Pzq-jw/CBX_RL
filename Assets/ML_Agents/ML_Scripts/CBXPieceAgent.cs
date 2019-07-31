@@ -17,14 +17,32 @@ public class CBXPieceAgent : Agent
 	public bool isJustCalledDone;
     public CBXSwingReward swingRewardObj;
     public Transform root;
+    public ColumnReset columnResetObj;
+    public ColumnSwinging columnObj;
     Rigidbody2D agentRb2d;
+
+    int configuration;
 
     [SerializeField]
     private string rewardFunc;
 
+    private List<float> perceptionBuffer = new List<float>();
+    public List<GameObject> piecesList = new List<GameObject>();
+    public List<PiecePosRange> piecesDataList = new List<PiecePosRange>();
+
+    void FixedUpdate()
+    {
+        if(isJustCalledDone)
+        {
+            RequestDecision();
+        }
+    }
+
 	public override void InitializeAgent()
 	{
 		isJustCalledDone = true;
+        academy = FindObjectOfType<CBXAcademy>();
+        configuration = Random.Range(0, 5);
         agentRb2d = GetComponent<Rigidbody2D>();
         slingObj = this.transform.parent.Find("Sling").transform;
         string rf = this.transform.GetArg("--rf");
@@ -34,41 +52,83 @@ public class CBXPieceAgent : Agent
 
 	public override void AgentReset()
 	{
-		HookNewPiece4ML();
-        ResetEnv();
+		HookPieceAgent();
+        // configuration = Random.Range(0, 5);
+        // ConfigureAgent(configuration);
+        columnResetObj.ResetAllPiecesPos();
+        // Invoke("ActivateRequestDecision", 1f);
+        isJustCalledDone = true;
 	}
 
-
-    public void ResetEnv()
+    void ActivateRequestDecision()
     {
-        // GameControl.instance.slingObj.angle = Random.Range(0f, 360f);
-        // GameControl.instance.columnObj.ResetColumnPos();
-        targetTran.transform.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), 9.01f, 0);
+        isJustCalledDone = true;
+    }
+
+    void HookPieceAgent()
+    {
+        this.transform.SetParent(slingObj, true);
+        this.transform.localPosition = new Vector3(0, -2.25f, 0);
+        this.transform.localRotation = Quaternion.identity;
+        pieceObj.isHooked = true;
+        pieceObj.isStacked = false;
+        this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
+    }
+
+    void ConfigureAgent(int config)
+    {
+        string rot = "rotation"; //(5, 15)
+        columnObj.amplitudeRotate = GetResetValue(rot);
+    }
+
+    float GetResetValue(string arg)
+    {
+        float min = academy.resetParameters[arg + "_min"];
+        float max = academy.resetParameters[arg + "_max"];
+        return (int)(min + Random.value * (max - min));
     }
 
     public override void CollectObservations()
     {
+        float rot = (columnObj.amplitudeRotate - 5f) / 10f;
         Vector2 agentPos = root.transform.InverseTransformPoint(agentRb2d.position);
-        Vector2 targetPos = root.transform.InverseTransformPoint(targetRb2d.position);
-
-        // Debug.Log("agentPos = "  + agentPos + "targetPos = " + targetPos);
-
-        agentPos.x = agentPos.x / 1.3f;
-        agentPos.y = (agentPos.y - 7.4f) / 1.2f;
-
-        targetPos.x = targetPos.x / 3.5f;
-        targetPos.y = (targetPos.y - 3.6f) / 0.41f;
-
-        // Debug.Log("agentPosScale = "  + agentPos + "targetPosScale = " + targetPos);
+        agentPos.x = (agentPos.x + 1.42f) / 2.72f;
+        agentPos.y = (agentPos.y - 2.2f) / 1.2f;
 
         AddVectorObs(agentPos); // 2
-        AddVectorObs(targetPos); // 2
-        AddVectorObs(agentRb2d.rotation / 20f); // 1
-        AddVectorObs(targetRb2d.rotation / 15f); // 1
-        AddVectorObs(columnTran.localPosition.x / 0.5f); // 1
-        AddVectorObs(columnRb2d.rotation / 15f); // 1
-        AddVectorObs(targetTran.localPosition.x / 0.5f); // 1
-        // try remove column obs
+        AddVectorObs((agentRb2d.rotation + 20f) / 40f); // 1
+
+        AddVectorObs((columnTran.localPosition.x + 0.5f) / 1f); // 1
+        AddVectorObs((columnRb2d.rotation + 15f) / 30f); // 1
+
+        AddVectorObs(PerceptPieces()); // 36
+
+        AddVectorObs(rot); // 1
+
+    }
+
+    public List<float> PerceptPieces()
+    {
+        perceptionBuffer.Clear();
+        for(int i=0; i<piecesList.Count; i++)
+        {
+            float[] sublist = new float[4];
+            SetSubList(piecesList[i], sublist, i);
+            perceptionBuffer.AddRange(sublist);
+        }
+        return perceptionBuffer;
+    }
+
+    private void SetSubList(GameObject piece, float[] subList, int idx)
+    {
+        Rigidbody2D pieceRb2d = piece.GetComponent<Rigidbody2D>();
+        Vector2 piecePos = root.transform.InverseTransformPoint(pieceRb2d.position);
+        piecePos.x = (piecePos.x - piecesDataList[idx].minPosX) / piecesDataList[idx].posRangeX;
+        piecePos.y = (piecePos.y - piecesDataList[idx].minPosY) / piecesDataList[idx].posRangeY;
+        subList[0] = piecePos.x;
+        subList[1] = piecePos.y;
+        subList[2] = (pieceRb2d.rotation + 15f) / 30f;
+        subList[3] = (piece.transform.localPosition.x + (0.5f * (idx+1))) / (1 * (idx+1));
     }
 
 	public override void AgentAction(float[] vectorAction, string textAction)
@@ -79,14 +139,7 @@ public class CBXPieceAgent : Agent
 		Monitor.Log("reward : ", GetCumulativeReward().ToString());
 		if(dropSignal == 1)
 		{
-            isJustCalledDone = false;
-            transform.parent = null;
-            Vector3 p = transform.position;
-            p.z = 0 + slingObj.GetComponent<EllipticalOrbit>().offsetZ;
-            transform.position = p;
-            transform.rotation = Quaternion.identity;
-            pieceObj.GetComponent<Rigidbody2D>().isKinematic = false;
-            pieceObj.isHooked = false;
+            DropPieceAgent();
 		}
         else if(dropSignal == 0)
         {
@@ -94,30 +147,17 @@ public class CBXPieceAgent : Agent
         }
 	}
 
-	void FixedUpdate()
-	{
-		if(isJustCalledDone)
-		{
-			RequestDecision();
-		}
-	}
-
-    void HookNewPiece4ML()
+    void DropPieceAgent()
     {
-        this.transform.parent = null; // avoid x offset when hooking the piece from column
-        this.transform.localPosition = new Vector3(0, -2.25f, 0);
-        this.transform.localRotation = Quaternion.identity;
-        this.transform.SetParent(slingObj,false);
-        pieceObj.isHooked = true;
-        pieceObj.isStacked = false;
-        this.transform.GetComponent<Rigidbody2D>().isKinematic = true;
+        isJustCalledDone = false;
+        transform.SetParent(root, true);
+        Vector3 p = transform.localPosition;
+        p.z = 0;
+        transform.localPosition = p;
+        transform.localRotation = Quaternion.identity;
+        pieceObj.GetComponent<Rigidbody2D>().isKinematic = false;
+        pieceObj.isHooked = false;
     }
-
-    public void m_SetRewrd(float r)
-    {
-        SetReward(r);
-    }
-
 
     public void ComputeReward()
     {

@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 679322787bda94ae0979a0988f02d10c
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/ML_Agents/models/DDA/dda_2/dda-LSTM-0/SaverLearning.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 06ee1221832e14b89b38dd3f0c03156e, type: 3}
