@@ -53,8 +53,8 @@ public class CBXPieceAgent : Agent
 	public override void AgentReset()
 	{
 		HookPieceAgent();
-        // configuration = Random.Range(0, 5);
-        // ConfigureAgent(configuration);
+        configuration = Random.Range(0, 5);
+        ConfigureAgent(configuration);
         columnResetObj.ResetAllPiecesPos();
         // Invoke("ActivateRequestDecision", 1f);
         isJustCalledDone = true;
@@ -116,6 +116,9 @@ public class CBXPieceAgent : Agent
             SetSubList(piecesList[i], sublist, i);
             perceptionBuffer.AddRange(sublist);
         }
+            // float[] sublist = new float[4];
+            // SetSubList(piecesList[8], sublist, 8);
+            // perceptionBuffer.AddRange(sublist);
         return perceptionBuffer;
     }
 

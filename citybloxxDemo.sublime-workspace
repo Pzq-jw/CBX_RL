@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"m",
+				"min\tfloat"
+			],
+			[
+				"pie",
+				"piece\tGameObject"
+			],
+			[
+				"getcom",
+				"GetComponents<T>()\tT[]"
+			],
+			[
+				"do",
+				"Done()\tvoid"
+			],
+			[
+				"fin",
+				"FindChild(string n)\tTransform"
+			],
+			[
+				"a",
+				"amplitudeRotate\tfloat"
+			],
+			[
 				"pi",
 				"piece\tGameObject"
 			],
@@ -74,10 +98,6 @@
 			[
 				"max_",
 				"max_y\tfloat"
-			],
-			[
-				"getcom",
-				"GetComponent<T>()\tT"
 			],
 			[
 				"getall",
@@ -384,24 +404,12 @@
 				"AgentReset()\tvoid"
 			],
 			[
-				"m",
-				"MLAgents\tMLAgents"
-			],
-			[
-				"a",
-				"agentObj\tCBXPieceAgent"
-			],
-			[
 				"CBX",
 				"CBXAcademy\tCBXAcademy"
 			],
 			[
 				"flto",
 				"FloorToInt(float f)\tint"
-			],
-			[
-				"pie",
-				"piecePrefab\tGameObject"
 			],
 			[
 				"tou",
@@ -506,14 +514,6 @@
 			[
 				"setsp",
 				"SetSpeedBased(bool isSpeedBased)\tTweener"
-			],
-			[
-				"Dotw",
-				"doTween\tDoTweenControl"
-			],
-			[
-				"Outqu",
-				"OutQuart\tEase"
 			]
 		]
 	},
@@ -529,19 +529,10 @@
 			}
 		},
 		{
-			"file": "Assets/GamePlay/Scripts/GameControl.cs",
-			"settings":
-			{
-				"buffer_size": 4861,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "Assets/ML_Agents/ML_Scripts/CCMStackAgent.cs",
 			"settings":
 			{
-				"buffer_size": 6263,
+				"buffer_size": 6305,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -550,7 +541,7 @@
 			"file": "Assets/ML_Agents/ML_Scripts/CBXDDAAgent.cs",
 			"settings":
 			{
-				"buffer_size": 6891,
+				"buffer_size": 7296,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -560,6 +551,15 @@
 			"settings":
 			{
 				"buffer_size": 404,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/ML_Agents/ML_Scripts/DDATestHelper.cs",
+			"settings":
+			{
+				"buffer_size": 1943,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -577,17 +577,8 @@
 			"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
 			"settings":
 			{
-				"buffer_size": 5668,
+				"buffer_size": 5827,
 				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/GamePlay/Scripts/EllipticalOrbit.cs",
-			"settings":
-			{
-				"buffer_size": 1406,
-				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
 		},
@@ -616,7 +607,7 @@
 			"file": "Assets/ML_Agents/ML_Scripts/ColumnReset.cs",
 			"settings":
 			{
-				"buffer_size": 803,
+				"buffer_size": 1325,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -740,21 +731,24 @@
 	"expanded_folders":
 	[
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts",
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts"
 	],
 	"file_history":
 	[
+		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXAcademy.cs",
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/GameControl.cs",
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities/Extension.cs",
+		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/EllipticalOrbit.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/PositionRange.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/PiecePosRange.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/ColumnSwinging.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/MyCollisionControl.cs",
-		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities/Extension.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Piece.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXSaverAgent.cs",
 		"/Users/alex/cbx_rl/citybloxxDemo.sublime-project",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXDDAAgent.cs",
-		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/EllipticalOrbit.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/PiecePool.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/SpawnMLArea.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/Editor/PrefabUtility.cs",
@@ -869,9 +863,7 @@
 		"/Users/alex/Downloads/irnv2_patching_phase2.sh",
 		"/Users/alex/Desktop/mlp_cluster/mlp2019/src/data_handler.py",
 		"/Users/alex/Desktop/mlp_cluster/mlp2019/scripts/test_submit.sh",
-		"/Users/alex/Desktop/mlp_cluster/mlp2019/slurm-301961.out",
-		"/Users/alex/Desktop/mlp_cluster/mlp2019/test_submit.sh",
-		"/Users/alex/Desktop/mlp_cluster/mlp2019/src/preprocessing.py"
+		"/Users/alex/Desktop/mlp_cluster/mlp2019/slurm-301961.out"
 	],
 	"find":
 	{
@@ -890,6 +882,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"difficult",
+			"ConfigureAgent",
 			"ActivateRequestDecision",
 			"isdebug",
 			"isdeg",
@@ -956,7 +950,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -994,62 +988,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Assets/GamePlay/Scripts/GameControl.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4861,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3762,
-								3762
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"oops":
-							{
-								"0,6": "不需要的 using 指令。",
-								"137,142": "不需要的 using 指令。",
-								"27,32": "不需要的 using 指令。",
-								"600,611": "“/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXDDA]Agent.cs”中的类型“CBXDDAAgent”与“MacBLAS, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null”中的导入类型“CBXDDAAgent”冲突。请使用“/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXDDA]Agent.cs”中定义的类型。"
-							},
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "Assets/ML_Agents/ML_Scripts/CCMStackAgent.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6263,
+						"buffer_size": 6305,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1791,
-								1709
+								2939,
+								2939
 							]
 						],
 						"settings":
@@ -1059,35 +1015,35 @@
 							{
 								"0,5": "不需要的 using 指令。",
 								"120,125": "不需要的 using 指令。",
-								"5610,5620": "当前上下文中不存在名称“targetTran”",
-								"5718,5728": "当前上下文中不存在名称“targetTran”"
+								"2580,2583": "当前上下文中不存在名称“arg”",
+								"2648,2651": "当前上下文中不存在名称“arg”"
 							},
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1166.0,
+						"translation.y": 1635.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "Assets/ML_Agents/ML_Scripts/CBXDDAAgent.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6891,
+						"buffer_size": 7296,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4691,
-								4691
+								6028,
+								6028
 							]
 						],
 						"settings":
@@ -1096,7 +1052,7 @@
 							"oops":
 							{
 								"0,5": "不需要的 using 指令。",
-								"4000,4005": "无法将类型“double”隐式转换为“float”。存在一个显式转换(是否缺少强制转换?)"
+								"278,291": "“/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/DDATestHelper.cs”中的类型“DDATestHelper”与“MacBLAS, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null”中的导入类型“DDATestHelper”冲突。请使用“/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/DDATestHelper.cs”中定义的类型。"
 							},
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"translate_tabs_to_spaces": false
@@ -1105,11 +1061,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "Assets/ML_Agents/ML_Scripts/SpawnMLArea.cs",
 					"semi_transient": false,
 					"settings":
@@ -1141,9 +1097,52 @@
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
+				{
+					"buffer": 4,
+					"file": "Assets/ML_Agents/ML_Scripts/DDATestHelper.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1943,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1610,
+								1610
+							]
+						],
+						"settings":
+						{
+							"is_init_dirty_state": false,
+							"oops":
+							{
+								"0,5": "不需要的 using 指令。",
+								"1069,1080": "未能找到类型或命名空间名“CBXDDAAgent”(是否缺少 using 指令或程序集引用?)",
+								"166,177": "未能找到类型或命名空间名“CBXDDAAgent”(是否缺少 using 指令或程序集引用?)",
+								"255,266": "未能找到类型或命名空间名“ColumnReset”(是否缺少 using 指令或程序集引用?)",
+								"26,31": "不需要的 using 指令。",
+								"400,411": "未能找到类型或命名空间名“CBXDDAAgent”(是否缺少 using 指令或程序集引用?)",
+								"79,84": "不需要的 using 指令。",
+								"85,93": "未能找到类型或命名空间名“MLAgents”(是否缺少 using 指令或程序集引用?)",
+								"927,938": "未能找到类型或命名空间名“CBXDDAAgent”(是否缺少 using 指令或程序集引用?)"
+							},
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
 				{
 					"buffer": 5,
 					"file": "Assets/GamePlay/Scripts/ColumnSwinging.cs",
@@ -1179,7 +1178,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -1188,15 +1187,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5668,
+						"buffer_size": 5827,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1624,
-								1542
+								3890,
+								3890
 							]
 						],
 						"settings":
@@ -1205,48 +1204,10 @@
 							"oops":
 							{
 								"120,125": "不需要的 using 指令。",
-								"2231,2244": "当前上下文中不存在名称“GetResetValue”",
-								"25,30": "不需要的 using 指令。"
+								"25,30": "不需要的 using 指令。",
+								"3335,3342": "无法在此范围中声明名为“sublist”的局部变量或参数，因为该名称在封闭局部范围中用于定义局部变量或参数"
 							},
 							"origin_encoding": "ASCII",
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2376.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "Assets/GamePlay/Scripts/EllipticalOrbit.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1406,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1362,
-								1362
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"oops":
-							{
-								"0,5": "不需要的 using 指令。",
-								"26,31": "不需要的 using 指令。",
-								"925,932": "当前上下文中不存在名称“offsetZ”",
-								"973,980": "当前上下文中不存在名称“offsetX”"
-							},
 							"syntax": "Packages/C#/C#.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -1255,11 +1216,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
 					"semi_transient": false,
 					"settings":
@@ -1286,11 +1247,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "Assets/GamePlay/Scripts/Piece.cs",
 					"semi_transient": false,
 					"settings":
@@ -1320,24 +1281,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "Assets/ML_Agents/ML_Scripts/ColumnReset.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 803,
+						"buffer_size": 1325,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								590,
-								590
+								1106,
+								1046
 							]
 						],
 						"settings":
@@ -1357,7 +1318,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1391,7 +1352,7 @@
 		"cols":
 		[
 			0.0,
-			0.469064914891,
+			0.49156419695,
 			1.0
 		],
 		"rows":
@@ -1455,7 +1416,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

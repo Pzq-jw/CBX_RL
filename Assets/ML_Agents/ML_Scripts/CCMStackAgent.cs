@@ -68,7 +68,7 @@ public class CCMStackAgent : Agent
 		HookPieceAgent();
 		configuration = Random.Range(0, 5);
         ConfigureAgent(configuration);
-        // columnResetObj.ResetAllPiecesPos();
+        columnResetObj.ResetAllPiecesPos_MaxMin();
         // Invoke("ActivateRequestDecision", 1f);
         isJustCalledDone = true;
 	}
@@ -92,10 +92,9 @@ public class CCMStackAgent : Agent
     {
     	// Debug.Log("config = " + config);
     	string rot = "rotation"; //(5, 15)
-    	// string offset = "offset"; // (-0.5, 0.5)
 		columnObj.amplitudeRotate = GetResetValue(rot);
-		// columnResetObj.offset = GetResetValue(offset);
-
+        columnResetObj.min = academy.resetParameters["offset" + "_min"];
+        columnResetObj.max = academy.resetParameters["offset" + "_max"];
 		// Debug.Log("rot = " + columnObj.amplitudeRotate);
 		// Debug.Log("pos = " + col.amplitudeMove);
 		// Debug.Log("offset = " + targetTran.localPosition.x);

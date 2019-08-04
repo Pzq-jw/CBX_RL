@@ -391,6 +391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceList: []
   offset: 0
+  min: 0
+  max: 0
 --- !u!1 &4286765802886741365
 GameObject:
   m_ObjectHideFlags: 0
