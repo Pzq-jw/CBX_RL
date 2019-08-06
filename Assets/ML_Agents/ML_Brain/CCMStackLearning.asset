@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: CCMStackLearning
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 42
+    vectorObservationSize: 60
     numStackedVectorObservations: 1
     vectorActionSize: 02000000
     cameraResolutions: []
     vectorActionDescriptions:
     - 
     vectorActionSpaceType: 0
-  model: {fileID: 11400000, guid: 5795b580d470f4c59837aa57f3b52455, type: 3}
+  model: {fileID: 0}
   inferenceDevice: 0

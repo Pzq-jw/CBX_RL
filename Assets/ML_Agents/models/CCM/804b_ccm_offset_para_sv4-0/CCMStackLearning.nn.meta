@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: cc9f8f041d56543cabbaaaccad72a64f
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/ML_Agents/models/CCM/804b_ccm_offset_para_sv4-0/CCMStackLearning.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 06ee1221832e14b89b38dd3f0c03156e, type: 3}

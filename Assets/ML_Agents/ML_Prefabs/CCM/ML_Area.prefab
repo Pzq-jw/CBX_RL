@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9117840230256641038}
   - component: {fileID: 3265252573441384983}
   m_Layer: 0
-  m_Name: MLTarget (8)
+  m_Name: t9
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 5889949369280882990}
   - component: {fileID: 7323864411439841131}
   m_Layer: 0
-  m_Name: MLTarget (5)
+  m_Name: t6
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 4286765803182504873}
   - component: {fileID: 4286765803182504872}
   m_Layer: 0
-  m_Name: MLTarget (1)
+  m_Name: t2
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -804,7 +804,7 @@ GameObject:
   - component: {fileID: 4286765804549152630}
   - component: {fileID: 4286765804549152633}
   m_Layer: 0
-  m_Name: MLTarget (2)
+  m_Name: t3
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 4286765804589553908}
   - component: {fileID: 4286765804589553911}
   m_Layer: 0
-  m_Name: MLTarget (3)
+  m_Name: t4
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1274,6 +1274,38 @@ MonoBehaviour:
   isJustCalledDone: 0
   configuration: 0
   isDebug: 0
+  piecesRb2d:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  agentVelocity: {x: 0, y: 0}
+  piecesVelocity:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  agentLastPos: {x: 0, y: 0}
+  piecesLastPos:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
   piecesList:
   - {fileID: 8912234635388863782}
   - {fileID: 4286765803182504876}
@@ -1348,7 +1380,7 @@ GameObject:
   - component: {fileID: 1558243155932824507}
   - component: {fileID: 7602322609302703458}
   m_Layer: 0
-  m_Name: MLTarget (4)
+  m_Name: t5
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1494,7 +1526,7 @@ GameObject:
   - component: {fileID: 7915810776633515984}
   - component: {fileID: 2781873159425993686}
   m_Layer: 0
-  m_Name: MLTarget (7)
+  m_Name: t8
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1640,7 +1672,7 @@ GameObject:
   - component: {fileID: 6435961042458859982}
   - component: {fileID: 7569350952589597078}
   m_Layer: 0
-  m_Name: MLTarget (6)
+  m_Name: t7
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1786,7 +1818,7 @@ GameObject:
   - component: {fileID: 5458137480789981474}
   - component: {fileID: 8583114525996043035}
   m_Layer: 0
-  m_Name: MLTarget
+  m_Name: t1
   m_TagString: Piece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

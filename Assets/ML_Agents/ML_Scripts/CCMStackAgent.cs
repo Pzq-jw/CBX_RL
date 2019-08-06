@@ -29,9 +29,20 @@ public class CCMStackAgent : Agent
     Rigidbody2D agentRb2d;
     public bool isDebug;
 
+    public Rigidbody2D[] piecesRb2d;
+    public Vector2 agentVelocity;
+    public Vector2[] piecesVelocity;
+    public Vector2 agentLastPos;
+    public Vector2[] piecesLastPos;
+
     private List<float> perceptionBuffer = new List<float>();
     public List<GameObject> piecesList = new List<GameObject>();
     public List<PiecePosRange> piecesDataList = new List<PiecePosRange>();
+
+    Vector2 pos2root(Rigidbody2D rb2d)
+    {
+        return root.transform.InverseTransformPoint(rb2d.position);
+    }
 
 	public override void InitializeAgent()
 	{
@@ -42,7 +53,19 @@ public class CCMStackAgent : Agent
 		configuration = Random.Range(0, 5);
         string rf = this.transform.GetArg("--rf");
         rewardFunc = string.IsNullOrEmpty(rf) ? "New_Hybrid" : rf;
+        InitPos();
+
 	}
+
+    void InitPos()
+    {
+        agentLastPos = pos2root(agentRb2d);
+        for(int i=0; i<piecesList.Count; i++)
+        {
+            piecesRb2d[i] = piecesList[i].GetComponent<Rigidbody2D>();
+            piecesLastPos[i] = pos2root(piecesRb2d[i]);
+        }
+    }
 
 	void FixedUpdate()
 	{
@@ -61,7 +84,20 @@ public class CCMStackAgent : Agent
             }            
         // }
 
+            SetSpeed();
+
 	}
+
+    void SetSpeed()
+    {
+        agentVelocity = (pos2root(agentRb2d) - agentLastPos) / Time.deltaTime;
+        agentLastPos = pos2root(agentRb2d);
+        for(int i=0; i<piecesList.Count; i++)
+        {
+            piecesVelocity[i] = (pos2root(piecesRb2d[i]) - piecesLastPos[i]) / Time.deltaTime;
+            piecesLastPos[i] = pos2root(piecesRb2d[i]);
+        }        
+    }
 
 	public override void AgentReset()
 	{
@@ -116,11 +152,11 @@ public class CCMStackAgent : Agent
 
         AddVectorObs(agentPos); // 2
         AddVectorObs((agentRb2d.rotation + 20f) / 40f); // 1
+        AddVectorObs(agentVelocity); // 2
+        // AddVectorObs((columnTran.localPosition.x + 0.5f) / 1f); // 1
+        // AddVectorObs((columnRb2d.rotation + 15f) / 30f); // 1
 
-        AddVectorObs((columnTran.localPosition.x + 0.5f) / 1f); // 1
-        AddVectorObs((columnRb2d.rotation + 15f) / 30f); // 1
-
-        AddVectorObs(PerceptPieces()); // 36
+        AddVectorObs(PerceptPieces()); // 54
 
         AddVectorObs(rot); // 1
 
@@ -131,7 +167,7 @@ public class CCMStackAgent : Agent
         perceptionBuffer.Clear();
         for(int i=0; i<piecesList.Count; i++)
         {
-            float[] sublist = new float[4];
+            float[] sublist = new float[6];
             SetSubList(piecesList[i], sublist, i);
             perceptionBuffer.AddRange(sublist);
         }
@@ -148,6 +184,8 @@ public class CCMStackAgent : Agent
         subList[1] = piecePos.y;
         subList[2] = (pieceRb2d.rotation + 15f) / 30f;
         subList[3] = (piece.transform.localPosition.x + (0.5f * (idx+1))) / (1 * (idx+1));
+        subList[4] = piecesVelocity[idx].x;
+        subList[5] = piecesVelocity[idx].y;
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
