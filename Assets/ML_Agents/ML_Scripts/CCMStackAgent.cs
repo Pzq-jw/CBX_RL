@@ -165,7 +165,7 @@ public class CCMStackAgent : Agent
     public List<float> PerceptPieces()
     {
         perceptionBuffer.Clear();
-        for(int i=0; i<piecesList.Count; i++)
+        for(int i=0; i<=piecesList.Count-1; i++)
         {
             float[] sublist = new float[6];
             SetSubList(piecesList[i], sublist, i);
@@ -184,8 +184,21 @@ public class CCMStackAgent : Agent
         subList[1] = piecePos.y;
         subList[2] = (pieceRb2d.rotation + 15f) / 30f;
         subList[3] = (piece.transform.localPosition.x + (0.5f * (idx+1))) / (1 * (idx+1));
-        subList[4] = piecesVelocity[idx].x;
-        subList[5] = piecesVelocity[idx].y;
+        subList[4] = (piecesVelocity[idx].x);
+        subList[5] = (piecesVelocity[idx].y);
+        // Debug.Log("vel_x = " + subList[4] + " vel_y = " + subList[5] + " " + piece.name);
+    }
+
+    private void SetSubList_noY(GameObject piece, float[] subList, int idx)
+    {
+        Rigidbody2D pieceRb2d = piece.GetComponent<Rigidbody2D>();
+        Vector2 piecePos = root.transform.InverseTransformPoint(pieceRb2d.position);
+        piecePos.x = (piecePos.x - piecesDataList[idx].minPosX) / piecesDataList[idx].posRangeX;
+        subList[0] = piecePos.x;
+        subList[1] = (pieceRb2d.rotation + 15f) / 30f;
+        subList[2] = (piece.transform.localPosition.x + (0.5f * (idx+1))) / (1 * (idx+1));
+        subList[3] = (piecesVelocity[idx].x);
+        // Debug.Log("vel_x = " + subList[4] + " vel_y = " + subList[5] + " " + piece.name);
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)

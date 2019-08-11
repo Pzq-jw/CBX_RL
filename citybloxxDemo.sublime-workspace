@@ -4,16 +4,16 @@
 		"selected_items":
 		[
 			[
+				"pi",
+				"piece\tGameObject"
+			],
+			[
 				"agent",
 				"agentPos\tVector2"
 			],
 			[
 				"i",
 				"idx\tint"
-			],
-			[
-				"pi",
-				"piecesVelocity\tVector2[]"
 			],
 			[
 				"poi",
@@ -532,7 +532,7 @@
 			"file": "Assets/ML_Agents/ML_Scripts/CCMStackAgent.cs",
 			"settings":
 			{
-				"buffer_size": 7433,
+				"buffer_size": 8189,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -583,15 +583,6 @@
 			}
 		},
 		{
-			"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
-			"settings":
-			{
-				"buffer_size": 5827,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
 			"settings":
 			{
@@ -617,15 +608,6 @@
 			"settings":
 			{
 				"buffer_size": 1325,
-				"encoding": "UTF-8 with BOM",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/ML_Agents/ML_Scripts/PositionRange.cs",
-			"settings":
-			{
-				"buffer_size": 2851,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -754,14 +736,14 @@
 	],
 	"file_history":
 	[
+		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
+		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/PositionRange.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/ParticleControl.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXAcademy.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/GameControl.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Utilities/Extension.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/EllipticalOrbit.cs",
-		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/PositionRange.cs",
 		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/PiecePosRange.cs",
-		"/Users/alex/cbx_rl/Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/ColumnSwinging.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/MyCollisionControl.cs",
 		"/Users/alex/cbx_rl/Assets/GamePlay/Scripts/Piece.cs",
@@ -885,7 +867,7 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
@@ -1010,7 +992,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1019,15 +1001,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7433,
+						"buffer_size": 8189,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4663,
-								4663
+								4884,
+								4884
 							]
 						],
 						"settings":
@@ -1116,7 +1098,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3377.0,
+						"translation.y": 3253.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1154,7 +1136,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1184,13 +1166,13 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 7,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -1233,7 +1215,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1271,7 +1253,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1302,49 +1284,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "Assets/ML_Agents/ML_Scripts/CBXPieceAgent.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5827,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3890,
-								3890
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"oops":
-							{
-								"120,125": "不需要的 using 指令。",
-								"25,30": "不需要的 using 指令。",
-								"3335,3342": "无法在此范围中声明名为“sublist”的局部变量或参数，因为该名称在封闭局部范围中用于定义局部变量或参数"
-							},
-							"origin_encoding": "ASCII",
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
 					"file": "Assets/ML_Agents/ML_Scripts/CBXSwingReward.cs",
 					"semi_transient": false,
 					"settings":
@@ -1356,8 +1300,8 @@
 						"selection":
 						[
 							[
-								219,
-								219
+								591,
+								591
 							]
 						],
 						"settings":
@@ -1368,14 +1312,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 266.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "Assets/GamePlay/Scripts/Piece.cs",
 					"semi_transient": false,
 					"settings":
@@ -1405,11 +1349,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "Assets/ML_Agents/ML_Scripts/ColumnReset.cs",
 					"semi_transient": false,
 					"settings":
@@ -1442,55 +1386,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "Assets/ML_Agents/ML_Scripts/PositionRange.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2851,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								773,
-								773
-							]
-						],
-						"settings":
-						{
-							"is_init_dirty_state": false,
-							"oops":
-							{
-								"0,5": "不需要的 using 指令。",
-								"1886,1889": "运算符“>”无法应用于“float”和“float[]”类型的操作数",
-								"1916,1919": "无法将类型“float”隐式转换为“float[]”",
-								"1980,1983": "运算符“<”无法应用于“float”和“float[]”类型的操作数",
-								"2010,2013": "无法将类型“float”隐式转换为“float[]”",
-								"2076,2079": "运算符“>”无法应用于“float”和“float[]”类型的操作数",
-								"2106,2109": "无法将类型“float”隐式转换为“float[]”",
-								"2170,2173": "运算符“<”无法应用于“float”和“float[]”类型的操作数",
-								"2200,2203": "无法将类型“float”隐式转换为“float[]”",
-								"2508,2516": "“ToString”方法没有采用 1 个参数的重载",
-								"2538,2546": "“ToString”方法没有采用 1 个参数的重载",
-								"2576,2584": "“ToString”方法没有采用 1 个参数的重载",
-								"26,31": "不需要的 using 指令。",
-								"2606,2614": "“ToString”方法没有采用 1 个参数的重载"
-							},
-							"syntax": "Packages/C#/C#.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 369.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1498,7 +1394,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 31.0
 	},
 	"input":
 	{
@@ -1524,7 +1420,7 @@
 		"cols":
 		[
 			0.0,
-			0.603050595237,
+			0.539142452484,
 			1.0
 		],
 		"rows":
@@ -1550,7 +1446,7 @@
 	"project": "citybloxxDemo.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 58.0
 	},
 	"save_all_on_build": true,
 	"select_file":
