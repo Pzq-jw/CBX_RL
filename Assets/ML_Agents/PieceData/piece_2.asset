@@ -18,3 +18,7 @@ MonoBehaviour:
   max_y: -1.7
   min_rot: 15
   max_rot: 15
+  min_velocity_x: -1.35
+  max_velocity_x: 1.35
+  min_velocity_y: -0.45
+  max_velocity_y: 0.45

@@ -4,6 +4,7 @@ using UnityEngine;
 using MLAgents;
 using System.Reflection;
 using static GO_Extensions;
+using System.IO;
 
 
 public class CCMStackAgent : Agent
@@ -85,6 +86,11 @@ public class CCMStackAgent : Agent
         // }
 
             SetSpeed();
+
+        // if(Input.GetKeyDown(KeyCode.P))
+        // {
+        //     ScreenCapture.CaptureScreenshot("Screenshot" + Time.time + ".png");
+        // }
 
 	}
 
@@ -184,9 +190,14 @@ public class CCMStackAgent : Agent
         subList[1] = piecePos.y;
         subList[2] = (pieceRb2d.rotation + 15f) / 30f;
         subList[3] = (piece.transform.localPosition.x + (0.5f * (idx+1))) / (1 * (idx+1));
-        subList[4] = (piecesVelocity[idx].x);
-        subList[5] = (piecesVelocity[idx].y);
-        // Debug.Log("vel_x = " + subList[4] + " vel_y = " + subList[5] + " " + piece.name);
+        // subList[4] = (piecesVelocity[idx].x);
+        // subList[5] = (piecesVelocity[idx].y);
+
+        subList[4] = (piecesVelocity[idx].x - piecesDataList[idx].minVeloX) / piecesDataList[idx].veloRangeX;
+        subList[5] = (piecesVelocity[idx].y - piecesDataList[idx].minVeloY) / piecesDataList[idx].veloRangeY;
+        // Debug.Log(piecesVelocity[idx].x + " " + piecesVelocity[idx].y + " " + piecesDataList[idx].veloRangeX + " " + piece.name);
+        // if(subList[4] > 1f || subList[5] > 1f)
+        //     Debug.Log("vel_x = " + subList[4] + " vel_y = " + subList[5] + " " + piece.name);
     }
 
     private void SetSubList_noY(GameObject piece, float[] subList, int idx)

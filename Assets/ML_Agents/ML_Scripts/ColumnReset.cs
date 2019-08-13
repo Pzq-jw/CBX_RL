@@ -23,7 +23,7 @@ public class ColumnReset : MonoBehaviour
     	Vector3 lastPos = Vector3.zero;
     	for(int i=0; i<pieceList.Count; i++)
     	{
-            offset = Random.Range(-0.5f, 0.5f);
+            offset = 0f;//Random.Range(-0.5f, 0.5f);
     		Vector3 pos = pieceList[i].transform.localPosition;
     		pos.x = offset + lastPos.x;
     		

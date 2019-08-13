@@ -19,6 +19,48 @@ public class PiecePosRange : ScriptableObject
 	[SerializeField]
 	private float max_rot;
 
+	[SerializeField]
+	private float min_velocity_x;
+	[SerializeField]
+	private float max_velocity_x;
+	[SerializeField]
+	private float min_velocity_y;
+	[SerializeField]
+	private float max_velocity_y;
+
+
+	public float minVeloX
+	{
+		get {return min_velocity_x;}
+	}
+
+	public float maxVeloX
+	{
+		get {return max_velocity_x;}
+	}
+
+	public float minVeloY
+	{
+		get {return min_velocity_y;}
+	}
+
+	public float maxVeloY
+	{
+		get {return max_velocity_y;}
+	}
+
+	public float veloRangeX
+	{
+		get {return max_velocity_x - min_velocity_x;}
+	}
+
+	public float veloRangeY
+	{
+		get {return max_velocity_y - min_velocity_y;}
+	}
+
+// -------------- Pos ---------------
+
 	public float minPosX
 	{
 		get {return min_x;}
