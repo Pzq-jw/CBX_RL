@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: e5db23bc1bb824d1aaf66443a04e430e
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/ML_Agents/models/RW/815f_reward_HFP-0/RewardLearning.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 06ee1221832e14b89b38dd3f0c03156e, type: 3}

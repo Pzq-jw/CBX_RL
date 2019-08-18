@@ -170,6 +170,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &2453976168014648234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +353,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &8414378457303411825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,6 +536,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &1513240309208467321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +719,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &1513240309382234363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,6 +832,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pieceList: []
   offset: 0
+  min: 0
+  max: 0
 --- !u!1 &1513240309943586556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1053,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &1513240310212879402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,10 +1082,10 @@ GameObject:
   - component: {fileID: 1513240310477704149}
   - component: {fileID: 1513240310477704148}
   - component: {fileID: 1513240310477704151}
-  - component: {fileID: 1513240310477704153}
+  - component: {fileID: 4793063742634387732}
   m_Layer: 0
   m_Name: DDAAgent
-  m_TagString: Piece
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1180,9 +1187,10 @@ MonoBehaviour:
   deadCenterRange: 0.1
   stackRange: 0.5
   rb2d: {fileID: 0}
-  columnObj: {fileID: 0}
+  columnObj: {fileID: 1513240309861047698}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!50 &1513240310477704149
 Rigidbody2D:
   serializedVersion: 4
@@ -1246,7 +1254,7 @@ PolygonCollider2D:
       - {x: -1.0182637, y: -0.99811625}
       - {x: 1.0096118, y: -1.0081084}
       - {x: 1.002857, y: 0.9975741}
---- !u!114 &1513240310477704153
+--- !u!114 &4793063742634387732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1255,7 +1263,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1513240310477704152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35af0eb0cce5f44bc84283f00e81a6dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 94199dee899d044f4a5717449e073b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   brain: {fileID: 11400000, guid: e73723fba173d4481818b69c1a6b9b1a, type: 2}
@@ -1270,6 +1278,7 @@ MonoBehaviour:
   mlColumn: {fileID: 1513240309861047698}
   pieceObj: {fileID: 1513240310477704146}
   columnResetObj: {fileID: 3271425771481702863}
+  testHelperObj: {fileID: 0}
   err_count: 0
   total_count: 0
   m2d: 0
@@ -1284,6 +1293,7 @@ MonoBehaviour:
   s: 
   t: 
   isError: 0
+  isDone: 0
 --- !u!1 &2927904737683481701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1464,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &4272402759471279553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1636,6 +1647,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &1850323265316093458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1818,6 +1830,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &1525976175306390880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,6 +2062,7 @@ MonoBehaviour:
   columnObj: {fileID: 0}
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
 --- !u!114 &815947577195156472
 MonoBehaviour:
   m_ObjectHideFlags: 0

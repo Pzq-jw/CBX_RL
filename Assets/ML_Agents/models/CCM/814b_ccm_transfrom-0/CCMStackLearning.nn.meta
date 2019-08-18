@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: c61212d2e88a849dca4a7a3902312206
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/ML_Agents/models/CCM/814b_ccm_transfrom-0/CCMStackLearning.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 06ee1221832e14b89b38dd3f0c03156e, type: 3}

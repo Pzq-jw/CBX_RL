@@ -24,6 +24,8 @@ public class Piece : MonoBehaviour
     public Transform columnObj;
     public CCMStackAgent agentObj;
     public CBXPieceAgent cbxPieceAgentObj;
+    public RewardAgent rewardAgent;
+    public CCMAgent_Position posAgentObj;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,16 @@ public class Piece : MonoBehaviour
             {
                 cbxPieceAgentObj.ComputeReward();
                 cbxPieceAgentObj.Done();
+            }
+            else if(rewardAgent)
+            {
+                rewardAgent.ComputeReward();
+                rewardAgent.Done();
+            }
+            else if(posAgentObj)
+            {
+                posAgentObj.ComputeReward();
+                posAgentObj.Done();
             }
         }
     }

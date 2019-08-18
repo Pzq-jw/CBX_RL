@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amplitudeMove: 0.5
-  amplitudeRotate: 10
+  amplitudeRotate: 7
   comboAmplitudeRotate: 1
   amplitudeIncrement: 0.5
   maxAmplitudeRotate: 0
@@ -1096,9 +1096,10 @@ GameObject:
   - component: {fileID: 4872055898182096351}
   - component: {fileID: 671777820419811191}
   - component: {fileID: 4579881139406412422}
-  - component: {fileID: 5900499367205280176}
   - component: {fileID: 3485191759243090117}
   - component: {fileID: 1376744393503404335}
+  - component: {fileID: 2120755572672989232}
+  - component: {fileID: 6904349878052156896}
   m_Layer: 0
   m_Name: PieceAgent
   m_TagString: Piece
@@ -1203,9 +1204,11 @@ MonoBehaviour:
   deadCenterRange: 0.1
   stackRange: 0.5
   rb2d: {fileID: 0}
-  columnObj: {fileID: 0}
-  agentObj: {fileID: 5900499367205280176}
+  columnObj: {fileID: 4286765802862379538}
+  agentObj: {fileID: 2120755572672989232}
   cbxPieceAgentObj: {fileID: 0}
+  rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!50 &671777820419811191
 Rigidbody2D:
   serializedVersion: 4
@@ -1239,7 +1242,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364ccaf2d5f1b4f4aa3c4f20070deb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5900499367205280176
+--- !u!61 &3485191759243090117
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900499367205280179}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00023648143, y: 0.00046253216}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.000001, y: 2.0009274}
+  m_EdgeRadius: 0
+--- !u!114 &1376744393503404335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900499367205280179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0bbf4fb586e242d0adba8ca73145af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance_max: 2.8
+--- !u!114 &2120755572672989232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1270,20 +1312,12 @@ MonoBehaviour:
   columnResetObj: {fileID: 168050211315856771}
   swingRewardObj: {fileID: 1376744393503404335}
   columnObj: {fileID: 4286765802862379540}
-  rewardFunc: New_Hybrid
+  tester: {fileID: 0}
+  rewardFunc: 
   isJustCalledDone: 0
   configuration: 0
   isDebug: 0
-  piecesRb2d:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  isTest: 0
   agentVelocity: {x: 0, y: 0}
   piecesVelocity:
   - {x: 0, y: 0}
@@ -1326,33 +1360,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7b2889676eb174244b66d6d6a546100a, type: 2}
   - {fileID: 11400000, guid: 99bb2a0c3518549bbb563d3f4f9498f9, type: 2}
   - {fileID: 11400000, guid: 99ed575583e414224a1f087c58fe9bf1, type: 2}
---- !u!61 &3485191759243090117
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5900499367205280179}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.00023648143, y: 0.00046253216}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.000001, y: 2.0009274}
-  m_EdgeRadius: 0
---- !u!114 &1376744393503404335
+--- !u!114 &6904349878052156896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1361,10 +1369,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5900499367205280179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0bbf4fb586e242d0adba8ca73145af7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2abe1fd0253f04635a2036a0d5713af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance_max: 2.8
+  agent: {fileID: 2120755572672989232}
+  totalTestNum: 1000
+  tt: 0
+  deadCenterNum: 0
+  failNum: 0
+  noDC_SuccessfullNum: 0
+  totalDelta: 0
+  totalThinkingTime: 0
 --- !u!1 &6648771473990279498
 GameObject:
   m_ObjectHideFlags: 0

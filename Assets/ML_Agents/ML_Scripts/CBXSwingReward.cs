@@ -17,6 +17,14 @@ public class CBXSwingReward : MonoBehaviour
         return -1.201f;
     }
     
+    public float Step_Reward(float distance)
+    {
+        if(distance < 0.1f)
+            return 1f;
+        else 
+            return 0f;
+    }
+
     public float New_Hybrid(float distance)
     {
         if(distance < 0.1f)
