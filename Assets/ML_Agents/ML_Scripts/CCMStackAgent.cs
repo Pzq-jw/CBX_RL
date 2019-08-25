@@ -149,7 +149,7 @@ public class CCMStackAgent : Agent
         Vector2 agentPos = pos2root(
             new Vector2(agentTran.transform.position.x, agentTran.transform.position.y)); 
         agentPos.x = (agentPos.x + 1.42f) / 2.72f;
-        agentPos.y = (agentPos.y - 2.2f) / 1.2f;
+        agentPos.y = (agentPos.y - 7.1f) / 1.3f;
         AddVectorObs(agentPos); // 2
 
         float agentRot = agentTran.eulerAngles.z > 180 ? 
@@ -234,7 +234,7 @@ public class CCMStackAgent : Agent
         // Debug.Log("AbsDeltaX : " + absDelta);
         // Debug.Log("Immidate reward : "+reward.ToString() , gameObject);
 
-        if(tester)
+        if(isTest)
             tester.Record(absDelta, columnObj.amplitudeRotate);
     }
 

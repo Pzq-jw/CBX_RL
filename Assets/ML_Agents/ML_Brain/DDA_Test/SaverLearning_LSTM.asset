@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SaverLearning_LSTM
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 16
+    vectorObservationSize: 4
     numStackedVectorObservations: 1
     vectorActionSize: 03000000
     cameraResolutions: []
     vectorActionDescriptions:
     - 
     vectorActionSpaceType: 0
-  model: {fileID: 11400000, guid: 679322787bda94ae0979a0988f02d10c, type: 3}
+  model: {fileID: 11400000, guid: ed7d176fd2a954c55bef5c37cbe3a6b0, type: 3}
   inferenceDevice: 0

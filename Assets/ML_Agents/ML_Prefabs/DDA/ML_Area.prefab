@@ -171,6 +171,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &2453976168014648234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +355,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &8414378457303411825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +539,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &1513240309208467321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,6 +723,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &1513240309382234363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1054,6 +1058,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &1513240310212879402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,6 +1088,10 @@ GameObject:
   - component: {fileID: 1513240310477704148}
   - component: {fileID: 1513240310477704151}
   - component: {fileID: 4793063742634387732}
+  - component: {fileID: 2868018971804516842}
+  - component: {fileID: 5222845420572875750}
+  - component: {fileID: 3163760187419917993}
+  - component: {fileID: 2489655024124316163}
   m_Layer: 0
   m_Name: DDAAgent
   m_TagString: Player
@@ -1191,6 +1200,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!50 &1513240310477704149
 Rigidbody2D:
   serializedVersion: 4
@@ -1266,7 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94199dee899d044f4a5717449e073b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: e73723fba173d4481818b69c1a6b9b1a, type: 2}
+  brain: {fileID: 11400000, guid: 9f099b9887dbb4c08a25fc9273033ca8, type: 2}
   agentParameters:
     agentCameras: []
     agentRenderTextures: []
@@ -1278,7 +1288,7 @@ MonoBehaviour:
   mlColumn: {fileID: 1513240309861047698}
   pieceObj: {fileID: 1513240310477704146}
   columnResetObj: {fileID: 3271425771481702863}
-  testHelperObj: {fileID: 0}
+  testHelperObj: {fileID: 2489655024124316163}
   err_count: 0
   total_count: 0
   m2d: 0
@@ -1294,6 +1304,153 @@ MonoBehaviour:
   t: 
   isError: 0
   isDone: 0
+  isDebug: 0
+  isTest: 0
+--- !u!114 &2868018971804516842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513240310477704152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94199dee899d044f4a5717449e073b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 11400000, guid: 9fb5453fe42594fc3aedba5235e4b093, type: 2}
+  agentParameters:
+    agentCameras: []
+    agentRenderTextures: []
+    maxStep: 1000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
+  mlTarget: {fileID: 7787720926119430161}
+  mlColumn: {fileID: 1513240309861047698}
+  pieceObj: {fileID: 1513240310477704146}
+  columnResetObj: {fileID: 3271425771481702863}
+  testHelperObj: {fileID: 2489655024124316163}
+  err_count: 0
+  total_count: 0
+  m2d: 0
+  m2e: 0
+  m2m: 0
+  e2e: 0
+  e2m: 0
+  e2d: 0
+  d2e: 0
+  d2m: 0
+  d2d: 0
+  s: 
+  t: 
+  isError: 0
+  isDone: 0
+  isDebug: 0
+  isTest: 0
+--- !u!114 &5222845420572875750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513240310477704152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94199dee899d044f4a5717449e073b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 11400000, guid: 7a603dadfe3aa41768120ca2a81e08b4, type: 2}
+  agentParameters:
+    agentCameras: []
+    agentRenderTextures: []
+    maxStep: 1000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
+  mlTarget: {fileID: 7787720926119430161}
+  mlColumn: {fileID: 1513240309861047698}
+  pieceObj: {fileID: 1513240310477704146}
+  columnResetObj: {fileID: 3271425771481702863}
+  testHelperObj: {fileID: 2489655024124316163}
+  err_count: 0
+  total_count: 0
+  m2d: 0
+  m2e: 0
+  m2m: 0
+  e2e: 0
+  e2m: 0
+  e2d: 0
+  d2e: 0
+  d2m: 0
+  d2d: 0
+  s: 
+  t: 
+  isError: 0
+  isDone: 0
+  isDebug: 0
+  isTest: 1
+--- !u!114 &3163760187419917993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513240310477704152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94199dee899d044f4a5717449e073b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brain: {fileID: 11400000, guid: 59b5c1066bcff482e93c505fac3651b4, type: 2}
+  agentParameters:
+    agentCameras: []
+    agentRenderTextures: []
+    maxStep: 1000
+    resetOnDone: 1
+    onDemandDecision: 0
+    numberOfActionsBetweenDecisions: 1
+  mlTarget: {fileID: 7787720926119430161}
+  mlColumn: {fileID: 1513240309861047698}
+  pieceObj: {fileID: 1513240310477704146}
+  columnResetObj: {fileID: 3271425771481702863}
+  testHelperObj: {fileID: 2489655024124316163}
+  err_count: 0
+  total_count: 0
+  m2d: 0
+  m2e: 0
+  m2m: 0
+  e2e: 0
+  e2m: 0
+  e2d: 0
+  d2e: 0
+  d2m: 0
+  d2d: 0
+  s: 
+  t: 
+  isError: 0
+  isDone: 0
+  isDebug: 0
+  isTest: 0
+--- !u!114 &2489655024124316163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513240310477704152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ce55fde436d484ca63d6ae2d9e0171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agents: []
+  mlTarget: {fileID: 0}
+  mlColumn: {fileID: 1513240309861047698}
+  columnResetObj: {fileID: 3271425771481702863}
+  thinkingTime: 0
+  rot: 0
+  modelName: []
 --- !u!1 &2927904737683481701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,6 +1622,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &4272402759471279553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,6 +1806,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &1850323265316093458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,6 +1990,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &1525976175306390880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2063,6 +2223,7 @@ MonoBehaviour:
   agentObj: {fileID: 0}
   cbxPieceAgentObj: {fileID: 0}
   rewardAgent: {fileID: 0}
+  posAgentObj: {fileID: 0}
 --- !u!114 &815947577195156472
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class DDAAgentV2 : Agent
 	private int totalPieceNum;
 	private int isAIHelpLastTime;
 	private float delta;
-	private int rot;
+	private float rot;
 	private int curGameStatus; 
     public int err_count=0, total_count=0;
     public int m2d=0, m2e=0, m2m=0;
@@ -37,13 +37,14 @@ public class DDAAgentV2 : Agent
 
 	public override void AgentReset()
 	{
-		thinkingTime = Random.Range(0f, 12f);
-		rot = Random.Range(5, 17);
-        mlColumn.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), -5f, 0);
-        columnResetObj.ResetAllPiecesPos();
-        this.transform.localPosition = new Vector3(Random.Range(-1.4f, 1.4f), 10.05f, 0);
-        mlColumn.localRotation = Quaternion.Euler(new Vector3(0,0,
-        		Random.Range(-rot, rot)));		
+		// thinkingTime = Random.Range(0f, 12f);
+		// rot = Random.Range(5, 17);
+  //       mlColumn.localPosition = new Vector3(Random.Range(-0.5f, 0.5f), -5f, 0);
+  //       columnResetObj.ResetAllPiecesPos();
+  //       this.transform.localPosition = new Vector3(Random.Range(-1.4f, 1.4f), 10.05f, 0);
+  //       mlColumn.localRotation = Quaternion.Euler(new Vector3(0,0,
+  //       		Random.Range(-rot, rot)));
+  		testHelperObj.ResetEnv();	
 	}
 
 	public override void CollectObservations()
@@ -52,8 +53,8 @@ public class DDAAgentV2 : Agent
 		// Debug.Log("this.x = " + this.transform.localPosition.x.ToString());
 		// Debug.Log("target.x = " + mlTarget.localPosition.x.ToString());
 		// Debug.Log("delta = " + delta.ToString() + " thinkingTime = " + thinkingTime + " rot = " + rot);
-		// thinkingTime = testHelperObj.thinkingTime;
-		// rot = testHelperObj.rot;
+		thinkingTime = testHelperObj.thinkingTime;
+		rot = testHelperObj.rot;
 		AddVectorObs(thinkingTime / 12f);
 		AddVectorObs((rot - 5f) / 16f);
 		AddVectorObs(delta / 5f);
@@ -156,7 +157,7 @@ public class DDAAgentV2 : Agent
 
     public void Accuracy(int curState, int turnSignal)
     {	
-		string name = "dda";
+		string name = testHelperObj.Brain2Model(this.brain.name);
 		using(StreamWriter sw = new StreamWriter(name + "_accuracy.txt", true))
 		{
 	    	total_count++;
